@@ -1,0 +1,614 @@
+swagger: '2.0'
+info:
+  title: Jungle admin v2 API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: v2
+paths:
+  /v2/companies:
+    parameters: []
+    get:
+      operationId: v2_companies_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnCompanyData'
+      tags:
+      - v2
+    post:
+      operationId: v2_companies_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Company'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Company'
+      tags:
+      - v2
+  /v2/companies/all:
+    parameters: []
+    get:
+      operationId: v2_companies_companies_for_employment
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Company'
+      tags:
+      - v2
+  /v2/companies/list:
+    parameters: []
+    get:
+      operationId: v2_companies_companies_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Company'
+      tags:
+      - v2
+  /v2/companies/media:
+    parameters: []
+    get:
+      operationId: v2_companies_media_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnCompanyMediaData'
+      tags:
+      - v2
+    post:
+      operationId: v2_companies_media_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CompanyMedia'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnCompanyMedia'
+      tags:
+      - v2
+  /v2/companies/media/all:
+    parameters: []
+    get:
+      operationId: v2_companies_media_companies_media_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnCompanyMediaData'
+      tags:
+      - v2
+  /v2/companies/media/detail:
+    parameters: []
+    get:
+      operationId: v2_companies_media_company_media_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnCompanyMediaData'
+      tags:
+      - v2
+  /v2/companies/media/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this company media.
+      required: true
+      type: integer
+    get:
+      operationId: v2_companies_media_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnCompanyMediaData'
+      tags:
+      - v2
+    put:
+      operationId: v2_companies_media_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CompanyMedia'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CompanyMedia'
+      tags:
+      - v2
+    patch:
+      operationId: v2_companies_media_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CompanyMedia'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnCompanyMedia'
+      tags:
+      - v2
+    delete:
+      operationId: v2_companies_media_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v2
+  /v2/companies/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this company.
+      required: true
+      type: integer
+    get:
+      operationId: v2_companies_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnCompanyData'
+      tags:
+      - v2
+    put:
+      operationId: v2_companies_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Company'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Company'
+      tags:
+      - v2
+    patch:
+      operationId: v2_companies_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Company'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Company'
+      tags:
+      - v2
+    delete:
+      operationId: v2_companies_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - v2
+definitions:
+  ReturnCompanyMedia:
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      company:
+        title: Company
+        type: string
+        readOnly: true
+      file:
+        title: File
+        type: string
+        readOnly: true
+        format: uri
+  ReturnCompanyMediaData:
+    required:
+    - company
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      company:
+        title: Company
+        type: integer
+      file:
+        title: File
+        type: string
+        readOnly: true
+        format: uri
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+  CompanyMedia:
+    required:
+    - company
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      company:
+        title: Company
+        type: integer
+      file:
+        title: File
+        type: string
+        readOnly: true
+        format: uri
+  ReturnCompanyData:
+    required:
+    - title
+    - years
+    - description
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 190
+        minLength: 1
+      image:
+        title: Image
+        type: string
+        readOnly: true
+        x-nullable: true
+        format: uri
+      years:
+        title: Years
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      len_employers:
+        type: array
+        items:
+          title: Len employers
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      description:
+        title: Description
+        type: string
+        minLength: 1
+      website:
+        title: Website
+        type: string
+        maxLength: 300
+        minLength: 1
+        x-nullable: true
+  Company:
+    required:
+    - title
+    - years
+    - description
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 190
+        minLength: 1
+      image:
+        title: Image
+        type: string
+        readOnly: true
+        x-nullable: true
+        format: uri
+      years:
+        title: Years
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      len_employers:
+        type: array
+        items:
+          title: Len employers
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      description:
+        title: Description
+        type: string
+        minLength: 1
+      website:
+        title: Website
+        type: string
+        maxLength: 300
+        minLength: 1
+        x-nullable: true
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

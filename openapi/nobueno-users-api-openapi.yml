@@ -1,0 +1,780 @@
+swagger: '2.0'
+info:
+  title: Jungle admin users API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: users
+paths:
+  /users/confirm:
+    parameters: []
+    patch:
+      operationId: users_confirm
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ConfirmUser'
+      responses:
+        '200':
+          description: User confirmation
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+      tags:
+      - users
+  /users/delete:
+    parameters: []
+    delete:
+      operationId: users_delete
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: User confirmation
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+      tags:
+      - users
+  /users/delete-reasons:
+    parameters: []
+    get:
+      operationId: users_reasons_to_delete
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: User confirmation
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+      tags:
+      - users
+  /users/employment:
+    parameters: []
+    post:
+      operationId: users_add_employment
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/UserEmployment'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnUserEmployment'
+      tags:
+      - users
+  /users/matches:
+    parameters: []
+    get:
+      operationId: users_matches
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnJobForCandidate'
+      tags:
+      - users
+  /users/matches/salary:
+    parameters: []
+    get:
+      operationId: users_matches_salary_matches
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnJobForCandidate'
+      tags:
+      - users
+  /users/matches/{job_id}:
+    parameters:
+    - name: job_id
+      in: path
+      required: true
+      type: string
+    delete:
+      operationId: users_delete_match
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - users
+  /users/nickname-generation:
+    parameters: []
+    get:
+      operationId: users_nickname-generation_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/NicknameGeneration'
+      tags:
+      - users
+  /users/recommended-jobs:
+    parameters: []
+    get:
+      operationId: users_recommended_jobs
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnJobForCandidate'
+      tags:
+      - users
+  /users/recommended-jobs-count:
+    parameters: []
+    get:
+      operationId: users_recommended_jobs_count
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/JobRecommended'
+      tags:
+      - users
+  /users/recommended-jobs/salary:
+    parameters: []
+    get:
+      operationId: users_recommended-jobs_salary
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnJobForCandidate'
+      tags:
+      - users
+  /users/recommended-jobs/{job_id}/change_status:
+    parameters:
+    - name: job_id
+      in: path
+      required: true
+      type: string
+    patch:
+      operationId: users_recommended-jobs_job_change_status
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ChangeStatus'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ChangeStatus'
+      tags:
+      - users
+  /users/resend-confirm:
+    parameters: []
+    patch:
+      operationId: users_resend_confirm
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ConfirmUser'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ConfirmUser'
+      tags:
+      - users
+definitions:
+  ReturnJobForCandidate:
+    required:
+    - title
+    - city
+    - country
+    - languages
+    - opportunity_type
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        $ref: '#/definitions/ReturnJobRole'
+      description:
+        title: Description
+        type: string
+        minLength: 1
+        x-nullable: true
+      is_active:
+        title: Is active
+        type: boolean
+      salary:
+        title: Salary
+        type: string
+        readOnly: true
+      company:
+        title: Company
+        type: string
+        readOnly: true
+      city:
+        $ref: '#/definitions/CityName'
+      country:
+        $ref: '#/definitions/CountryName'
+      salary_currency:
+        title: Salary currency
+        type: string
+        readOnly: true
+      technical_score:
+        title: Technical score
+        type: string
+        readOnly: true
+      soft_score:
+        title: Soft score
+        type: string
+        readOnly: true
+      language_score:
+        title: Language score
+        type: string
+        readOnly: true
+      languages:
+        type: array
+        items:
+          $ref: '#/definitions/Language'
+      personal_score:
+        title: Personal score
+        type: string
+        readOnly: true
+      job_status:
+        title: Job status
+        type: string
+        readOnly: true
+      chat:
+        title: Chat
+        type: string
+        readOnly: true
+      value_score:
+        title: Value score
+        type: string
+        readOnly: true
+      nickname:
+        title: Nickname
+        type: string
+        readOnly: true
+      opportunity_type:
+        title: Opportunity type
+        type: string
+        enum:
+        - full_time
+        - part_time
+        - freelance
+        - internship
+      review:
+        title: Review
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+        x-nullable: true
+  JobRecommended:
+    required:
+    - total_recommended_jobs
+    - avg_salary
+    type: object
+    properties:
+      total_recommended_jobs:
+        title: Total recommended jobs
+        type: integer
+      avg_salary:
+        title: Avg salary
+        type: integer
+  ReturnJobRole:
+    title: Title
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+  UserEmployment:
+    required:
+    - company
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      role:
+        title: Role
+        type: string
+        enum:
+        - owner
+        - recruiter
+        - request_pending
+        - declined
+        readOnly: true
+      description:
+        title: Description
+        type: string
+        maxLength: 300
+      date_joined:
+        title: Date joined
+        type: string
+        format: date-time
+        readOnly: true
+      user:
+        title: User
+        type: integer
+        readOnly: true
+      company:
+        title: Company
+        type: integer
+  NicknameGeneration:
+    required:
+    - nickname
+    type: object
+    properties:
+      nickname:
+        title: Nickname
+        type: string
+        minLength: 1
+  ReturnCompany:
+    title: Company
+    required:
+    - years
+    - description
+    type: object
+    properties:
+      company_title:
+        title: Company title
+        type: string
+        readOnly: true
+      years:
+        title: Years
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      len_employers:
+        type: array
+        items:
+          title: Len employers
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      description:
+        title: Description
+        type: string
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      website:
+        title: Website
+        type: string
+        maxLength: 300
+        minLength: 1
+        x-nullable: true
+  SuccessResponse:
+    required:
+    - message
+    type: object
+    properties:
+      success:
+        title: Success
+        type: boolean
+        default: true
+      message:
+        title: success message
+        type: string
+        minLength: 1
+  CityName:
+    title: City
+    required:
+    - title
+    - code
+    type: object
+    properties:
+      title:
+        title: Title
+        type: string
+        maxLength: 200
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      code:
+        title: Code
+        type: string
+        minLength: 1
+  CountryName:
+    title: Country
+    required:
+    - title
+    - code
+    type: object
+    properties:
+      title:
+        title: Title
+        type: string
+        maxLength: 200
+        minLength: 1
+      code:
+        title: Code
+        type: string
+        maxLength: 2
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+  ReturnUserEmployment:
+    required:
+    - company
+    - user
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      role:
+        title: Role
+        type: string
+        enum:
+        - owner
+        - recruiter
+        - request_pending
+        - declined
+      description:
+        title: Description
+        type: string
+        maxLength: 300
+      date_joined:
+        title: Date joined
+        type: string
+        format: date-time
+      company:
+        $ref: '#/definitions/ReturnCompany'
+      user:
+        $ref: '#/definitions/ReturnUser'
+  ConfirmUser:
+    required:
+    - token
+    type: object
+    properties:
+      token:
+        title: Token
+        type: string
+        minLength: 1
+  ChangeStatus:
+    required:
+    - status
+    type: object
+    properties:
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+  Language:
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+  ReturnUser:
+    title: User
+    required:
+    - email
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        readOnly: true
+      email:
+        title: Email
+        type: string
+        format: email
+        maxLength: 254
+        minLength: 1
+      companies:
+        type: array
+        items:
+          type: integer
+        readOnly: true
+        uniqueItems: true
+      language:
+        title: Language
+        type: string
+        enum:
+        - en
+        - es
+        - ar
+        - ur
+        - fr
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

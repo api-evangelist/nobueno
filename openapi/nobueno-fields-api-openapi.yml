@@ -1,0 +1,82 @@
+swagger: '2.0'
+info:
+  title: Jungle admin fields API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: fields
+paths:
+  /fields/{step}:
+    parameters:
+    - name: step
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: fields_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnCustomField'
+      tags:
+      - fields
+definitions:
+  ReturnCustomField:
+    required:
+    - field_type
+    type: object
+    properties:
+      field:
+        title: Field
+        type: string
+      field_type:
+        title: Field type
+        type: string
+        enum:
+        - input
+        - toggle
+        - text
+        - single_selection
+        - slider
+        - multiple_selection
+        - range_selection
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

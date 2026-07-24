@@ -1,0 +1,133 @@
+swagger: '2.0'
+info:
+  title: Jungle admin forgot API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: forgot
+paths:
+  /forgot:
+    parameters: []
+    post:
+      operationId: forgot_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Email'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Email'
+      tags:
+      - forgot
+  /forgot/confirm:
+    parameters: []
+    post:
+      operationId: forgot_confirm_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CustomPasswordToken'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/CustomPasswordToken'
+      tags:
+      - forgot
+  /forgot/validate_token:
+    parameters: []
+    post:
+      operationId: forgot_validate_token_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ResetToken'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ResetToken'
+      tags:
+      - forgot
+definitions:
+  CustomPasswordToken:
+    required:
+    - password
+    - token
+    type: object
+    properties:
+      password:
+        title: Password
+        type: string
+        minLength: 1
+      token:
+        title: Token
+        type: string
+        minLength: 1
+  ResetToken:
+    required:
+    - token
+    type: object
+    properties:
+      token:
+        title: Token
+        type: string
+        minLength: 1
+  Email:
+    required:
+    - email
+    type: object
+    properties:
+      email:
+        title: Email
+        type: string
+        format: email
+        minLength: 1
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

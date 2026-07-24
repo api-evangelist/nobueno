@@ -1,0 +1,206 @@
+swagger: '2.0'
+info:
+  title: Jungle admin credits API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: credits
+paths:
+  /credits/request:
+    parameters: []
+    get:
+      operationId: credits_request_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnCreditRequest'
+      tags:
+      - credits
+    post:
+      operationId: credits_request_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CreditRequest'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnCreditRequest'
+      tags:
+      - credits
+  /credits/request/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user credit request.
+      required: true
+      type: integer
+    get:
+      operationId: credits_request_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnCreditRequest'
+      tags:
+      - credits
+    put:
+      operationId: credits_request_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CreditRequest'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnCreditRequest'
+      tags:
+      - credits
+    patch:
+      operationId: credits_request_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CreditRequest'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnCreditRequest'
+      tags:
+      - credits
+    delete:
+      operationId: credits_request_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - credits
+definitions:
+  ReturnCreditRequest:
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      amount:
+        title: Amount
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+  CreditRequest:
+    type: object
+    properties:
+      amount:
+        title: Amount
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

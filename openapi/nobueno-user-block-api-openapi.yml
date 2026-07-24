@@ -1,0 +1,101 @@
+swagger: '2.0'
+info:
+  title: Jungle admin user_block API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: user_block
+paths:
+  /user_block:
+    parameters: []
+    post:
+      operationId: user_block_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/UserBlock'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/UserBlock'
+      tags:
+      - user_block
+  /user_block/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user block.
+      required: true
+      type: integer
+    delete:
+      operationId: user_block_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - user_block
+definitions:
+  UserBlock:
+    required:
+    - blocked_user
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      blocked_user:
+        title: Blocked user
+        type: integer
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+      block:
+        title: Block
+        type: boolean
+        readOnly: true
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

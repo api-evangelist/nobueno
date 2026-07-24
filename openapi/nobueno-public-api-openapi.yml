@@ -1,0 +1,290 @@
+swagger: '2.0'
+info:
+  title: Jungle admin public API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: public
+paths:
+  /public/jobs:
+    parameters: []
+    get:
+      operationId: public_jobs_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnJobPublicList'
+      tags:
+      - public
+  /public/jobs/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      type: string
+    get:
+      operationId: public_jobs_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnJobPublicList'
+      tags:
+      - public
+definitions:
+  ReturnMatch:
+    title: Matches
+    type: object
+    properties:
+      values_match:
+        title: Values match
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      personalities_match:
+        title: Personalities match
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      technical_skill:
+        title: Technical skill
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      soft_skill:
+        title: Soft skill
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      language:
+        title: Language
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+  Language:
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+  ReturnJobPublicList:
+    required:
+    - location_type
+    - opportunity_type
+    - working_years
+    - country
+    - city
+    - technical_skills
+    - soft_skills
+    - languages
+    - matches
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      job_title:
+        title: Job title
+        type: string
+        readOnly: true
+      job_role_title:
+        title: Job role title
+        type: string
+        readOnly: true
+      location_type:
+        title: Location type
+        type: string
+        enum:
+        - remote_only
+        - remote_and_location
+        - location_only
+      opportunity_type:
+        title: Opportunity type
+        type: string
+        enum:
+        - full_time
+        - part_time
+        - freelance
+        - internship
+      description:
+        title: Description
+        type: string
+        readOnly: true
+      working_years:
+        title: Working years
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      company:
+        title: Company
+        type: string
+        readOnly: true
+      country:
+        $ref: '#/definitions/CountryName'
+      city:
+        $ref: '#/definitions/CityName'
+      technical_skills:
+        type: array
+        items:
+          $ref: '#/definitions/ReturnSkill'
+      soft_skills:
+        type: array
+        items:
+          $ref: '#/definitions/ReturnSkill'
+      languages:
+        type: array
+        items:
+          $ref: '#/definitions/Language'
+      matches:
+        $ref: '#/definitions/ReturnMatch'
+      is_highlighted:
+        title: Is highlighted
+        type: string
+        readOnly: true
+  ReturnSkill:
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+      items:
+        title: Items
+        type: string
+        readOnly: true
+  CityName:
+    title: City
+    required:
+    - title
+    - code
+    type: object
+    properties:
+      title:
+        title: Title
+        type: string
+        maxLength: 200
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      code:
+        title: Code
+        type: string
+        minLength: 1
+  CountryName:
+    title: Country
+    required:
+    - title
+    - code
+    type: object
+    properties:
+      title:
+        title: Title
+        type: string
+        maxLength: 200
+        minLength: 1
+      code:
+        title: Code
+        type: string
+        maxLength: 2
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

@@ -1,0 +1,194 @@
+swagger: '2.0'
+info:
+  title: Jungle admin register API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: register
+paths:
+  /register:
+    parameters: []
+    post:
+      operationId: register_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/UserJobSeekerCreate'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnJWTTokens'
+      tags:
+      - register
+definitions:
+  ReturnJWTTokens:
+    required:
+    - access_token
+    - refresh_token
+    type: object
+    properties:
+      access_token:
+        title: Access token
+        type: string
+        minLength: 1
+      refresh_token:
+        title: Refresh token
+        type: string
+        minLength: 1
+  UserJobSeekerCreate:
+    required:
+    - first_name
+    - last_name
+    - nickname
+    - city
+    - email
+    - password
+    - confirm_password
+    - full_time
+    - part_time
+    - freelance
+    - internship
+    - working_status
+    - open_to_remote_work
+    - open_to_relocate
+    type: object
+    properties:
+      image:
+        title: Image
+        type: string
+        readOnly: true
+        x-nullable: true
+        format: uri
+      first_name:
+        title: First name
+        type: string
+        maxLength: 350
+        minLength: 1
+      last_name:
+        title: Last name
+        type: string
+        maxLength: 350
+        minLength: 1
+      nickname:
+        title: Nickname
+        type: string
+        minLength: 1
+      city:
+        title: City
+        type: integer
+      email:
+        title: Email
+        type: string
+        format: email
+        maxLength: 254
+        minLength: 1
+      password:
+        title: Password
+        type: string
+        minLength: 1
+      confirm_password:
+        title: Confirm password
+        type: string
+        minLength: 1
+      language:
+        title: Language
+        type: string
+        enum:
+        - en
+        - es
+        - ar
+        - ur
+        - fr
+      receive_email_notifications:
+        title: Receive email notifications
+        type: boolean
+      receive_push_notifications:
+        title: Receive push notifications
+        type: boolean
+      player_id:
+        title: Player id
+        type: string
+        maxLength: 255
+        x-nullable: true
+      registration_id:
+        title: Registration id
+        type: string
+        minLength: 1
+      type:
+        title: Type
+        type: string
+        enum:
+        - ios
+        - android
+        - web
+      full_time:
+        title: Full time
+        type: boolean
+      part_time:
+        title: Part time
+        type: boolean
+      freelance:
+        title: Freelance
+        type: boolean
+      internship:
+        title: Internship
+        type: boolean
+      step_news_subscription:
+        title: Step news subscription
+        type: boolean
+        default: false
+        x-nullable: true
+      working_status:
+        title: Working status
+        type: string
+        enum:
+        - student
+        - graduate
+        - experienced
+      open_to_remote_work:
+        title: Open to remote work
+        type: boolean
+      open_to_relocate:
+        title: Open to relocate
+        type: boolean
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

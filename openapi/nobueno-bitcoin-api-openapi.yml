@@ -1,0 +1,120 @@
+swagger: '2.0'
+info:
+  title: Jungle admin bitcoin API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: bitcoin
+paths:
+  /bitcoin:
+    parameters: []
+    get:
+      operationId: bitcoin_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Crypto'
+      tags:
+      - bitcoin
+definitions:
+  Crypto:
+    required:
+    - title
+    - buy
+    - sell
+    - symbol
+    type: object
+    properties:
+      title:
+        title: Title
+        type: string
+        maxLength: 20
+        minLength: 1
+      buy:
+        title: Buy
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      sell:
+        title: Sell
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      symbol:
+        title: Symbol
+        type: string
+        maxLength: 10
+        minLength: 1
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

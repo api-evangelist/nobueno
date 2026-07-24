@@ -1,0 +1,4772 @@
+swagger: '2.0'
+info:
+  title: Jungle admin API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: admin
+paths:
+  /admin/companies:
+    parameters: []
+    get:
+      operationId: admin_companies_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: jobs
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__date
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: country
+        in: query
+        description: ''
+        required: false
+        type: number
+      - name: city
+        in: query
+        description: ''
+        required: false
+        type: number
+      - name: len_employers
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: external_recruiter
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: in_house_recruiter
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminCompany'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/companies/jobs/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this company.
+      required: true
+      type: integer
+    get:
+      operationId: admin_companies_jobs_retrieve
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminReturnJobRetrieve'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/companies/jobs/{id}/match-rates:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this company.
+      required: true
+      type: integer
+    get:
+      operationId: admin_companies_jobs_job_match_rates
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminCompany'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/companies/jobs/{id}/values-personality:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this company.
+      required: true
+      type: integer
+    get:
+      operationId: admin_companies_jobs_job_values_personality
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminCompany'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/companies/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this company.
+      required: true
+      type: integer
+    get:
+      operationId: admin_companies_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminCompany'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    delete:
+      operationId: admin_companies_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/companies/{id}/companies:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this company.
+      required: true
+      type: integer
+    get:
+      operationId: admin_companies_companies
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminCompanyChild'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/companies/{id}/jobs:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this company.
+      required: true
+      type: integer
+    get:
+      operationId: admin_companies_jobs
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminCompanyJobs'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/companies/{id}/owner:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this company.
+      required: true
+      type: integer
+    get:
+      operationId: admin_companies_company_owner
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminEmployer'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/credits/request:
+    parameters: []
+    get:
+      operationId: admin_credits_request_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: status
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminCreditRequest'
+      tags:
+      - admin
+    post:
+      operationId: admin_credits_request_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminCreditRequest'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminCreditRequest'
+      tags:
+      - admin
+  /admin/credits/request/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user credit request.
+      required: true
+      type: integer
+    get:
+      operationId: admin_credits_request_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminCreditRequest'
+      tags:
+      - admin
+    put:
+      operationId: admin_credits_request_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminCreditRequest'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminCreditRequest'
+      tags:
+      - admin
+    patch:
+      operationId: admin_credits_request_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminCreditRequest'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminCreditRequest'
+      tags:
+      - admin
+    delete:
+      operationId: admin_credits_request_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - admin
+  /admin/database/disciplines:
+    parameters: []
+    get:
+      operationId: admin_database_disciplines_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: status
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__date
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnDiscipline'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    post:
+      operationId: admin_database_disciplines_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ReturnDiscipline'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnDiscipline'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/disciplines/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this discipline.
+      required: true
+      type: integer
+    get:
+      operationId: admin_database_disciplines_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnDiscipline'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    put:
+      operationId: admin_database_disciplines_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ReturnDiscipline'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnDiscipline'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    patch:
+      operationId: admin_database_disciplines_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ReturnDiscipline'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnDiscipline'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    delete:
+      operationId: admin_database_disciplines_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/disciplines/{id}/replace:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this discipline.
+      required: true
+      type: integer
+    post:
+      operationId: admin_database_disciplines_replace
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Replace'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/roles:
+    parameters: []
+    get:
+      operationId: admin_database_roles_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: status
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__date
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnAdminJobRole'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    post:
+      operationId: admin_database_roles_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/JobRole'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnAdminJobRole'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/roles-categories:
+    parameters: []
+    get:
+      operationId: admin_database_roles-categories_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: created_at__date
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnAdminJobRoleCategory'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    post:
+      operationId: admin_database_roles-categories_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ReturnAdminJobRoleCategory'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnAdminJobRoleCategory'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/roles-categories/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this role category.
+      required: true
+      type: integer
+    get:
+      operationId: admin_database_roles-categories_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnAdminJobRoleCategory'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    put:
+      operationId: admin_database_roles-categories_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ReturnAdminJobRoleCategory'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnAdminJobRoleCategory'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    patch:
+      operationId: admin_database_roles-categories_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ReturnAdminJobRoleCategory'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnAdminJobRoleCategory'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    delete:
+      operationId: admin_database_roles-categories_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/roles/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this job role.
+      required: true
+      type: integer
+    get:
+      operationId: admin_database_roles_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnAdminJobRole'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    put:
+      operationId: admin_database_roles_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/JobRole'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnAdminJobRole'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    patch:
+      operationId: admin_database_roles_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/JobRole'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnAdminJobRole'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    delete:
+      operationId: admin_database_roles_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/roles/{id}/replace:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this job role.
+      required: true
+      type: integer
+    post:
+      operationId: admin_database_roles_replace
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Replace'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/skill-categories:
+    parameters: []
+    get:
+      operationId: admin_database_skill-categories_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: created_at__date
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/SkillCategory'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    post:
+      operationId: admin_database_skill-categories_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/SkillCategory'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/SkillCategory'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/skill-categories/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this skill category.
+      required: true
+      type: integer
+    get:
+      operationId: admin_database_skill-categories_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SkillCategory'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    put:
+      operationId: admin_database_skill-categories_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/SkillCategory'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SkillCategory'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    patch:
+      operationId: admin_database_skill-categories_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/SkillCategory'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/SkillCategory'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    delete:
+      operationId: admin_database_skill-categories_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/skills:
+    parameters: []
+    get:
+      operationId: admin_database_skills_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: status
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: type
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__date
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Skill'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    post:
+      operationId: admin_database_skills_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Skill'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Skill'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/skills/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this skill.
+      required: true
+      type: integer
+    get:
+      operationId: admin_database_skills_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Skill'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    put:
+      operationId: admin_database_skills_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Skill'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Skill'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    patch:
+      operationId: admin_database_skills_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Skill'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Skill'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    delete:
+      operationId: admin_database_skills_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/database/skills/{id}/replace:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this skill.
+      required: true
+      type: integer
+    post:
+      operationId: admin_database_skills_replace
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Replace'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/fields:
+    parameters: []
+    get:
+      operationId: admin_fields_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: step
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: field_type
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: device
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: priority
+        in: query
+        description: ''
+        required: false
+        type: number
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminField'
+      tags:
+      - admin
+    post:
+      operationId: admin_fields_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CustomField'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminField'
+      tags:
+      - admin
+  /admin/fields/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this custom field.
+      required: true
+      type: integer
+    get:
+      operationId: admin_fields_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminField'
+      tags:
+      - admin
+    put:
+      operationId: admin_fields_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CustomField'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminField'
+      tags:
+      - admin
+    patch:
+      operationId: admin_fields_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/CustomField'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminField'
+      tags:
+      - admin
+    delete:
+      operationId: admin_fields_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - admin
+  /admin/files:
+    parameters: []
+    get:
+      operationId: admin_files_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: id
+        in: query
+        description: ''
+        required: false
+        type: number
+      - name: name
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: status
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_by
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminBackgroundTask'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    post:
+      operationId: admin_files_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminBackgroundTask'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminBackgroundTask'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/files/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this admin background task.
+      required: true
+      type: integer
+    get:
+      operationId: admin_files_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminBackgroundTask'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    put:
+      operationId: admin_files_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminBackgroundTask'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminBackgroundTask'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    patch:
+      operationId: admin_files_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminBackgroundTask'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminBackgroundTask'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    delete:
+      operationId: admin_files_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/jobs:
+    parameters: []
+    get:
+      operationId: admin_jobs_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: review
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: is_active
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminJob'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/jobs/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this job.
+      required: true
+      type: integer
+    get:
+      operationId: admin_jobs_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnJobRetrieve'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    put:
+      operationId: admin_jobs_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminJob'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminJob'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    patch:
+      operationId: admin_jobs_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminJob'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminJob'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    delete:
+      operationId: admin_jobs_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/jobs/{id}/email_recruiter:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this job.
+      required: true
+      type: integer
+    post:
+      operationId: admin_jobs_email_recruiter
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminEmailJobRecruiter'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminEmailJobRecruiter'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/jobs/{id}/review:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this job.
+      required: true
+      type: integer
+    patch:
+      operationId: admin_jobs_review
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminJobReview'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminJob'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/stats/users:
+    parameters: []
+    get:
+      operationId: admin_stats_users_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: role
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminUserSummary'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/stats/users/from_db:
+    parameters: []
+    post:
+      operationId: admin_stats_users_summary_from_db
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ReturnAdminStats'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnAdminStats'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/stats/users/summary:
+    parameters: []
+    post:
+      operationId: admin_stats_users_summary
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminBackgroundTask'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminBackgroundTask'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/user_block:
+    parameters: []
+    get:
+      operationId: admin_user_block_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: block
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminUserBlock'
+      tags:
+      - admin
+    post:
+      operationId: admin_user_block_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminUserBlock'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminUserBlock'
+      tags:
+      - admin
+  /admin/user_block/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user block.
+      required: true
+      type: integer
+    get:
+      operationId: admin_user_block_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminUserBlock'
+      tags:
+      - admin
+    put:
+      operationId: admin_user_block_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminUserBlock'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminUserBlock'
+      tags:
+      - admin
+    patch:
+      operationId: admin_user_block_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminUserBlock'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminUserBlock'
+      tags:
+      - admin
+    delete:
+      operationId: admin_user_block_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - admin
+  /admin/user_report:
+    parameters: []
+    get:
+      operationId: admin_user_report_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: status
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: reason
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminUserReport'
+      tags:
+      - admin
+    post:
+      operationId: admin_user_report_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/UserReport'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminUserReport'
+      tags:
+      - admin
+  /admin/user_report/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user report.
+      required: true
+      type: integer
+    get:
+      operationId: admin_user_report_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminUserReport'
+      tags:
+      - admin
+    put:
+      operationId: admin_user_report_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/UserReport'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminUserReport'
+      tags:
+      - admin
+    patch:
+      operationId: admin_user_report_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/UserReport'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminUserReport'
+      tags:
+      - admin
+    delete:
+      operationId: admin_user_report_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - admin
+  /admin/users:
+    parameters: []
+    get:
+      operationId: admin_users_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: country
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: city
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: is_blocked
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: role
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__date
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lte
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__gt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: created_at__lt
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/AdminUser'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/employments:
+    parameters: []
+    get:
+      operationId: admin_users_employments_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: date_joined
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: role
+        in: query
+        description: ''
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ReturnUserEmployment'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    post:
+      operationId: admin_users_employments_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminUserEmployment'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnUserEmployment'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/employments/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user employment.
+      required: true
+      type: integer
+    get:
+      operationId: admin_users_employments_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnUserEmployment'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    put:
+      operationId: admin_users_employments_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminUserEmployment'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnUserEmployment'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    patch:
+      operationId: admin_users_employments_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminUserEmployment'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnUserEmployment'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    delete:
+      operationId: admin_users_employments_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/employments/{id}/review:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user employment.
+      required: true
+      type: integer
+    patch:
+      operationId: admin_users_employments_review
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminUserEmployment'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnUserEmployment'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      type: integer
+    get:
+      operationId: admin_users_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminUser'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+    delete:
+      operationId: admin_users_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/{id}/add-credits:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      type: integer
+    patch:
+      operationId: admin_users_add_credits
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/AdminCredit'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnCredit'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/{id}/block:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      type: integer
+    post:
+      operationId: admin_users_block
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/SuccessResponse'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminUser'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/{id}/extra-information:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      type: integer
+    get:
+      operationId: admin_users_extra_information
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminCandidateExtraInformation'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/{id}/match-rates:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      type: integer
+    get:
+      operationId: admin_users_match_rates
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/MobileStepMatchRate'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/{id}/messages:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      type: integer
+    get:
+      operationId: admin_users_messenger_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ReturnMessenger'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/{id}/personal-information:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      type: integer
+    get:
+      operationId: admin_users_personal_information
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/StepPersonalInformation'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/{id}/unblock:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      type: integer
+    post:
+      operationId: admin_users_unblock
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/SuccessResponse'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/AdminUser'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+  /admin/users/{id}/values-personality:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this user.
+      required: true
+      type: integer
+    get:
+      operationId: admin_users_values_personality
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/StepPersonalInformation'
+      produces:
+      - application/json
+      - text/csv
+      tags:
+      - admin
+definitions:
+  AdminEmailJobRecruiter:
+    required:
+    - subject
+    - message
+    type: object
+    properties:
+      subject:
+        title: Subject
+        type: string
+        minLength: 1
+      message:
+        title: Message
+        type: string
+        minLength: 1
+  AdminField:
+    required:
+    - step
+    - field_type
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      field:
+        title: Field
+        type: string
+      step:
+        title: Step
+        type: string
+        enum:
+        - values_and_personality
+        - personal_information
+        - company_details
+        - other_information
+        - extra_information
+        - role_details
+        - work_experience
+        - current_role_and_skills
+        - compensation
+        - match_rates
+      field_type:
+        title: Field type
+        type: string
+        enum:
+        - input
+        - toggle
+        - text
+        - single_selection
+        - slider
+        - multiple_selection
+        - range_selection
+      device:
+        title: Device
+        type: string
+        enum:
+        - web
+        - mobile
+      priority:
+        title: Priority
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      is_hidden:
+        title: Is hidden
+        type: boolean
+  SkillCategory:
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+  AdminUserSummary:
+    required:
+    - date
+    type: object
+    properties:
+      date:
+        title: Date
+        type: string
+        format: date
+      seekers:
+        title: Seekers
+        type: object
+        additionalProperties:
+          type: string
+        default: {}
+      recruiters:
+        title: Recruiters
+        type: object
+        additionalProperties:
+          type: string
+        default: {}
+      register_step:
+        title: Register step
+        type: object
+        additionalProperties:
+          type: string
+        default: {}
+      active_jobs:
+        title: Active jobs
+        type: object
+        additionalProperties:
+          type: string
+        default: {}
+      matches:
+        title: Matches
+        type: object
+        additionalProperties:
+          type: string
+        default: {}
+      accepted_matches:
+        title: Accepted matches
+        type: object
+        additionalProperties:
+          type: string
+        default: {}
+      chats:
+        title: Chats
+        type: object
+        additionalProperties:
+          type: string
+        default: {}
+  ReturnBaseUser:
+    title: Created by
+    required:
+    - first_name
+    - last_name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      first_name:
+        title: First name
+        type: string
+        maxLength: 350
+        minLength: 1
+      last_name:
+        title: Last name
+        type: string
+        maxLength: 350
+        minLength: 1
+      language:
+        title: Language
+        type: string
+        enum:
+        - en
+        - es
+        - ar
+        - ur
+        - fr
+  ReturnCompany:
+    title: Company
+    required:
+    - years
+    - description
+    type: object
+    properties:
+      company_title:
+        title: Company title
+        type: string
+        readOnly: true
+      years:
+        title: Years
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      len_employers:
+        type: array
+        items:
+          title: Len employers
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      description:
+        title: Description
+        type: string
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      website:
+        title: Website
+        type: string
+        maxLength: 300
+        minLength: 1
+        x-nullable: true
+  ReturnReview:
+    type: object
+    properties:
+      rating:
+        title: Rating
+        type: number
+      description:
+        title: Description
+        type: string
+        minLength: 1
+        x-nullable: true
+      relevant_match:
+        title: Relevant match
+        type: number
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+  AdminUser:
+    required:
+    - first_name
+    - last_name
+    - email
+    - country
+    - city
+    - reviews_from
+    - reviews_to
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      first_name:
+        title: First name
+        type: string
+        maxLength: 350
+        minLength: 1
+      last_name:
+        title: Last name
+        type: string
+        maxLength: 350
+        minLength: 1
+      email:
+        title: Email
+        type: string
+        format: email
+        maxLength: 254
+        minLength: 1
+      country:
+        $ref: '#/definitions/CountryName'
+      city:
+        $ref: '#/definitions/CityName'
+      image:
+        title: Image
+        type: string
+        readOnly: true
+        x-nullable: true
+        format: uri
+      nickname:
+        title: Nickname
+        type: string
+        readOnly: true
+      role:
+        title: Role
+        type: string
+        enum:
+        - employer
+        - job_seeker
+        - admin
+        x-nullable: true
+      job_status:
+        title: Job status
+        type: string
+        readOnly: true
+      is_blocked:
+        title: Is blocked
+        type: boolean
+      company_id:
+        title: Company id
+        type: string
+        readOnly: true
+      active_chats:
+        title: Active chats
+        type: string
+        readOnly: true
+      review:
+        title: Review
+        type: string
+        readOnly: true
+      reviews_from:
+        type: array
+        items:
+          $ref: '#/definitions/ReturnReview'
+      reviews_to:
+        type: array
+        items:
+          $ref: '#/definitions/ReturnReview'
+      credit:
+        title: Credit
+        type: string
+        readOnly: true
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+      register_step:
+        title: Register step
+        type: string
+        enum:
+        - personal_information
+        - verification
+        - company_details
+        - current_role_and_skills
+        - work_experience
+        - role_details
+        - values_and_personality
+        - compensation
+        - match_rates
+        - profile_summary
+        - completed
+      language:
+        title: Language
+        type: string
+        enum:
+        - en
+        - es
+        - ar
+        - ur
+        - fr
+  JobRole:
+    required:
+    - title
+    type: object
+    properties:
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+      category:
+        title: Category
+        type: integer
+        x-nullable: true
+  Salary:
+    title: Freelance salary
+    required:
+    - value
+    - currency
+    type: object
+    properties:
+      value:
+        title: Value
+        type: integer
+        maximum: 1000000000
+      currency:
+        title: Currency
+        type: integer
+  MobileStepMatchRate:
+    required:
+    - values_match
+    - personalities_match
+    - technical_skill
+    type: object
+    properties:
+      values_match:
+        title: Values match
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      personalities_match:
+        title: Personalities match
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      technical_skill:
+        title: Technical skill
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      soft_skill:
+        title: Soft skill
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      language:
+        title: Language
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      freelance_salary:
+        $ref: '#/definitions/Salary'
+      part_time_salary:
+        $ref: '#/definitions/Salary'
+      full_time_salary:
+        $ref: '#/definitions/Salary'
+      internship_salary:
+        $ref: '#/definitions/Salary'
+      show_salary:
+        title: Show salary
+        type: boolean
+  CustomField:
+    required:
+    - field
+    - field_type
+    - step
+    type: object
+    properties:
+      field:
+        title: Field
+        type: object
+      field_type:
+        title: Field type
+        type: string
+        enum:
+        - input
+        - toggle
+        - text
+        - single_selection
+        - slider
+        - multiple_selection
+        - range_selection
+      step:
+        title: Step
+        type: string
+        enum:
+        - values_and_personality
+        - personal_information
+        - company_details
+        - other_information
+        - extra_information
+        - role_details
+        - work_experience
+        - current_role_and_skills
+        - compensation
+        - match_rates
+      content_type:
+        title: Content type
+        type: integer
+        x-nullable: true
+      device:
+        title: Device
+        type: string
+        enum:
+        - web
+        - mobile
+      priority:
+        title: Priority
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      is_hidden:
+        title: Is hidden
+        type: boolean
+  ReturnUser:
+    title: User
+    required:
+    - email
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        readOnly: true
+      email:
+        title: Email
+        type: string
+        format: email
+        maxLength: 254
+        minLength: 1
+      companies:
+        type: array
+        items:
+          type: integer
+        readOnly: true
+        uniqueItems: true
+      language:
+        title: Language
+        type: string
+        enum:
+        - en
+        - es
+        - ar
+        - ur
+        - fr
+  AdminCredit:
+    type: object
+    properties:
+      value:
+        title: Value
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+  ReturnUserBaseChat:
+    title: Candidate
+    required:
+    - working_years
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      nickname:
+        title: Nickname
+        type: string
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        readOnly: true
+      image:
+        title: Image
+        type: string
+        readOnly: true
+        x-nullable: true
+        format: uri
+      working_years:
+        title: Working years
+        type: integer
+      language:
+        title: Language
+        type: string
+        enum:
+        - en
+        - es
+        - ar
+        - ur
+        - fr
+  StepPersonalInformation:
+    required:
+    - first_name
+    - last_name
+    - email
+    - country
+    - city
+    - current_password
+    - new_password
+    type: object
+    properties:
+      first_name:
+        title: First name
+        type: string
+        maxLength: 350
+        minLength: 1
+      last_name:
+        title: Last name
+        type: string
+        maxLength: 350
+        minLength: 1
+      email:
+        title: Email
+        type: string
+        format: email
+        minLength: 1
+      country:
+        title: Country
+        type: integer
+      city:
+        title: City
+        type: integer
+      current_password:
+        title: Current password
+        type: string
+        minLength: 1
+      image:
+        title: Image
+        type: string
+        readOnly: true
+        x-nullable: true
+        format: uri
+      confirm_password:
+        title: Confirm password
+        type: string
+        minLength: 1
+      new_password:
+        title: New password
+        type: string
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      language:
+        title: Language
+        type: string
+        enum:
+        - en
+        - es
+        - ar
+        - ur
+        - fr
+      receive_email_notifications:
+        title: Receive email notifications
+        type: boolean
+      receive_push_notifications:
+        title: Receive push notifications
+        type: boolean
+  UserReport:
+    required:
+    - reason
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      reason:
+        title: Reason
+        type: string
+        enum:
+        - unresponsive
+        - abusive_and_or_inappropriate
+        - spam
+        - fraud_or_scam
+        - other
+      description:
+        title: Description
+        type: string
+        minLength: 1
+        x-nullable: true
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+        readOnly: true
+      reported_user:
+        title: Reported user
+        type: integer
+        x-nullable: true
+  ReturnJobRole:
+    title: Title
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+  AdminCompany:
+    required:
+    - title
+    - years
+    - companies
+    - active_jobs
+    - total_jobs
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 190
+        minLength: 1
+      years:
+        title: Years
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      len_employers:
+        type: array
+        items:
+          title: Len employers
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      website:
+        title: Website
+        type: string
+        maxLength: 300
+        minLength: 1
+        x-nullable: true
+      companies:
+        title: Companies
+        type: integer
+      active_jobs:
+        title: Active jobs
+        type: integer
+      total_jobs:
+        title: Total jobs
+        type: integer
+      review:
+        title: Review
+        type: string
+        readOnly: true
+      type:
+        title: Type
+        type: string
+        readOnly: true
+      country:
+        title: Country
+        type: string
+        readOnly: true
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+  ReturnAdminStats:
+    required:
+    - date
+    type: object
+    properties:
+      date:
+        title: Date
+        type: string
+        format: date
+      seekers:
+        title: Seekers
+        type: object
+        additionalProperties:
+          type: string
+        default: {}
+      recruiters:
+        title: Recruiters
+        type: object
+        additionalProperties:
+          type: string
+        default: {}
+      active_jobs:
+        title: Active jobs
+        type: object
+        additionalProperties:
+          type: string
+        default: {}
+      register_step:
+        title: Register step
+        type: object
+        additionalProperties:
+          type: string
+        default: {}
+      matches:
+        title: Matches
+        type: integer
+        default: 0
+      accepted_matches:
+        title: Accepted matches
+        type: integer
+        default: 0
+      chats:
+        title: Chats
+        type: integer
+        default: 0
+  AdminReturnJobRetrieve:
+    required:
+    - title
+    - country
+    - city
+    - technical_skills
+    - soft_skills
+    - languages
+    - working_years
+    - location_type
+    - opportunity_type
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        $ref: '#/definitions/ReturnJobRole'
+      country:
+        $ref: '#/definitions/CountryName'
+      city:
+        $ref: '#/definitions/CityName'
+      updated_at:
+        title: Updated at
+        type: string
+        format: date-time
+        x-nullable: true
+      technical_skills:
+        type: array
+        items:
+          $ref: '#/definitions/Skill'
+      soft_skills:
+        type: array
+        items:
+          $ref: '#/definitions/Skill'
+      languages:
+        type: array
+        items:
+          $ref: '#/definitions/Language'
+      working_years:
+        title: Working years
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      salary:
+        title: Salary
+        type: string
+        readOnly: true
+      salary_currency:
+        title: Salary currency
+        type: string
+        readOnly: true
+      review:
+        title: Review
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+        x-nullable: true
+      location_type:
+        title: Location type
+        type: string
+        enum:
+        - remote_only
+        - remote_and_location
+        - location_only
+      opportunity_type:
+        title: Opportunity type
+        type: string
+        enum:
+        - full_time
+        - part_time
+        - freelance
+        - internship
+  Skill:
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+      type:
+        title: Type
+        type: string
+        enum:
+        - technical
+        - soft
+        default: technical
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+      reason:
+        title: Reason
+        type: string
+        minLength: 1
+      category_id:
+        title: Category id
+        type: string
+        readOnly: true
+  ReturnUserEmployment:
+    required:
+    - company
+    - user
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      role:
+        title: Role
+        type: string
+        enum:
+        - owner
+        - recruiter
+        - request_pending
+        - declined
+      description:
+        title: Description
+        type: string
+        maxLength: 300
+      date_joined:
+        title: Date joined
+        type: string
+        format: date-time
+      company:
+        $ref: '#/definitions/ReturnCompany'
+      user:
+        $ref: '#/definitions/ReturnUser'
+  ReturnDiscipline:
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+  Language:
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+  CountryName:
+    title: Country
+    required:
+    - title
+    - code
+    type: object
+    properties:
+      title:
+        title: Title
+        type: string
+        maxLength: 200
+        minLength: 1
+      code:
+        title: Code
+        type: string
+        maxLength: 2
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+  AdminJob:
+    required:
+    - title
+    - created_by
+    - company
+    - city
+    - country
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        $ref: '#/definitions/ReturnJobRole'
+      review:
+        title: Review
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+        readOnly: true
+      created_by:
+        $ref: '#/definitions/ReturnBaseUser'
+      opportunity_type:
+        title: Opportunity type
+        type: string
+        enum:
+        - full_time
+        - part_time
+        - freelance
+        - internship
+        readOnly: true
+      company:
+        $ref: '#/definitions/ReturnCompanyJob'
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+      city:
+        $ref: '#/definitions/CityName'
+      country:
+        $ref: '#/definitions/CountryName'
+      matches_count:
+        title: Matches count
+        type: string
+        readOnly: true
+      total_matches:
+        title: Total matches
+        type: string
+        readOnly: true
+      is_active:
+        title: Is active
+        type: boolean
+  Replace:
+    required:
+    - item_id
+    - message
+    type: object
+    properties:
+      item_id:
+        title: Item id
+        type: integer
+      message:
+        title: Message
+        type: string
+        minLength: 1
+  AdminCompanyJobs:
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 190
+        minLength: 1
+      company_jobs:
+        title: Company jobs
+        type: string
+        readOnly: true
+  ReturnStepMatchRate:
+    title: Matches
+    required:
+    - salary_currency
+    type: object
+    properties:
+      values_match:
+        title: Values match
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      personalities_match:
+        title: Personalities match
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      technical_skill:
+        title: Technical skill
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      soft_skill:
+        title: Soft skill
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      language:
+        title: Language
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      salary:
+        title: Salary
+        type: string
+        readOnly: true
+      salary_currency:
+        $ref: '#/definitions/Currency'
+      show_salary:
+        title: Show salary
+        type: boolean
+  ReturnAdminJobRole:
+    required:
+    - title
+    - category
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+      category:
+        $ref: '#/definitions/ReturnAdminJobRoleCategory'
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+  AdminCompanyChild:
+    required:
+    - title
+    - years
+    - description
+    - total_jobs
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 190
+        minLength: 1
+      years:
+        title: Years
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      len_employers:
+        type: array
+        items:
+          title: Len employers
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      description:
+        title: Description
+        type: string
+        minLength: 1
+      website:
+        title: Website
+        type: string
+        maxLength: 300
+        minLength: 1
+        x-nullable: true
+      total_jobs:
+        title: Total jobs
+        type: integer
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+      is_master:
+        title: Is master
+        type: boolean
+  AdminUserEmployment:
+    required:
+    - company
+    - user
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      company:
+        $ref: '#/definitions/ReturnCompany'
+      user:
+        $ref: '#/definitions/ReturnUserMe'
+      role:
+        title: Role
+        type: string
+        enum:
+        - owner
+        - recruiter
+        - request_pending
+        - declined
+      description:
+        title: Description
+        type: string
+        maxLength: 300
+      date_joined:
+        title: Date joined
+        type: string
+        format: date-time
+  ReturnUserMe:
+    title: User
+    required:
+    - email
+    - first_name
+    - last_name
+    - city
+    - country
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      register_step:
+        title: Register step
+        type: string
+        enum:
+        - personal_information
+        - verification
+        - company_details
+        - current_role_and_skills
+        - work_experience
+        - role_details
+        - values_and_personality
+        - compensation
+        - match_rates
+        - profile_summary
+        - completed
+      email:
+        title: Email
+        type: string
+        format: email
+        maxLength: 254
+        minLength: 1
+      nickname:
+        title: Nickname
+        type: string
+        readOnly: true
+      first_name:
+        title: First name
+        type: string
+        maxLength: 350
+        minLength: 1
+      last_name:
+        title: Last name
+        type: string
+        maxLength: 350
+        minLength: 1
+      image:
+        title: Image
+        type: string
+        readOnly: true
+        x-nullable: true
+        format: uri
+      city:
+        $ref: '#/definitions/CityName'
+      country:
+        $ref: '#/definitions/CountryName'
+      updated_at:
+        title: Updated at
+        type: string
+        format: date-time
+        x-nullable: true
+      language:
+        title: Language
+        type: string
+        enum:
+        - en
+        - es
+        - ar
+        - ur
+        - fr
+      receive_email_notifications:
+        title: Receive email notifications
+        type: boolean
+      receive_push_notifications:
+        title: Receive push notifications
+        type: boolean
+      player_id:
+        title: Player id
+        type: string
+        maxLength: 255
+        x-nullable: true
+  ReturnUserBaseChatEmployer:
+    title: Employer
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      nickname:
+        title: Nickname
+        type: string
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        readOnly: true
+      image:
+        title: Image
+        type: string
+        readOnly: true
+        x-nullable: true
+        format: uri
+      language:
+        title: Language
+        type: string
+        enum:
+        - en
+        - es
+        - ar
+        - ur
+        - fr
+  ReturnJobBase:
+    title: Job
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        minLength: 1
+      company:
+        title: Company
+        type: string
+        readOnly: true
+  AdminCandidateExtraInformation:
+    type: object
+    properties:
+      market_value_only:
+        title: Market value only
+        type: boolean
+      open_to_opportunity:
+        title: Open to opportunity
+        type: boolean
+        x-nullable: true
+      open_to_relocate:
+        title: Open to relocate
+        type: boolean
+      country_to_relocate:
+        title: Country to relocate
+        type: boolean
+  AdminEmployer:
+    required:
+    - first_name
+    - last_name
+    - email
+    - country
+    - city
+    - credit
+    - reviews_from
+    - reviews_to
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      first_name:
+        title: First name
+        type: string
+        maxLength: 350
+        minLength: 1
+      last_name:
+        title: Last name
+        type: string
+        maxLength: 350
+        minLength: 1
+      email:
+        title: Email
+        type: string
+        format: email
+        maxLength: 254
+        minLength: 1
+      country:
+        $ref: '#/definitions/CountryName'
+      city:
+        $ref: '#/definitions/CityName'
+      image:
+        title: Image
+        type: string
+        readOnly: true
+        x-nullable: true
+        format: uri
+      nickname:
+        title: Nickname
+        type: string
+        readOnly: true
+      credit:
+        $ref: '#/definitions/ReturnCredit'
+      role:
+        title: Role
+        type: string
+        enum:
+        - employer
+        - job_seeker
+        - admin
+        x-nullable: true
+      active_chats:
+        title: Active chats
+        type: string
+        readOnly: true
+      reviews_from:
+        type: array
+        items:
+          $ref: '#/definitions/ReturnReview'
+      reviews_to:
+        type: array
+        items:
+          $ref: '#/definitions/ReturnReview'
+      is_blocked:
+        title: Is blocked
+        type: boolean
+      language:
+        title: Language
+        type: string
+        enum:
+        - en
+        - es
+        - ar
+        - ur
+        - fr
+  ReturnCredit:
+    title: Credit
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      value:
+        title: Value
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      updated_at:
+        title: Updated at
+        type: string
+        format: date-time
+        readOnly: true
+  ReturnCompanyJob:
+    title: Company
+    required:
+    - title
+    - years
+    - description
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 190
+        minLength: 1
+      years:
+        title: Years
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      len_employers:
+        type: array
+        items:
+          title: Len employers
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      description:
+        title: Description
+        type: string
+        minLength: 1
+      website:
+        title: Website
+        type: string
+        maxLength: 300
+        minLength: 1
+        x-nullable: true
+  AdminUserReport:
+    required:
+    - user
+    - reported_user
+    - reason
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      user:
+        $ref: '#/definitions/ReturnUser'
+      reported_user:
+        $ref: '#/definitions/ReturnUser'
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+      description:
+        title: Description
+        type: string
+        minLength: 1
+        x-nullable: true
+      reason:
+        title: Reason
+        type: string
+        enum:
+        - unresponsive
+        - abusive_and_or_inappropriate
+        - spam
+        - fraud_or_scam
+        - other
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+  AdminJobReview:
+    required:
+    - description
+    type: object
+    properties:
+      review:
+        title: Review
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+        x-nullable: true
+      description:
+        title: Description
+        type: string
+        minLength: 1
+      send_email:
+        title: Send email
+        type: boolean
+        default: false
+  Currency:
+    title: Salary currency
+    required:
+    - title
+    - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        minLength: 1
+      name:
+        title: Name
+        type: string
+        minLength: 1
+      rates:
+        title: Rates
+        type: string
+        readOnly: true
+  AdminBackgroundTask:
+    required:
+    - start_date
+    - end_date
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 30
+        minLength: 1
+        x-nullable: true
+      status:
+        title: Status
+        type: string
+        enum:
+        - processing
+        - completed
+        - failed
+      start_date:
+        title: Start date
+        type: string
+        format: date
+      end_date:
+        title: End date
+        type: string
+        format: date
+      query_params:
+        title: Query params
+        type: string
+        x-nullable: true
+      file:
+        title: File
+        type: string
+        readOnly: true
+        x-nullable: true
+        format: uri
+      created_by:
+        title: Created by
+        type: integer
+        x-nullable: true
+  ReturnAdminJobRoleCategory:
+    title: Category
+    required:
+    - title
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        maxLength: 300
+        minLength: 1
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+  AdminUserBlock:
+    required:
+    - user
+    - blocked_user
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+      block:
+        title: Block
+        type: boolean
+        readOnly: true
+      user:
+        title: User
+        type: integer
+      blocked_user:
+        title: Blocked user
+        type: integer
+  ReturnJobRetrieve:
+    required:
+    - title
+    - country
+    - city
+    - technical_skills
+    - soft_skills
+    - languages
+    - matches
+    - working_years
+    - opportunity_type
+    - location_type
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        $ref: '#/definitions/ReturnJobRole'
+      description:
+        title: Description
+        type: string
+        minLength: 1
+        x-nullable: true
+      is_active:
+        title: Is active
+        type: boolean
+      salary:
+        title: Salary
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      company:
+        title: Company
+        type: string
+        readOnly: true
+      country:
+        $ref: '#/definitions/CountryName'
+      city:
+        $ref: '#/definitions/CityName'
+      updated_at:
+        title: Updated at
+        type: string
+        format: date-time
+        x-nullable: true
+      technical_skills:
+        type: array
+        items:
+          $ref: '#/definitions/Skill'
+      soft_skills:
+        type: array
+        items:
+          $ref: '#/definitions/Skill'
+      languages:
+        type: array
+        items:
+          $ref: '#/definitions/Language'
+      matches:
+        $ref: '#/definitions/ReturnStepMatchRate'
+      values:
+        title: Values
+        type: string
+        readOnly: true
+      working_years:
+        title: Working years
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      personalities:
+        title: Personalities
+        type: string
+        readOnly: true
+      opportunity_type:
+        title: Opportunity type
+        type: string
+        enum:
+        - full_time
+        - part_time
+        - freelance
+        - internship
+      location_type:
+        title: Location type
+        type: string
+        enum:
+        - remote_only
+        - remote_and_location
+        - location_only
+      review:
+        title: Review
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+        x-nullable: true
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+  SuccessResponse:
+    required:
+    - message
+    type: object
+    properties:
+      success:
+        title: Success
+        type: boolean
+        default: true
+      message:
+        title: success message
+        type: string
+        minLength: 1
+  ReturnMessenger:
+    required:
+    - candidate
+    - employer
+    - job
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      candidate:
+        $ref: '#/definitions/ReturnUserBaseChat'
+      employer:
+        $ref: '#/definitions/ReturnUserBaseChatEmployer'
+      job:
+        $ref: '#/definitions/ReturnJobBase'
+      employer_review:
+        title: Employer review
+        type: boolean
+      candidate_review:
+        title: Candidate review
+        type: boolean
+      unread_messages:
+        title: Unread messages
+        type: string
+        readOnly: true
+  CityName:
+    title: City
+    required:
+    - title
+    - code
+    type: object
+    properties:
+      title:
+        title: Title
+        type: string
+        maxLength: 200
+        minLength: 1
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      code:
+        title: Code
+        type: string
+        minLength: 1
+  AdminCreditRequest:
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      user:
+        $ref: '#/definitions/AdminEmployer'
+      created_at:
+        title: Created at
+        type: string
+        format: date-time
+        readOnly: true
+      status:
+        title: Status
+        type: string
+        enum:
+        - accepted
+        - declined
+        - pending
+      amount:
+        title: Amount
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

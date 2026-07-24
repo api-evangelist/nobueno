@@ -1,0 +1,181 @@
+swagger: '2.0'
+info:
+  title: Jungle admin review API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: review
+paths:
+  /review:
+    parameters: []
+    get:
+      operationId: review_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Review'
+      tags:
+      - review
+    post:
+      operationId: review_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Review'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Review'
+      tags:
+      - review
+  /review/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this review.
+      required: true
+      type: integer
+    get:
+      operationId: review_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Review'
+      tags:
+      - review
+    put:
+      operationId: review_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Review'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Review'
+      tags:
+      - review
+    patch:
+      operationId: review_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Review'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Review'
+      tags:
+      - review
+    delete:
+      operationId: review_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - review
+definitions:
+  Review:
+    type: object
+    properties:
+      rating:
+        title: Rating
+        type: number
+      description:
+        title: Description
+        type: string
+        minLength: 1
+        x-nullable: true
+      relevant_match:
+        title: Relevant match
+        type: number
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

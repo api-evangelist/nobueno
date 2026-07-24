@@ -1,0 +1,137 @@
+swagger: '2.0'
+info:
+  title: Jungle admin currencies API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: currencies
+paths:
+  /currencies:
+    parameters: []
+    get:
+      operationId: currencies_list
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Currency'
+      tags:
+      - currencies
+  /currencies/convert:
+    parameters: []
+    get:
+      operationId: currencies_convert
+      description: ''
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        type: string
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: type
+        in: query
+        required: false
+        type: string
+        enum:
+        - yearly
+        - monthly
+        x-nullable: true
+      - name: currency
+        in: query
+        required: true
+        type: string
+        minLength: 1
+      - name: value
+        in: query
+        required: true
+        type: number
+        maximum: 1000000000
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Currency'
+      tags:
+      - currencies
+definitions:
+  Currency:
+    title: Salary currency
+    required:
+    - title
+    - name
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      title:
+        title: Title
+        type: string
+        minLength: 1
+      name:
+        title: Name
+        type: string
+        minLength: 1
+      rates:
+        title: Rates
+        type: string
+        readOnly: true
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

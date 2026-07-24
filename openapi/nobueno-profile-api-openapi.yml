@@ -1,0 +1,296 @@
+swagger: '2.0'
+info:
+  title: Jungle admin profile API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: profile
+paths:
+  /profile:
+    parameters: []
+    get:
+      operationId: profile_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+            - count
+            - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/JobSeekerProfile'
+      tags:
+      - profile
+    post:
+      operationId: profile_create
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/JobSeekerProfile'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/JobSeekerProfile'
+      tags:
+      - profile
+  /profile/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this job seeker profile.
+      required: true
+      type: integer
+    get:
+      operationId: profile_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/JobSeekerProfile'
+      tags:
+      - profile
+    put:
+      operationId: profile_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/JobSeekerProfile'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/JobSeekerProfile'
+      tags:
+      - profile
+    patch:
+      operationId: profile_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/JobSeekerProfile'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/JobSeekerProfile'
+      tags:
+      - profile
+    delete:
+      operationId: profile_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+      - profile
+definitions:
+  JobSeekerProfile:
+    required:
+    - full_time
+    - part_time
+    - freelance
+    - internship
+    - open_to_remote_work
+    - working_status
+    - user
+    - soft_skills
+    - technical_skills
+    - languages
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      custom_fields:
+        title: Custom fields
+        type: string
+      created_at:
+        title: Creation time
+        type: string
+        format: date-time
+      updated_at:
+        title: Update time
+        type: string
+        format: date-time
+        readOnly: true
+      full_time:
+        title: Full time
+        type: boolean
+      part_time:
+        title: Part time
+        type: boolean
+      freelance:
+        title: Freelance
+        type: boolean
+      internship:
+        title: Internship
+        type: boolean
+      open_to_remote_work:
+        title: Open to remote work
+        type: boolean
+      working_status:
+        title: Working status
+        type: string
+        enum:
+        - student
+        - graduate
+        - experienced
+      working_years:
+        title: Working years
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+        x-nullable: true
+      only_market_value:
+        title: Only market value
+        type: boolean
+      open_to_opportunity:
+        title: Open to opportunity
+        type: boolean
+        x-nullable: true
+      market_value_only:
+        title: Market value only
+        type: boolean
+      open_to_relocate:
+        title: Open to relocate
+        type: boolean
+      country_to_relocate:
+        title: Country to relocate
+        type: boolean
+      step_news_subscription:
+        title: Step news subscription
+        type: boolean
+        x-nullable: true
+      looking_for_work:
+        title: Looking for work
+        type: boolean
+      all_countries:
+        title: All countries
+        type: boolean
+      first_job_match:
+        title: First job match
+        type: boolean
+      created_by:
+        title: Creator
+        type: integer
+        x-nullable: true
+      updated_by:
+        title: Editor
+        type: integer
+        x-nullable: true
+      user:
+        title: User
+        type: integer
+      job_title:
+        title: Job title
+        type: integer
+        x-nullable: true
+      values:
+        title: Values
+        type: integer
+        x-nullable: true
+      personalities:
+        title: Personalities
+        type: integer
+        x-nullable: true
+      matches:
+        title: Matches
+        type: integer
+        x-nullable: true
+      soft_skills:
+        type: array
+        items:
+          type: integer
+        uniqueItems: true
+      technical_skills:
+        type: array
+        items:
+          type: integer
+        uniqueItems: true
+      languages:
+        type: array
+        items:
+          type: integer
+        uniqueItems: true
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true

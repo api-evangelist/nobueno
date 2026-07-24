@@ -1,0 +1,118 @@
+swagger: '2.0'
+info:
+  title: Jungle admin me API
+  description: Here magic happens
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: mindru.ion97@gmail.com
+  license:
+    name: BSD License
+  version: v1
+host: api.nobueno.com
+basePath: /api
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- Bearer: []
+- Device-type: []
+- REFETCH_SCHEMA_WITH_AUTH: []
+- x-app-id: []
+- x-scheme: []
+tags:
+- name: me
+paths:
+  /me:
+    parameters: []
+    get:
+      operationId: me_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - me
+    patch:
+      operationId: me_partial_update
+      description: ''
+      parameters:
+      - name: data
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Step'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Step'
+      tags:
+      - me
+  /me/counts:
+    parameters: []
+    get:
+      operationId: me_counts_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Counts'
+      tags:
+      - me
+definitions:
+  Counts:
+    required:
+    - notifications
+    - messages
+    type: object
+    properties:
+      notifications:
+        title: Notifications
+        type: integer
+      messages:
+        title: Messages
+        type: integer
+  Step:
+    required:
+    - step
+    type: object
+    properties:
+      step:
+        title: Step
+        type: string
+        enum:
+        - personal_information
+        - verification
+        - company_details
+        - current_role_and_skills
+        - work_experience
+        - role_details
+        - values_and_personality
+        - compensation
+        - match_rates
+        - profile_summary
+        - completed
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+  Device-type:
+    type: apiKey
+    name: Device-Type
+    in: header
+  x-scheme:
+    type: apiKey
+    name: x-scheme
+    in: header
+  x-app-id:
+    type: apiKey
+    name: x-app-id
+    in: header
+  REFETCH_SCHEMA_WITH_AUTH: true
