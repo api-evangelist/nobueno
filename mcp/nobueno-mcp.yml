@@ -1,0 +1,489 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/nobueno-openapi-original.json
+notes: No official NoBueno MCP server found (searched web + docs). Candidate tool list derived one-per-operation
+  from the public/user surface of the Jungle API (admin operations excluded).
+server:
+  name: nobueno
+  transport: http
+  url: null
+tool_count: 159
+tools:
+- name: bitcoin_list
+  description: GET /bitcoin
+  source_operation: openapi/nobueno-openapi-original.json#bitcoin_list
+- name: categories_list_dropdown
+  description: GET /categories/list
+  source_operation: openapi/nobueno-openapi-original.json#categories_list_dropdown
+- name: categories_read
+  description: GET /categories/{id}
+  source_operation: openapi/nobueno-openapi-original.json#categories_read
+- name: cities_list
+  description: GET /cities
+  source_operation: openapi/nobueno-openapi-original.json#cities_list
+- name: cities_autocomplete
+  description: GET /cities/autocomplete
+  source_operation: openapi/nobueno-openapi-original.json#cities_autocomplete
+- name: cities_list_dropdown
+  description: GET /cities/list
+  source_operation: openapi/nobueno-openapi-original.json#cities_list_dropdown
+- name: cities_read
+  description: GET /cities/{id}
+  source_operation: openapi/nobueno-openapi-original.json#cities_read
+- name: companies_list
+  description: GET /companies
+  source_operation: openapi/nobueno-openapi-original.json#companies_list
+- name: companies_create
+  description: POST /companies
+  source_operation: openapi/nobueno-openapi-original.json#companies_create
+- name: companies_companies_for_employment
+  description: GET /companies/all
+  source_operation: openapi/nobueno-openapi-original.json#companies_companies_for_employment
+- name: companies_companies_list
+  description: GET /companies/list
+  source_operation: openapi/nobueno-openapi-original.json#companies_companies_list
+- name: companies_media_list
+  description: GET /companies/media
+  source_operation: openapi/nobueno-openapi-original.json#companies_media_list
+- name: companies_media_create
+  description: POST /companies/media
+  source_operation: openapi/nobueno-openapi-original.json#companies_media_create
+- name: companies_media_companies_media_list
+  description: GET /companies/media/list
+  source_operation: openapi/nobueno-openapi-original.json#companies_media_companies_media_list
+- name: companies_media_read
+  description: GET /companies/media/{id}
+  source_operation: openapi/nobueno-openapi-original.json#companies_media_read
+- name: companies_media_update
+  description: PUT /companies/media/{id}
+  source_operation: openapi/nobueno-openapi-original.json#companies_media_update
+- name: companies_media_partial_update
+  description: PATCH /companies/media/{id}
+  source_operation: openapi/nobueno-openapi-original.json#companies_media_partial_update
+- name: companies_media_delete
+  description: DELETE /companies/media/{id}
+  source_operation: openapi/nobueno-openapi-original.json#companies_media_delete
+- name: companies_read
+  description: GET /companies/{title}
+  source_operation: openapi/nobueno-openapi-original.json#companies_read
+- name: companies_update
+  description: PUT /companies/{title}
+  source_operation: openapi/nobueno-openapi-original.json#companies_update
+- name: companies_partial_update
+  description: PATCH /companies/{title}
+  source_operation: openapi/nobueno-openapi-original.json#companies_partial_update
+- name: companies_delete
+  description: DELETE /companies/{title}
+  source_operation: openapi/nobueno-openapi-original.json#companies_delete
+- name: countries_list
+  description: GET /countries
+  source_operation: openapi/nobueno-openapi-original.json#countries_list
+- name: countries_list_action
+  description: GET /countries/list
+  source_operation: openapi/nobueno-openapi-original.json#countries_list_action
+- name: credits_request_list
+  description: GET /credits/request
+  source_operation: openapi/nobueno-openapi-original.json#credits_request_list
+- name: credits_request_create
+  description: POST /credits/request
+  source_operation: openapi/nobueno-openapi-original.json#credits_request_create
+- name: credits_request_read
+  description: GET /credits/request/{id}
+  source_operation: openapi/nobueno-openapi-original.json#credits_request_read
+- name: credits_request_update
+  description: PUT /credits/request/{id}
+  source_operation: openapi/nobueno-openapi-original.json#credits_request_update
+- name: credits_request_partial_update
+  description: PATCH /credits/request/{id}
+  source_operation: openapi/nobueno-openapi-original.json#credits_request_partial_update
+- name: credits_request_delete
+  description: DELETE /credits/request/{id}
+  source_operation: openapi/nobueno-openapi-original.json#credits_request_delete
+- name: currencies_list
+  description: GET /currencies
+  source_operation: openapi/nobueno-openapi-original.json#currencies_list
+- name: currencies_convert
+  description: GET /currencies/convert
+  source_operation: openapi/nobueno-openapi-original.json#currencies_convert
+- name: devices_list
+  description: GET /devices/
+  source_operation: openapi/nobueno-openapi-original.json#devices_list
+- name: devices_create
+  description: POST /devices/
+  source_operation: openapi/nobueno-openapi-original.json#devices_create
+- name: devices_read
+  description: GET /devices/{id}/
+  source_operation: openapi/nobueno-openapi-original.json#devices_read
+- name: devices_update
+  description: PUT /devices/{id}/
+  source_operation: openapi/nobueno-openapi-original.json#devices_update
+- name: devices_partial_update
+  description: PATCH /devices/{id}/
+  source_operation: openapi/nobueno-openapi-original.json#devices_partial_update
+- name: devices_delete
+  description: DELETE /devices/{id}/
+  source_operation: openapi/nobueno-openapi-original.json#devices_delete
+- name: fields_read
+  description: GET /fields/{step}
+  source_operation: openapi/nobueno-openapi-original.json#fields_read
+- name: forgot_create
+  description: POST /forgot
+  source_operation: openapi/nobueno-openapi-original.json#forgot_create
+- name: forgot_confirm_create
+  description: POST /forgot/confirm
+  source_operation: openapi/nobueno-openapi-original.json#forgot_confirm_create
+- name: forgot_validate_token_create
+  description: POST /forgot/validate_token
+  source_operation: openapi/nobueno-openapi-original.json#forgot_validate_token_create
+- name: jobs_list
+  description: GET /jobs
+  source_operation: openapi/nobueno-openapi-original.json#jobs_list
+- name: jobs_create
+  description: POST /jobs
+  source_operation: openapi/nobueno-openapi-original.json#jobs_create
+- name: jobs_delete_candidate_match
+  description: DELETE /jobs/candidate-matches/{match_id}
+  source_operation: openapi/nobueno-openapi-original.json#jobs_delete_candidate_match
+- name: jobs_counts
+  description: GET /jobs/counts
+  source_operation: openapi/nobueno-openapi-original.json#jobs_counts
+- name: jobs_disciplines_read
+  description: GET /jobs/disciplines
+  source_operation: openapi/nobueno-openapi-original.json#jobs_disciplines_read
+- name: jobs_disciplines_create
+  description: POST /jobs/disciplines
+  source_operation: openapi/nobueno-openapi-original.json#jobs_disciplines_create
+- name: jobs_disciplines_discipline_notify
+  description: PATCH /jobs/disciplines/{id}/notify
+  source_operation: openapi/nobueno-openapi-original.json#jobs_disciplines_discipline_notify
+- name: jobs_last_job_details
+  description: GET /jobs/last_job_details
+  source_operation: openapi/nobueno-openapi-original.json#jobs_last_job_details
+- name: jobs_job_list
+  description: GET /jobs/list
+  source_operation: openapi/nobueno-openapi-original.json#jobs_job_list
+- name: jobs_matches
+  description: GET /jobs/matches
+  source_operation: openapi/nobueno-openapi-original.json#jobs_matches
+- name: jobs_retrieve_matches_results
+  description: GET /jobs/matches-results
+  source_operation: openapi/nobueno-openapi-original.json#jobs_retrieve_matches_results
+- name: jobs_read
+  description: GET /jobs/{id}
+  source_operation: openapi/nobueno-openapi-original.json#jobs_read
+- name: jobs_update
+  description: PUT /jobs/{id}
+  source_operation: openapi/nobueno-openapi-original.json#jobs_update
+- name: jobs_partial_update
+  description: PATCH /jobs/{id}
+  source_operation: openapi/nobueno-openapi-original.json#jobs_partial_update
+- name: jobs_delete
+  description: DELETE /jobs/{id}
+  source_operation: openapi/nobueno-openapi-original.json#jobs_delete
+- name: jobs_candidate_matches
+  description: GET /jobs/{id}/candidate-matches
+  source_operation: openapi/nobueno-openapi-original.json#jobs_candidate_matches
+- name: jobs_candidates
+  description: GET /jobs/{id}/candidates
+  source_operation: openapi/nobueno-openapi-original.json#jobs_candidates
+- name: jobs_candidates_change_status_candidates
+  description: PATCH /jobs/{id}/candidates/{candidate_id}/change_status
+  source_operation: openapi/nobueno-openapi-original.json#jobs_candidates_change_status_candidates
+- name: jobs_matches_results
+  description: GET /jobs/{id}/matches-results
+  source_operation: openapi/nobueno-openapi-original.json#jobs_matches_results
+- name: jobs_matches_salary_match
+  description: GET /jobs/{id}/matches/salary
+  source_operation: openapi/nobueno-openapi-original.json#jobs_matches_salary_match
+- name: jobs_notify
+  description: PATCH /jobs/{id}/notify
+  source_operation: openapi/nobueno-openapi-original.json#jobs_notify
+- name: jobs_salary
+  description: GET /jobs/{id}/salary
+  source_operation: openapi/nobueno-openapi-original.json#jobs_salary
+- name: jobs_share_job
+  description: POST /jobs/{id}/share
+  source_operation: openapi/nobueno-openapi-original.json#jobs_share_job
+- name: languages_list
+  description: GET /languages
+  source_operation: openapi/nobueno-openapi-original.json#languages_list
+- name: login_create
+  description: POST /login
+  source_operation: openapi/nobueno-openapi-original.json#login_create
+- name: matches_list
+  description: GET /matches
+  source_operation: openapi/nobueno-openapi-original.json#matches_list
+- name: matches_create
+  description: POST /matches
+  source_operation: openapi/nobueno-openapi-original.json#matches_create
+- name: matches_read
+  description: GET /matches/{id}
+  source_operation: openapi/nobueno-openapi-original.json#matches_read
+- name: matches_update
+  description: PUT /matches/{id}
+  source_operation: openapi/nobueno-openapi-original.json#matches_update
+- name: matches_partial_update
+  description: PATCH /matches/{id}
+  source_operation: openapi/nobueno-openapi-original.json#matches_partial_update
+- name: matches_delete
+  description: DELETE /matches/{id}
+  source_operation: openapi/nobueno-openapi-original.json#matches_delete
+- name: me_list
+  description: GET /me
+  source_operation: openapi/nobueno-openapi-original.json#me_list
+- name: me_partial_update
+  description: PATCH /me
+  source_operation: openapi/nobueno-openapi-original.json#me_partial_update
+- name: me_counts_list
+  description: GET /me/counts
+  source_operation: openapi/nobueno-openapi-original.json#me_counts_list
+- name: messages_list
+  description: GET /messages
+  source_operation: openapi/nobueno-openapi-original.json#messages_list
+- name: messages_create
+  description: POST /messages
+  source_operation: openapi/nobueno-openapi-original.json#messages_create
+- name: messages_read
+  description: GET /messages/{id}
+  source_operation: openapi/nobueno-openapi-original.json#messages_read
+- name: messages_update
+  description: PUT /messages/{id}
+  source_operation: openapi/nobueno-openapi-original.json#messages_update
+- name: messages_partial_update
+  description: PATCH /messages/{id}
+  source_operation: openapi/nobueno-openapi-original.json#messages_partial_update
+- name: messages_delete
+  description: DELETE /messages/{id}
+  source_operation: openapi/nobueno-openapi-original.json#messages_delete
+- name: messages_read_messages
+  description: POST /messages/{id}/read_messages
+  source_operation: openapi/nobueno-openapi-original.json#messages_read_messages
+- name: messages_retrieve_messenger
+  description: GET /messages/{id}/retrieve
+  source_operation: openapi/nobueno-openapi-original.json#messages_retrieve_messenger
+- name: messages_review
+  description: POST /messages/{id}/review
+  source_operation: openapi/nobueno-openapi-original.json#messages_review
+- name: messages_send_message
+  description: POST /messages/{id}/send-message
+  source_operation: openapi/nobueno-openapi-original.json#messages_send_message
+- name: notifications_list
+  description: GET /notifications
+  source_operation: openapi/nobueno-openapi-original.json#notifications_list
+- name: notifications_read
+  description: GET /notifications/{id}
+  source_operation: openapi/nobueno-openapi-original.json#notifications_read
+- name: profile_list
+  description: GET /profile
+  source_operation: openapi/nobueno-openapi-original.json#profile_list
+- name: profile_create
+  description: POST /profile
+  source_operation: openapi/nobueno-openapi-original.json#profile_create
+- name: profile_read
+  description: GET /profile/{id}
+  source_operation: openapi/nobueno-openapi-original.json#profile_read
+- name: profile_update
+  description: PUT /profile/{id}
+  source_operation: openapi/nobueno-openapi-original.json#profile_update
+- name: profile_partial_update
+  description: PATCH /profile/{id}
+  source_operation: openapi/nobueno-openapi-original.json#profile_partial_update
+- name: profile_delete
+  description: DELETE /profile/{id}
+  source_operation: openapi/nobueno-openapi-original.json#profile_delete
+- name: public_jobs_list
+  description: GET /public/jobs
+  source_operation: openapi/nobueno-openapi-original.json#public_jobs_list
+- name: public_jobs_read
+  description: GET /public/jobs/{id}
+  source_operation: openapi/nobueno-openapi-original.json#public_jobs_read
+- name: refresh_create
+  description: POST /refresh
+  source_operation: openapi/nobueno-openapi-original.json#refresh_create
+- name: register_create
+  description: POST /register
+  source_operation: openapi/nobueno-openapi-original.json#register_create
+- name: review_list
+  description: GET /review
+  source_operation: openapi/nobueno-openapi-original.json#review_list
+- name: review_create
+  description: POST /review
+  source_operation: openapi/nobueno-openapi-original.json#review_create
+- name: review_read
+  description: GET /review/{id}
+  source_operation: openapi/nobueno-openapi-original.json#review_read
+- name: review_update
+  description: PUT /review/{id}
+  source_operation: openapi/nobueno-openapi-original.json#review_update
+- name: review_partial_update
+  description: PATCH /review/{id}
+  source_operation: openapi/nobueno-openapi-original.json#review_partial_update
+- name: review_delete
+  description: DELETE /review/{id}
+  source_operation: openapi/nobueno-openapi-original.json#review_delete
+- name: roles_list
+  description: GET /roles
+  source_operation: openapi/nobueno-openapi-original.json#roles_list
+- name: roles_create
+  description: POST /roles
+  source_operation: openapi/nobueno-openapi-original.json#roles_create
+- name: roles_read
+  description: GET /roles/{id}
+  source_operation: openapi/nobueno-openapi-original.json#roles_read
+- name: roles_update
+  description: PUT /roles/{id}
+  source_operation: openapi/nobueno-openapi-original.json#roles_update
+- name: roles_partial_update
+  description: PATCH /roles/{id}
+  source_operation: openapi/nobueno-openapi-original.json#roles_partial_update
+- name: roles_delete
+  description: DELETE /roles/{id}
+  source_operation: openapi/nobueno-openapi-original.json#roles_delete
+- name: skill-categories_list
+  description: GET /skill-categories
+  source_operation: openapi/nobueno-openapi-original.json#skill-categories_list
+- name: skill-categories_list_dropdown
+  description: GET /skill-categories/list
+  source_operation: openapi/nobueno-openapi-original.json#skill-categories_list_dropdown
+- name: skill-categories_read
+  description: GET /skill-categories/{id}
+  source_operation: openapi/nobueno-openapi-original.json#skill-categories_read
+- name: skills_list
+  description: GET /skills
+  source_operation: openapi/nobueno-openapi-original.json#skills_list
+- name: skills_create
+  description: POST /skills
+  source_operation: openapi/nobueno-openapi-original.json#skills_create
+- name: skills_read
+  description: GET /skills/{id}
+  source_operation: openapi/nobueno-openapi-original.json#skills_read
+- name: skills_update
+  description: PUT /skills/{id}
+  source_operation: openapi/nobueno-openapi-original.json#skills_update
+- name: skills_partial_update
+  description: PATCH /skills/{id}
+  source_operation: openapi/nobueno-openapi-original.json#skills_partial_update
+- name: skills_delete
+  description: DELETE /skills/{id}
+  source_operation: openapi/nobueno-openapi-original.json#skills_delete
+- name: skills_notify
+  description: PATCH /skills/{id}/notify
+  source_operation: openapi/nobueno-openapi-original.json#skills_notify
+- name: user_block_create
+  description: POST /user_block
+  source_operation: openapi/nobueno-openapi-original.json#user_block_create
+- name: user_block_delete
+  description: DELETE /user_block/{id}
+  source_operation: openapi/nobueno-openapi-original.json#user_block_delete
+- name: user_report_create
+  description: POST /user_report
+  source_operation: openapi/nobueno-openapi-original.json#user_report_create
+- name: users_confirm
+  description: PATCH /users/confirm
+  source_operation: openapi/nobueno-openapi-original.json#users_confirm
+- name: users_delete
+  description: DELETE /users/delete
+  source_operation: openapi/nobueno-openapi-original.json#users_delete
+- name: users_reasons_to_delete
+  description: GET /users/delete-reasons
+  source_operation: openapi/nobueno-openapi-original.json#users_reasons_to_delete
+- name: users_add_employment
+  description: POST /users/employment
+  source_operation: openapi/nobueno-openapi-original.json#users_add_employment
+- name: users_matches
+  description: GET /users/matches
+  source_operation: openapi/nobueno-openapi-original.json#users_matches
+- name: users_matches_salary_matches
+  description: GET /users/matches/salary
+  source_operation: openapi/nobueno-openapi-original.json#users_matches_salary_matches
+- name: users_delete_match
+  description: DELETE /users/matches/{job_id}
+  source_operation: openapi/nobueno-openapi-original.json#users_delete_match
+- name: users_nickname-generation_list
+  description: GET /users/nickname-generation
+  source_operation: openapi/nobueno-openapi-original.json#users_nickname-generation_list
+- name: users_recommended_jobs
+  description: GET /users/recommended-jobs
+  source_operation: openapi/nobueno-openapi-original.json#users_recommended_jobs
+- name: users_recommended_jobs_count
+  description: GET /users/recommended-jobs-count
+  source_operation: openapi/nobueno-openapi-original.json#users_recommended_jobs_count
+- name: users_recommended-jobs_salary
+  description: GET /users/recommended-jobs/salary
+  source_operation: openapi/nobueno-openapi-original.json#users_recommended-jobs_salary
+- name: users_recommended-jobs_job_change_status
+  description: PATCH /users/recommended-jobs/{job_id}/change_status
+  source_operation: openapi/nobueno-openapi-original.json#users_recommended-jobs_job_change_status
+- name: users_resend_confirm
+  description: PATCH /users/resend-confirm
+  source_operation: openapi/nobueno-openapi-original.json#users_resend_confirm
+- name: v2_companies_list
+  description: GET /v2/companies
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_list
+- name: v2_companies_create
+  description: POST /v2/companies
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_create
+- name: v2_companies_companies_for_employment
+  description: GET /v2/companies/all
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_companies_for_employment
+- name: v2_companies_companies_list
+  description: GET /v2/companies/list
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_companies_list
+- name: v2_companies_media_list
+  description: GET /v2/companies/media
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_media_list
+- name: v2_companies_media_create
+  description: POST /v2/companies/media
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_media_create
+- name: v2_companies_media_companies_media_list
+  description: GET /v2/companies/media/all
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_media_companies_media_list
+- name: v2_companies_media_company_media_list
+  description: GET /v2/companies/media/detail
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_media_company_media_list
+- name: v2_companies_media_read
+  description: GET /v2/companies/media/{id}
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_media_read
+- name: v2_companies_media_update
+  description: PUT /v2/companies/media/{id}
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_media_update
+- name: v2_companies_media_partial_update
+  description: PATCH /v2/companies/media/{id}
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_media_partial_update
+- name: v2_companies_media_delete
+  description: DELETE /v2/companies/media/{id}
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_media_delete
+- name: v2_companies_read
+  description: GET /v2/companies/{id}
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_read
+- name: v2_companies_update
+  description: PUT /v2/companies/{id}
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_update
+- name: v2_companies_partial_update
+  description: PATCH /v2/companies/{id}
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_partial_update
+- name: v2_companies_delete
+  description: DELETE /v2/companies/{id}
+  source_operation: openapi/nobueno-openapi-original.json#v2_companies_delete
+- name: webrtc-configs_list
+  description: GET /webrtc-configs
+  source_operation: openapi/nobueno-openapi-original.json#webrtc-configs_list
+- name: work-experience_list
+  description: GET /work-experience
+  source_operation: openapi/nobueno-openapi-original.json#work-experience_list
+- name: work-experience_create
+  description: POST /work-experience
+  source_operation: openapi/nobueno-openapi-original.json#work-experience_create
+- name: work-experience_read
+  description: GET /work-experience/{id}
+  source_operation: openapi/nobueno-openapi-original.json#work-experience_read
+- name: work-experience_update
+  description: PUT /work-experience/{id}
+  source_operation: openapi/nobueno-openapi-original.json#work-experience_update
+- name: work-experience_partial_update
+  description: PATCH /work-experience/{id}
+  source_operation: openapi/nobueno-openapi-original.json#work-experience_partial_update
+- name: work-experience_delete
+  description: DELETE /work-experience/{id}
+  source_operation: openapi/nobueno-openapi-original.json#work-experience_delete

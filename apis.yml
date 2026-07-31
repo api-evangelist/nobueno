@@ -1,7 +1,26 @@
 aid: nobueno
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nobueno.png
 name: NoBueno
-description: NoBueno is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  NoBueno is a job-and-candidate matching platform (a 500 Global portfolio company)
+  built around its Django REST Framework "Jungle API". The API powers job postings,
+  candidate profiles and work experience, hiring-company and employer records, scored
+  job-to-candidate matching, a skills / roles / disciplines taxonomy, recruiter-candidate
+  messaging, and notifications. Authentication is a bearer token obtained via
+  login / register, and list endpoints use page-number pagination with free-text search,
+  ordering, and field-level filtering.
 url: https://raw.githubusercontent.com/api-evangelist/nobueno/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,15 +30,495 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Jobs
+- Recruiting
+- Hiring
+- Talent
+- Matching
+- Human Resources
+- Candidates
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: nobueno:nobueno-admin-api
+  name: NoBueno admin API
+  description: The admin API from NoBueno — 51 operation(s) for admin.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - admin
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-admin-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-bitcoin-api
+  name: NoBueno bitcoin API
+  description: The bitcoin API from NoBueno — 1 operation(s) for bitcoin.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - bitcoin
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-bitcoin-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-categories-api
+  name: NoBueno categories API
+  description: The categories API from NoBueno — 2 operation(s) for categories.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - categories
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-categories-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-cities-api
+  name: NoBueno cities API
+  description: The cities API from NoBueno — 4 operation(s) for cities.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - cities
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-cities-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-companies-api
+  name: NoBueno companies API
+  description: The companies API from NoBueno — 7 operation(s) for companies.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - companies
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-companies-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-countries-api
+  name: NoBueno countries API
+  description: The countries API from NoBueno — 2 operation(s) for countries.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - countries
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-countries-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-credits-api
+  name: NoBueno credits API
+  description: The credits API from NoBueno — 2 operation(s) for credits.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - credits
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-credits-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-currencies-api
+  name: NoBueno currencies API
+  description: The currencies API from NoBueno — 2 operation(s) for currencies.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - currencies
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-currencies-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-devices-api
+  name: NoBueno devices API
+  description: The devices API from NoBueno — 2 operation(s) for devices.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - devices
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-devices-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-fields-api
+  name: NoBueno fields API
+  description: The fields API from NoBueno — 1 operation(s) for fields.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - fields
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-fields-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-forgot-api
+  name: NoBueno forgot API
+  description: The forgot API from NoBueno — 3 operation(s) for forgot.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - forgot
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-forgot-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-jobs-api
+  name: NoBueno jobs API
+  description: The jobs API from NoBueno — 18 operation(s) for jobs.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-languages-api
+  name: NoBueno languages API
+  description: The languages API from NoBueno — 1 operation(s) for languages.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - languages
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-languages-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-login-api
+  name: NoBueno login API
+  description: The login API from NoBueno — 1 operation(s) for login.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - login
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-login-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-matches-api
+  name: NoBueno matches API
+  description: The matches API from NoBueno — 2 operation(s) for matches.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - matches
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-matches-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-me-api
+  name: NoBueno me API
+  description: The me API from NoBueno — 2 operation(s) for me.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - me
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-me-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-messages-api
+  name: NoBueno messages API
+  description: The messages API from NoBueno — 6 operation(s) for messages.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - messages
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-messages-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-notifications-api
+  name: NoBueno notifications API
+  description: The notifications API from NoBueno — 2 operation(s) for notifications.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-profile-api
+  name: NoBueno profile API
+  description: The profile API from NoBueno — 2 operation(s) for profile.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - profile
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-profile-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-public-api
+  name: NoBueno public API
+  description: The public API from NoBueno — 2 operation(s) for public.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - public
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-public-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-refresh-api
+  name: NoBueno refresh API
+  description: The refresh API from NoBueno — 1 operation(s) for refresh.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - refresh
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-refresh-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-register-api
+  name: NoBueno register API
+  description: The register API from NoBueno — 1 operation(s) for register.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - register
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-register-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-review-api
+  name: NoBueno review API
+  description: The review API from NoBueno — 2 operation(s) for review.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - review
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-review-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-roles-api
+  name: NoBueno roles API
+  description: The roles API from NoBueno — 2 operation(s) for roles.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - roles
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-roles-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-skill-categories-api
+  name: NoBueno skill-categories API
+  description: The skill-categories API from NoBueno — 3 operation(s) for skill-categories.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - skill-categories
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-skill-categories-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-skills-api
+  name: NoBueno skills API
+  description: The skills API from NoBueno — 3 operation(s) for skills.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - skills
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-skills-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-user-block-api
+  name: NoBueno user_block API
+  description: The user_block API from NoBueno — 2 operation(s) for user_block.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - user_block
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-user-block-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-user-report-api
+  name: NoBueno user_report API
+  description: The user_report API from NoBueno — 1 operation(s) for user_report.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - user_report
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-user-report-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-users-api
+  name: NoBueno users API
+  description: The users API from NoBueno — 13 operation(s) for users.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - users
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-users-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-v2-api
+  name: NoBueno v2 API
+  description: The v2 API from NoBueno — 8 operation(s) for v2.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - v2
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-v2-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-webrtc-configs-api
+  name: NoBueno webrtc-configs API
+  description: The webrtc-configs API from NoBueno — 1 operation(s) for webrtc-configs.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - webrtc-configs
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-webrtc-configs-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
+- aid: nobueno:nobueno-work-experience-api
+  name: NoBueno work-experience API
+  description: The work-experience API from NoBueno — 2 operation(s) for work-experience.
+  humanURL: https://api.nobueno.com
+  baseURL: https://api.nobueno.com/api
+  tags:
+  - work-experience
+  properties:
+  - type: OpenAPI
+    url: openapi/nobueno-work-experience-api-openapi.yml
+  - type: Documentation
+    url: https://api.nobueno.com
+  - type: APIReference
+    url: https://api.nobueno.com
 common:
+- type: Authentication
+  url: authentication/nobueno-authentication.yml
+- type: Conventions
+  url: conventions/nobueno-conventions.yml
+- type: Lifecycle
+  url: lifecycle/nobueno-lifecycle.yml
+- type: Conformance
+  url: conformance/nobueno-conformance.yml
+- type: DataModel
+  url: data-model/nobueno-data-model.yml
+- type: MCPServer
+  url: mcp/nobueno-mcp.yml
+- type: LLMsTxt
+  url: llms/nobueno-llms.txt
+- type: Overlay
+  url: overlays/nobueno-openapi-overlay.yaml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DomainSecurity
+  url: security/nobueno-domain-security.yml
 - type: Website
   url: https://nobueno.com
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1

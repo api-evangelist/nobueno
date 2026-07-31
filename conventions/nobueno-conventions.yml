@@ -1,0 +1,87 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nobueno-openapi-original.json
+notes: >-
+  Cross-cutting request/response semantics for the NoBueno "Jungle API" (Django REST
+  Framework). Derived from the Swagger 2.0 spec: securityDefinitions, list-response
+  schemas, and query parameters observed across operations. No public conventions doc
+  was found on the provider site.
+
+authentication:
+  style: bearer-token
+  header: Authorization
+  scheme: "Bearer <token>"
+  obtain_via: POST /api/login (login_create) -> access token; POST /api/refresh (refresh_create) to renew
+  additional_headers:
+    - name: Device-Type
+      required: false
+      note: Client device type header (apiKey security scheme Device-type)
+    - name: x-scheme
+      required: false
+      note: Client scheme header (apiKey security scheme x-scheme)
+    - name: x-app-id
+      required: false
+      note: Application identifier header (apiKey security scheme x-app-id)
+  cross_ref: authentication/nobueno-authentication.yml
+
+pagination:
+  style: page-number
+  implementation: Django REST Framework PageNumberPagination
+  request_params:
+    - name: page
+      description: 1-based page index
+    - name: perPage
+      description: Page size (results per page)
+  response_fields:
+    count: Total number of results across all pages
+    next: URI of the next page (null on last page)
+    previous: URI of the previous page (null on first page)
+    results: Array of the page's items
+  applies_to: list endpoints (e.g. jobs_list, companies_list, matches_list, messages_list)
+
+search:
+  param: search
+  implementation: DRF SearchFilter
+  note: Free-text search present on ~63 list operations.
+
+ordering:
+  param: ordering
+  implementation: DRF OrderingFilter
+  note: Field-based sort; prefix with '-' for descending.
+
+filtering:
+  implementation: django-filter field lookups
+  examples:
+    - status
+    - role
+    - country
+    - city
+    - type
+    - created_at
+    - created_at__date
+    - created_at__gte
+    - created_at__lte
+    - created_at__gt
+    - created_at__lt
+
+versioning:
+  scheme: uri-path
+  base_path: /api
+  note: Newer resources are exposed under an explicit /v2 path prefix (e.g. /api/v2/companies) alongside the v1 surface.
+  cross_ref: lifecycle/nobueno-lifecycle.yml
+
+idempotency:
+  supported: false
+  note: No Idempotency-Key header or idempotency contract is documented in the spec. Mutating operations are not advertised as idempotent.
+
+error_envelope:
+  documented: false
+  note: >-
+    The spec declares no explicit 4xx/5xx response schemas. As a standard Django REST
+    Framework service the runtime error envelope is DRF's default JSON ({"detail": "..."}
+    for auth/permission/404, and field-keyed arrays for validation errors), but this is
+    not published in the contract, so no error catalog is asserted.
+
+rate_limit_signaling:
+  documented: false
+  note: No rate-limit headers or throttling policy are documented in the spec or on the public site.

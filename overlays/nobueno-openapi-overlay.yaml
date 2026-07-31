@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for NoBueno (Jungle API)
+  version: 1.0.0
+extends: openapi/nobueno-openapi-original.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: nobueno
+      x-apievangelist-domain: job-and-candidate-matching
+      x-apievangelist-notes: >-
+        Django REST Framework API (drf-yasg). Bearer token auth via Authorization
+        header. Page-number pagination (page/perPage) with count/next/previous/results.
+        v1 base at /api with an in-flight /v2 companies surface.
+  - target: $.info
+    update:
+      x-apievangelist-conventions: conventions/nobueno-conventions.yml
+      x-apievangelist-authentication: authentication/nobueno-authentication.yml
+      x-apievangelist-data-model: data-model/nobueno-data-model.yml

@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nobueno-openapi-original.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: Bearer
+  type: apiKey
+  in: header
+  parameter: Authorization
+  sources:
+  - openapi/nobueno-openapi-original.json
+- name: Device-type
+  type: apiKey
+  in: header
+  parameter: Device-Type
+  sources:
+  - openapi/nobueno-openapi-original.json
+- name: x-scheme
+  type: apiKey
+  in: header
+  parameter: x-scheme
+  sources:
+  - openapi/nobueno-openapi-original.json
+- name: x-app-id
+  type: apiKey
+  in: header
+  parameter: x-app-id
+  sources:
+  - openapi/nobueno-openapi-original.json

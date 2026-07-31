@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/nobueno-openapi-original.json
+notes: >-
+  Packaged Agent Skills for the NoBueno Jungle API. Every step is grounded in a real
+  operationId verified present in the OpenAPI. No provider-published skills/AGENTS.md
+  were found.
+skills:
+  - file: nobueno-candidate-find-and-apply.md
+    name: Find and apply to matched jobs (candidate)
+    api: openapi/nobueno-openapi-original.json
+    operations: [register_create, login_create, refresh_create, me_list, users_recommended_jobs, users_matches, users_recommended-jobs_job_change_status, messages_send_message]
+  - file: nobueno-recruiter-post-and-review.md
+    name: Post a job and review candidate matches (recruiter)
+    api: openapi/nobueno-openapi-original.json
+    operations: [login_create, refresh_create, jobs_create, jobs_read, jobs_candidates, jobs_matches, jobs_share_job]

@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: searched
+notes: >-
+  Probed the /.well-known/ discovery surface on both hosts. nobueno.com is a single-page
+  app that returns its index.html (HTTP 200, text/html) for every path including
+  nonexistent ones, so no /.well-known/ path represents a real discovery document.
+  api.nobueno.com returns 403 for /.well-known/* paths. No genuine well-known documents exist.
+hosts:
+  - host: https://nobueno.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        real: false
+        note: SPA index.html fallback, not a security.txt
+      - path: /.well-known/openid-configuration
+        status: 200
+        real: false
+        note: SPA index.html fallback
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        real: false
+        note: SPA index.html fallback
+      - path: /.well-known/api-catalog
+        status: 200
+        real: false
+        note: SPA index.html fallback
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        real: false
+        note: SPA index.html fallback
+  - host: https://api.nobueno.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        real: false
+      - path: /.well-known/openid-configuration
+        status: 403
+        real: false

@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/nobueno-openapi-original.json
+notes: >-
+  Lifecycle posture derived from the Swagger 2.0 spec. No public versioning policy,
+  deprecation policy, SLA, or status page was found on the NoBueno site (searched).
+
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /api
+  note: >-
+    Primary surface is served at /api (v1). A newer /v2 generation of several resources
+    (companies, company media) is exposed under /api/v2/* alongside the v1 endpoints,
+    indicating an in-flight v1 -> v2 migration.
+  v2_paths:
+    - /api/v2/companies
+    - /api/v2/companies/all
+    - /api/v2/companies/list
+    - /api/v2/companies/media
+    - /api/v2/companies/media/all
+    - /api/v2/companies/media/detail
+    - /api/v2/companies/{id}
+
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No deprecation policy or RFC 8594 Sunset/Deprecation header support documented.
+
+sla:
+  url: null
+  uptime_target: null
+
+status_page: null
+
+deprecated_operations: []
