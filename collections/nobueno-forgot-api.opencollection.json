@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jungle admin forgot API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "forgot",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "forgot_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/forgot"
+          }
+        },
+        {
+          "info": {
+            "name": "forgot_confirm_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/forgot/confirm"
+          }
+        },
+        {
+          "info": {
+            "name": "forgot_validate_token_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/forgot/validate_token"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

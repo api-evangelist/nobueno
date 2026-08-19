@@ -1,0 +1,28 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jungle admin user_report API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user_report",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "user_report_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/user_report"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

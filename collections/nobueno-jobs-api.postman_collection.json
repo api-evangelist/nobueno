@@ -1,0 +1,2452 @@
+{
+  "item": [
+    {
+      "id": "57ed91f3-bf88-4d1e-9cd6-4757213371a0",
+      "name": "jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "48ff9d2a-dddf-48e2-93f2-2ab3735c5776",
+          "name": "jobs list",
+          "request": {
+            "name": "jobs list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f3c057b-4614-44a2-8119-36b2a172bd86",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7101,\n  \"results\": [\n    {\n      \"title\": {\n        \"title\": \"string\",\n        \"id\": 8089,\n        \"status\": \"accepted\"\n      },\n      \"country\": {\n        \"title\": \"string\",\n        \"code\": \"st\",\n        \"id\": 5987\n      },\n      \"city\": {\n        \"title\": \"string\",\n        \"code\": \"string\",\n        \"id\": 9099\n      },\n      \"opportunity_type\": \"internship\",\n      \"location_type\": \"remote_and_location\",\n      \"id\": 2418,\n      \"description\": \"string\",\n      \"is_active\": false,\n      \"is_public\": false,\n      \"salary\": \"string\",\n      \"talents\": \"string\",\n      \"created_at\": \"1963-06-02T03:30:38.972Z\",\n      \"review\": \"declined\",\n      \"updated_at\": \"1998-06-14T19:21:40.676Z\",\n      \"company\": \"string\",\n      \"salary_currency\": \"string\"\n    },\n    {\n      \"title\": {\n        \"title\": \"string\",\n        \"id\": 8089,\n        \"status\": \"accepted\"\n      },\n      \"country\": {\n        \"title\": \"string\",\n        \"code\": \"s\",\n        \"id\": 5759\n      },\n      \"city\": {\n        \"title\": \"string\",\n        \"code\": \"string\",\n        \"id\": 3291\n      },\n      \"opportunity_type\": \"freelance\",\n      \"location_type\": \"remote_only\",\n      \"id\": 1301,\n      \"description\": \"string\",\n      \"is_active\": false,\n      \"is_public\": true,\n      \"salary\": \"string\",\n      \"talents\": \"string\",\n      \"created_at\": \"2007-06-10T05:55:22.541Z\",\n      \"review\": \"accepted\",\n      \"updated_at\": \"1964-04-19T14:36:56.062Z\",\n      \"company\": \"string\",\n      \"salary_currency\": \"string\"\n    }\n  ],\n  \"next\": \"http://hzVMk.bnwvNoUvhSIUrvMTKseArQE1ApFctMcOEdl\",\n  \"previous\": \"http://bXcTJMNQkMufmkiYgdOovFeIVdRANIXrf.pnpL.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f331874b-9cc5-4f27-972d-4807cb7ba0ee",
+          "name": "jobs create",
+          "request": {
+            "name": "jobs create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"technical_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"working_years\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"opportunity_type\": \"<string>\",\n  \"company\": \"<integer>\",\n  \"personalities\": {\n    \"key_0\": \"<string>\"\n  },\n  \"location_type\": \"<string>\",\n  \"values\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"compensation\": {\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"show_salary\": \"<boolean>\",\n    \"salary_currency\": \"<integer>\"\n  },\n  \"title\": \"<integer>\",\n  \"city\": \"<integer>\",\n  \"matches\": {\n    \"values_match\": \"<integer>\",\n    \"personalities_match\": \"<integer>\",\n    \"technical_skill\": \"<integer>\",\n    \"soft_skill\": \"<integer>\",\n    \"language\": \"<integer>\",\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"salary_currency\": \"<integer>\",\n    \"show_salary\": \"<boolean>\"\n  },\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df4d6424-420d-41a9-bd73-d7e845e337f6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": {\n    \"title\": \"string\",\n    \"id\": 9756,\n    \"status\": \"accepted\"\n  },\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"st\",\n    \"id\": 5726\n  },\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 3398\n  },\n  \"opportunity_type\": \"part_time\",\n  \"location_type\": \"remote_and_location\",\n  \"id\": 3102,\n  \"description\": \"string\",\n  \"is_active\": false,\n  \"is_public\": false,\n  \"salary\": \"string\",\n  \"talents\": \"string\",\n  \"created_at\": \"1990-02-04T01:28:58.604Z\",\n  \"review\": \"pending\",\n  \"updated_at\": \"1982-10-25T05:03:38.439Z\",\n  \"company\": \"string\",\n  \"salary_currency\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1f3e143-dddf-4070-a93e-1d0f71c81bdd",
+          "name": "jobs delete candidate match",
+          "request": {
+            "name": "jobs delete candidate match",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "candidate-matches",
+                ":match_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "match_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e64d2f01-c9be-498f-86b7-d01d30619b73",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "candidate-matches",
+                    ":match_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "match_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b474ede8-b5c3-40cd-82af-aa7c84baa005",
+          "name": "jobs counts",
+          "request": {
+            "name": "jobs counts",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "counts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b166f70-090d-4fba-b434-7a0c2de09385",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "counts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4717,\n  \"results\": [\n    {\n      \"active\": 2974,\n      \"inactive\": 7788\n    },\n    {\n      \"active\": 8438,\n      \"inactive\": 142\n    }\n  ],\n  \"next\": \"http://AN.jhrh3ZTUbMgYWt2L+JLjEA\",\n  \"previous\": \"http://ykqycyeMTJoTaBvn.vchhbClWCtzkb\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2927d77b-0be2-4d44-9727-19e685813846",
+          "name": "jobs disciplines read",
+          "request": {
+            "name": "jobs disciplines read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "disciplines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "080c72d2-d9f3-4fa6-b1bf-f125ee4c9c46",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "disciplines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9010,\n  \"results\": [\n    {\n      \"title\": \"string\",\n      \"id\": 7035,\n      \"status\": \"pending\",\n      \"created_at\": \"2015-06-03T20:06:37.142Z\"\n    },\n    {\n      \"title\": \"string\",\n      \"id\": 9902,\n      \"status\": \"accepted\",\n      \"created_at\": \"1992-11-14T22:52:41.925Z\"\n    }\n  ],\n  \"next\": \"https://VFcvIjoQD.uyxkUQi.o7K8bGUKa+Ze1QzhCKB1XFrkTMDRP7fGqlbjLp2\",\n  \"previous\": \"https://RqhfBYBYXoAkBijhTjzKpA.gyJq-wNS2\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3bae2b4-b1f6-4b22-908b-b1da382391f0",
+          "name": "jobs disciplines create",
+          "request": {
+            "name": "jobs disciplines create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "disciplines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bd2a2fa5-e429-4987-ad68-288d95c9d6de",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "disciplines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"id\": 2479,\n  \"status\": \"pending\",\n  \"created_at\": \"1952-01-20T12:08:34.432Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6acc84fd-c8c6-4245-9c09-219fc5b6ecc9",
+          "name": "jobs disciplines discipline notify",
+          "request": {
+            "name": "jobs disciplines discipline notify",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "disciplines",
+                ":id",
+                "notify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"technical_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"working_years\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"opportunity_type\": \"<string>\",\n  \"company\": \"<integer>\",\n  \"personalities\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location_type\": \"<string>\",\n  \"values\": {\n    \"key_0\": \"<string>\"\n  },\n  \"compensation\": {\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"show_salary\": \"<boolean>\",\n    \"salary_currency\": \"<integer>\"\n  },\n  \"title\": \"<integer>\",\n  \"city\": \"<integer>\",\n  \"matches\": {\n    \"values_match\": \"<integer>\",\n    \"personalities_match\": \"<integer>\",\n    \"technical_skill\": \"<integer>\",\n    \"soft_skill\": \"<integer>\",\n    \"language\": \"<integer>\",\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"salary_currency\": \"<integer>\",\n    \"show_salary\": \"<boolean>\"\n  },\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "787e5296-54fb-4e98-9136-12b4243622c1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "disciplines",
+                    ":id",
+                    "notify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": {\n    \"title\": \"string\",\n    \"id\": 9756,\n    \"status\": \"accepted\"\n  },\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"st\",\n    \"id\": 5726\n  },\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 3398\n  },\n  \"opportunity_type\": \"part_time\",\n  \"location_type\": \"remote_and_location\",\n  \"id\": 3102,\n  \"description\": \"string\",\n  \"is_active\": false,\n  \"is_public\": false,\n  \"salary\": \"string\",\n  \"talents\": \"string\",\n  \"created_at\": \"1990-02-04T01:28:58.604Z\",\n  \"review\": \"pending\",\n  \"updated_at\": \"1982-10-25T05:03:38.439Z\",\n  \"company\": \"string\",\n  \"salary_currency\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96949c93-f0b7-4296-89d1-4fe4c7fe77f2",
+          "name": "jobs last job details",
+          "request": {
+            "name": "jobs last job details",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "last_job_details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b234979e-ecf6-4579-b5bd-93ce98dc3582",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "last_job_details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2276,\n  \"results\": [\n    {\n      \"fields\": \"string\",\n      \"id\": 3574\n    },\n    {\n      \"fields\": \"string\",\n      \"id\": 3028\n    }\n  ],\n  \"next\": \"https://BhbJiYPjkXXLeEqKluxknYsVHVHt.mqeLcczNlZEpi,RAToEDhXued37XzmllqctqcqZ,jeie7yfLp7zb\",\n  \"previous\": \"http://xRQamjkMdigsCWWDgn.uhxeD2UxzmgVO9v2N\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e766bbce-e4ae-4312-9268-3c3d20977ce9",
+          "name": "jobs job list",
+          "request": {
+            "name": "jobs job list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "820c8500-8bce-4dcc-8813-59dc08aa2da6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8382,\n  \"results\": [\n    {\n      \"value\": 5628,\n      \"label\": \"string\"\n    },\n    {\n      \"value\": 5346,\n      \"label\": \"string\"\n    }\n  ],\n  \"next\": \"https://d.orpBj-uSS+pESwL031typM1+dMUYr,bJPFwTySxDcFBYfeRl06cZwfE\",\n  \"previous\": \"https://mZCSYRqcARnkFioZfFPe.emisuq39aBFMjhcOnkZ692tFTUVwkwjDZX4fCvE26mxEIK6FGoSs1Kld,HLlub5D\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72bd0880-554f-4d40-881b-37f664c03ffc",
+          "name": "jobs matches",
+          "request": {
+            "name": "jobs matches",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "matches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04a5cee4-2010-42e4-9003-a1d5ce5a0304",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "matches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7101,\n  \"results\": [\n    {\n      \"title\": {\n        \"title\": \"string\",\n        \"id\": 8089,\n        \"status\": \"accepted\"\n      },\n      \"country\": {\n        \"title\": \"string\",\n        \"code\": \"st\",\n        \"id\": 5987\n      },\n      \"city\": {\n        \"title\": \"string\",\n        \"code\": \"string\",\n        \"id\": 9099\n      },\n      \"opportunity_type\": \"internship\",\n      \"location_type\": \"remote_and_location\",\n      \"id\": 2418,\n      \"description\": \"string\",\n      \"is_active\": false,\n      \"is_public\": false,\n      \"salary\": \"string\",\n      \"talents\": \"string\",\n      \"created_at\": \"1963-06-02T03:30:38.972Z\",\n      \"review\": \"declined\",\n      \"updated_at\": \"1998-06-14T19:21:40.676Z\",\n      \"company\": \"string\",\n      \"salary_currency\": \"string\"\n    },\n    {\n      \"title\": {\n        \"title\": \"string\",\n        \"id\": 8089,\n        \"status\": \"accepted\"\n      },\n      \"country\": {\n        \"title\": \"string\",\n        \"code\": \"s\",\n        \"id\": 5759\n      },\n      \"city\": {\n        \"title\": \"string\",\n        \"code\": \"string\",\n        \"id\": 3291\n      },\n      \"opportunity_type\": \"freelance\",\n      \"location_type\": \"remote_only\",\n      \"id\": 1301,\n      \"description\": \"string\",\n      \"is_active\": false,\n      \"is_public\": true,\n      \"salary\": \"string\",\n      \"talents\": \"string\",\n      \"created_at\": \"2007-06-10T05:55:22.541Z\",\n      \"review\": \"accepted\",\n      \"updated_at\": \"1964-04-19T14:36:56.062Z\",\n      \"company\": \"string\",\n      \"salary_currency\": \"string\"\n    }\n  ],\n  \"next\": \"http://hzVMk.bnwvNoUvhSIUrvMTKseArQE1ApFctMcOEdl\",\n  \"previous\": \"http://bXcTJMNQkMufmkiYgdOovFeIVdRANIXrf.pnpL.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "242382b4-057b-4fdc-84e8-c502b13736fe",
+          "name": "jobs retrieve matches results",
+          "request": {
+            "name": "jobs retrieve matches results",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "matches-results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26714fbc-29f0-4481-9cad-9874e8ee2955",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "matches-results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1484,\n  \"results\": [\n    {\n      \"id\": 5866,\n      \"country\": {\n        \"title\": \"string\",\n        \"code\": \"st\",\n        \"id\": 6186\n      },\n      \"freelance_salary\": \"string\",\n      \"updated_at\": \"1992-08-20T00:15:01.353Z\",\n      \"city\": {\n        \"title\": \"string\",\n        \"code\": \"string\",\n        \"id\": 2852\n      },\n      \"user_id\": 6420,\n      \"nickname\": \"string\",\n      \"name\": \"string\",\n      \"matched_technical_skills\": [\n        {\n          \"title\": \"string\",\n          \"id\": 4896,\n          \"status\": \"accepted\",\n          \"type\": \"technical\",\n          \"created_at\": \"2011-12-31T19:24:46.696Z\",\n          \"reason\": \"string\",\n          \"category_id\": \"string\"\n        },\n        {\n          \"title\": \"string\",\n          \"id\": 1205,\n          \"status\": \"accepted\",\n          \"type\": \"technical\",\n          \"created_at\": \"1978-08-02T05:36:40.624Z\",\n          \"reason\": \"string\",\n          \"category_id\": \"string\"\n        }\n      ],\n      \"job_title\": \"string\",\n      \"technical_score\": \"string\",\n      \"chat\": \"string\",\n      \"minimum_salaries\": \"string\",\n      \"value_score\": \"string\",\n      \"soft_score\": \"string\",\n      \"language_score\": \"string\",\n      \"personal_score\": \"string\",\n      \"candidate_status\": \"string\",\n      \"working_years\": 909080305,\n      \"best_match\": \"string\",\n      \"match_id\": \"string\"\n    },\n    {\n      \"id\": 543,\n      \"country\": {\n        \"title\": \"string\",\n        \"code\": \"st\",\n        \"id\": 5282\n      },\n      \"freelance_salary\": \"string\",\n      \"updated_at\": \"1996-08-11T00:15:03.002Z\",\n      \"city\": {\n        \"title\": \"string\",\n        \"code\": \"string\",\n        \"id\": 3532\n      },\n      \"user_id\": 4823,\n      \"nickname\": \"string\",\n      \"name\": \"string\",\n      \"matched_technical_skills\": [\n        {\n          \"title\": \"string\",\n          \"id\": 6118,\n          \"status\": \"pending\",\n          \"type\": \"technical\",\n          \"created_at\": \"1962-10-05T14:13:15.909Z\",\n          \"reason\": \"string\",\n          \"category_id\": \"string\"\n        },\n        {\n          \"title\": \"string\",\n          \"id\": 2440,\n          \"status\": \"accepted\",\n          \"type\": \"technical\",\n          \"created_at\": \"1993-10-19T16:15:43.166Z\",\n          \"reason\": \"string\",\n          \"category_id\": \"string\"\n        }\n      ],\n      \"job_title\": \"string\",\n      \"technical_score\": \"string\",\n      \"chat\": \"string\",\n      \"minimum_salaries\": \"string\",\n      \"value_score\": \"string\",\n      \"soft_score\": \"string\",\n      \"language_score\": \"string\",\n      \"personal_score\": \"string\",\n      \"candidate_status\": \"string\",\n      \"working_years\": 2129949429,\n      \"best_match\": \"string\",\n      \"match_id\": \"string\"\n    }\n  ],\n  \"next\": \"https://EbXbEcHbIwQeTbdylfFWX.nombU65A9NK2j0B3fO69BSwPHAyQxUY7bsnF1L780+xIq5qwi3sWK\",\n  \"previous\": \"https://FPtPqsZBqqdWEeZvXdzEfkT.rhfGcrc1bK1MtdjNBzZtaOfe02v5k5N,bZcG+sOLyHCJRHNG,j7cF-Js\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21b37189-a50e-40bf-94b1-12ce514ac1e1",
+          "name": "jobs read",
+          "request": {
+            "name": "jobs read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36c0f40c-9a69-4929-8eb5-9727f8603f0b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": {\n    \"title\": \"string\",\n    \"id\": 4167,\n    \"status\": \"pending\"\n  },\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"s\",\n    \"id\": 9902\n  },\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 2017\n  },\n  \"technical_skills\": [\n    {\n      \"title\": \"st\",\n      \"id\": 8110,\n      \"status\": \"pending\",\n      \"type\": \"technical\",\n      \"created_at\": \"2010-04-04T04:43:05.845Z\",\n      \"reason\": \"string\",\n      \"category_id\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"id\": 6540,\n      \"status\": \"pending\",\n      \"type\": \"technical\",\n      \"created_at\": \"2012-08-15T07:09:16.597Z\",\n      \"reason\": \"string\",\n      \"category_id\": \"string\"\n    }\n  ],\n  \"soft_skills\": [\n    {\n      \"title\": \"string\",\n      \"id\": 5076,\n      \"status\": \"accepted\",\n      \"type\": \"technical\",\n      \"created_at\": \"1969-05-03T01:12:18.031Z\",\n      \"reason\": \"string\",\n      \"category_id\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"id\": 832,\n      \"status\": \"declined\",\n      \"type\": \"technical\",\n      \"created_at\": \"2015-06-23T06:19:12.157Z\",\n      \"reason\": \"string\",\n      \"category_id\": \"string\"\n    }\n  ],\n  \"languages\": [\n    {\n      \"title\": \"string\",\n      \"id\": 2738\n    },\n    {\n      \"title\": \"string\",\n      \"id\": 2098\n    }\n  ],\n  \"matches\": {\n    \"salary_currency\": {\n      \"title\": \"string\",\n      \"name\": \"string\",\n      \"id\": 4371,\n      \"rates\": \"string\"\n    },\n    \"values_match\": 1661586278,\n    \"personalities_match\": 1816514237,\n    \"technical_skill\": 1723381013,\n    \"soft_skill\": 1257793652,\n    \"language\": -737786686,\n    \"salary\": \"string\",\n    \"show_salary\": true\n  },\n  \"working_years\": -1141729658,\n  \"opportunity_type\": \"internship\",\n  \"location_type\": \"remote_only\",\n  \"id\": 623,\n  \"description\": \"string\",\n  \"is_active\": true,\n  \"salary\": -417160034,\n  \"company\": \"string\",\n  \"updated_at\": \"1994-05-14T10:28:08.019Z\",\n  \"values\": \"string\",\n  \"personalities\": \"string\",\n  \"review\": \"declined\",\n  \"created_at\": \"2016-07-18T10:03:01.149Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d87decd4-67e4-4b3e-bd8d-c2e3075efedc",
+          "name": "jobs update",
+          "request": {
+            "name": "jobs update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"technical_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"working_years\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"opportunity_type\": \"<string>\",\n  \"company\": \"<integer>\",\n  \"personalities\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location_type\": \"<string>\",\n  \"values\": {\n    \"key_0\": \"<string>\"\n  },\n  \"compensation\": {\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"show_salary\": \"<boolean>\",\n    \"salary_currency\": \"<integer>\"\n  },\n  \"title\": \"<integer>\",\n  \"city\": \"<integer>\",\n  \"matches\": {\n    \"values_match\": \"<integer>\",\n    \"personalities_match\": \"<integer>\",\n    \"technical_skill\": \"<integer>\",\n    \"soft_skill\": \"<integer>\",\n    \"language\": \"<integer>\",\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"salary_currency\": \"<integer>\",\n    \"show_salary\": \"<boolean>\"\n  },\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9af1f896-31f5-4663-aa6e-e4158686854f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": {\n    \"title\": \"string\",\n    \"id\": 9756,\n    \"status\": \"accepted\"\n  },\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"st\",\n    \"id\": 5726\n  },\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 3398\n  },\n  \"opportunity_type\": \"part_time\",\n  \"location_type\": \"remote_and_location\",\n  \"id\": 3102,\n  \"description\": \"string\",\n  \"is_active\": false,\n  \"is_public\": false,\n  \"salary\": \"string\",\n  \"talents\": \"string\",\n  \"created_at\": \"1990-02-04T01:28:58.604Z\",\n  \"review\": \"pending\",\n  \"updated_at\": \"1982-10-25T05:03:38.439Z\",\n  \"company\": \"string\",\n  \"salary_currency\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a7229b2-6617-4774-8001-59997fd4c92b",
+          "name": "jobs partial update",
+          "request": {
+            "name": "jobs partial update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"technical_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"working_years\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"opportunity_type\": \"<string>\",\n  \"company\": \"<integer>\",\n  \"personalities\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location_type\": \"<string>\",\n  \"values\": {\n    \"key_0\": \"<string>\"\n  },\n  \"compensation\": {\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"show_salary\": \"<boolean>\",\n    \"salary_currency\": \"<integer>\"\n  },\n  \"title\": \"<integer>\",\n  \"city\": \"<integer>\",\n  \"matches\": {\n    \"values_match\": \"<integer>\",\n    \"personalities_match\": \"<integer>\",\n    \"technical_skill\": \"<integer>\",\n    \"soft_skill\": \"<integer>\",\n    \"language\": \"<integer>\",\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"salary_currency\": \"<integer>\",\n    \"show_salary\": \"<boolean>\"\n  },\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9eb8eb12-72ae-4b8b-a42f-139610638118",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": {\n    \"title\": \"string\",\n    \"id\": 9756,\n    \"status\": \"accepted\"\n  },\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"st\",\n    \"id\": 5726\n  },\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 3398\n  },\n  \"opportunity_type\": \"part_time\",\n  \"location_type\": \"remote_and_location\",\n  \"id\": 3102,\n  \"description\": \"string\",\n  \"is_active\": false,\n  \"is_public\": false,\n  \"salary\": \"string\",\n  \"talents\": \"string\",\n  \"created_at\": \"1990-02-04T01:28:58.604Z\",\n  \"review\": \"pending\",\n  \"updated_at\": \"1982-10-25T05:03:38.439Z\",\n  \"company\": \"string\",\n  \"salary_currency\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "488b80c4-f18a-4a49-830d-d0acd66da53b",
+          "name": "jobs delete",
+          "request": {
+            "name": "jobs delete",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88ea0226-2497-420b-ae85-ec0272884216",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a4e219d-921f-40e6-9187-9779ce718acb",
+          "name": "jobs candidate matches",
+          "request": {
+            "name": "jobs candidate matches",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id",
+                "candidate-matches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d6ab1a8-c9b7-4a25-9398-03e4dba729f5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id",
+                    "candidate-matches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6818,\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"s\",\n    \"id\": 8834\n  },\n  \"freelance_salary\": \"string\",\n  \"updated_at\": \"1954-08-28T17:44:17.648Z\",\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 6495\n  },\n  \"user_id\": 499,\n  \"nickname\": \"string\",\n  \"name\": \"string\",\n  \"matched_technical_skills\": [\n    {\n      \"title\": \"string\",\n      \"id\": 9095,\n      \"status\": \"pending\",\n      \"type\": \"technical\",\n      \"created_at\": \"2002-01-20T00:38:19.170Z\",\n      \"reason\": \"string\",\n      \"category_id\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"id\": 4668,\n      \"status\": \"pending\",\n      \"type\": \"technical\",\n      \"created_at\": \"1999-11-16T03:46:05.475Z\",\n      \"reason\": \"string\",\n      \"category_id\": \"string\"\n    }\n  ],\n  \"job_title\": \"string\",\n  \"technical_score\": \"string\",\n  \"chat\": \"string\",\n  \"minimum_salaries\": \"string\",\n  \"value_score\": \"string\",\n  \"soft_score\": \"string\",\n  \"language_score\": \"string\",\n  \"personal_score\": \"string\",\n  \"candidate_status\": \"string\",\n  \"working_years\": 46140296,\n  \"best_match\": \"string\",\n  \"match_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc8a4f40-4a09-4cd8-92e8-c395705f6cb9",
+          "name": "jobs candidates",
+          "request": {
+            "name": "jobs candidates",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id",
+                "candidates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19d46fa4-b46a-478f-b25f-1c3d12e1f2bf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id",
+                    "candidates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6818,\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"s\",\n    \"id\": 8834\n  },\n  \"freelance_salary\": \"string\",\n  \"updated_at\": \"1954-08-28T17:44:17.648Z\",\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 6495\n  },\n  \"user_id\": 499,\n  \"nickname\": \"string\",\n  \"name\": \"string\",\n  \"matched_technical_skills\": [\n    {\n      \"title\": \"string\",\n      \"id\": 9095,\n      \"status\": \"pending\",\n      \"type\": \"technical\",\n      \"created_at\": \"2002-01-20T00:38:19.170Z\",\n      \"reason\": \"string\",\n      \"category_id\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"id\": 4668,\n      \"status\": \"pending\",\n      \"type\": \"technical\",\n      \"created_at\": \"1999-11-16T03:46:05.475Z\",\n      \"reason\": \"string\",\n      \"category_id\": \"string\"\n    }\n  ],\n  \"job_title\": \"string\",\n  \"technical_score\": \"string\",\n  \"chat\": \"string\",\n  \"minimum_salaries\": \"string\",\n  \"value_score\": \"string\",\n  \"soft_score\": \"string\",\n  \"language_score\": \"string\",\n  \"personal_score\": \"string\",\n  \"candidate_status\": \"string\",\n  \"working_years\": 46140296,\n  \"best_match\": \"string\",\n  \"match_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea1d5823-6e76-4e35-9203-43e52b3662c7",
+          "name": "jobs candidates change status candidates",
+          "request": {
+            "name": "jobs candidates change status candidates",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id",
+                "candidates",
+                ":candidate_id",
+                "change_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "candidate_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"job_status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4045b94d-2cac-49f5-8546-5d36ca9830ad",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id",
+                    "candidates",
+                    ":candidate_id",
+                    "change_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "candidate_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"job_status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9f3d869-21ff-4f0a-9b23-fe59f4f530b4",
+          "name": "jobs matches results",
+          "request": {
+            "name": "jobs matches results",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id",
+                "matches-results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32b9939c-6e72-4738-8cdc-01a76f4f0cf7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id",
+                    "matches-results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6818,\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"s\",\n    \"id\": 8834\n  },\n  \"freelance_salary\": \"string\",\n  \"updated_at\": \"1954-08-28T17:44:17.648Z\",\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 6495\n  },\n  \"user_id\": 499,\n  \"nickname\": \"string\",\n  \"name\": \"string\",\n  \"matched_technical_skills\": [\n    {\n      \"title\": \"string\",\n      \"id\": 9095,\n      \"status\": \"pending\",\n      \"type\": \"technical\",\n      \"created_at\": \"2002-01-20T00:38:19.170Z\",\n      \"reason\": \"string\",\n      \"category_id\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"id\": 4668,\n      \"status\": \"pending\",\n      \"type\": \"technical\",\n      \"created_at\": \"1999-11-16T03:46:05.475Z\",\n      \"reason\": \"string\",\n      \"category_id\": \"string\"\n    }\n  ],\n  \"job_title\": \"string\",\n  \"technical_score\": \"string\",\n  \"chat\": \"string\",\n  \"minimum_salaries\": \"string\",\n  \"value_score\": \"string\",\n  \"soft_score\": \"string\",\n  \"language_score\": \"string\",\n  \"personal_score\": \"string\",\n  \"candidate_status\": \"string\",\n  \"working_years\": 46140296,\n  \"best_match\": \"string\",\n  \"match_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb856c8c-dd85-4981-99d8-426b49843f91",
+          "name": "jobs matches salary match",
+          "request": {
+            "name": "jobs matches salary match",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id",
+                "matches",
+                "salary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57e0858d-4113-483c-b155-139c6c700d5f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id",
+                    "matches",
+                    "salary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": {\n    \"title\": \"string\",\n    \"id\": 9756,\n    \"status\": \"accepted\"\n  },\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"st\",\n    \"id\": 5726\n  },\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 3398\n  },\n  \"opportunity_type\": \"part_time\",\n  \"location_type\": \"remote_and_location\",\n  \"id\": 3102,\n  \"description\": \"string\",\n  \"is_active\": false,\n  \"is_public\": false,\n  \"salary\": \"string\",\n  \"talents\": \"string\",\n  \"created_at\": \"1990-02-04T01:28:58.604Z\",\n  \"review\": \"pending\",\n  \"updated_at\": \"1982-10-25T05:03:38.439Z\",\n  \"company\": \"string\",\n  \"salary_currency\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10e1cc92-6043-4ceb-ad5e-6ec6d6081d69",
+          "name": "jobs notify",
+          "request": {
+            "name": "jobs notify",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id",
+                "notify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"technical_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"working_years\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"opportunity_type\": \"<string>\",\n  \"company\": \"<integer>\",\n  \"personalities\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location_type\": \"<string>\",\n  \"values\": {\n    \"key_0\": \"<string>\"\n  },\n  \"compensation\": {\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"show_salary\": \"<boolean>\",\n    \"salary_currency\": \"<integer>\"\n  },\n  \"title\": \"<integer>\",\n  \"city\": \"<integer>\",\n  \"matches\": {\n    \"values_match\": \"<integer>\",\n    \"personalities_match\": \"<integer>\",\n    \"technical_skill\": \"<integer>\",\n    \"soft_skill\": \"<integer>\",\n    \"language\": \"<integer>\",\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"salary_currency\": \"<integer>\",\n    \"show_salary\": \"<boolean>\"\n  },\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "530bf38e-c382-4305-b0d8-b5fbc4b04eb1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id",
+                    "notify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": {\n    \"title\": \"string\",\n    \"id\": 9756,\n    \"status\": \"accepted\"\n  },\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"st\",\n    \"id\": 5726\n  },\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 3398\n  },\n  \"opportunity_type\": \"part_time\",\n  \"location_type\": \"remote_and_location\",\n  \"id\": 3102,\n  \"description\": \"string\",\n  \"is_active\": false,\n  \"is_public\": false,\n  \"salary\": \"string\",\n  \"talents\": \"string\",\n  \"created_at\": \"1990-02-04T01:28:58.604Z\",\n  \"review\": \"pending\",\n  \"updated_at\": \"1982-10-25T05:03:38.439Z\",\n  \"company\": \"string\",\n  \"salary_currency\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a118ad74-8d81-46b2-bd1a-d6dbd2b582ef",
+          "name": "jobs salary",
+          "request": {
+            "name": "jobs salary",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id",
+                "salary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0601ebed-8d00-4d17-a51e-392e74e1f919",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id",
+                    "salary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": {\n    \"title\": \"string\",\n    \"id\": 9756,\n    \"status\": \"accepted\"\n  },\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"st\",\n    \"id\": 5726\n  },\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 3398\n  },\n  \"opportunity_type\": \"part_time\",\n  \"location_type\": \"remote_and_location\",\n  \"id\": 3102,\n  \"description\": \"string\",\n  \"is_active\": false,\n  \"is_public\": false,\n  \"salary\": \"string\",\n  \"talents\": \"string\",\n  \"created_at\": \"1990-02-04T01:28:58.604Z\",\n  \"review\": \"pending\",\n  \"updated_at\": \"1982-10-25T05:03:38.439Z\",\n  \"company\": \"string\",\n  \"salary_currency\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4376a73-8d0f-46e4-8bdf-6fa2a7004475",
+          "name": "jobs share job",
+          "request": {
+            "name": "jobs share job",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                ":id",
+                "share"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"technical_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"working_years\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"opportunity_type\": \"<string>\",\n  \"company\": \"<integer>\",\n  \"personalities\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location_type\": \"<string>\",\n  \"values\": {\n    \"key_0\": \"<string>\"\n  },\n  \"compensation\": {\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"show_salary\": \"<boolean>\",\n    \"salary_currency\": \"<integer>\"\n  },\n  \"title\": \"<integer>\",\n  \"city\": \"<integer>\",\n  \"matches\": {\n    \"values_match\": \"<integer>\",\n    \"personalities_match\": \"<integer>\",\n    \"technical_skill\": \"<integer>\",\n    \"soft_skill\": \"<integer>\",\n    \"language\": \"<integer>\",\n    \"salary\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"salary_currency\": \"<integer>\",\n    \"show_salary\": \"<boolean>\"\n  },\n  \"is_active\": \"<boolean>\",\n  \"is_public\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2af44491-33f9-4eb5-ad3c-aa90ec53bcba",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":id",
+                    "share"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"emails\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nobueno.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f4ead375-0635-4e85-82c4-d97fe1f716f4",
+    "name": "Jungle admin jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Here magic happens\n\nContact Support:\n Email: mindru.ion97@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

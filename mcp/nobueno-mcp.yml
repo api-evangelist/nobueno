@@ -487,3 +487,9 @@ tools:
 - name: work-experience_delete
   description: DELETE /work-experience/{id}
   source_operation: openapi/nobueno-openapi-original.json#work-experience_delete
+deployment:
+  mode: none
+  verified: derived
+  tools: 159
+  checked: '2026-08-12'
+  source: catalog MCP census

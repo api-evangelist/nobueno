@@ -1,0 +1,644 @@
+{
+  "item": [
+    {
+      "id": "8c5c2281-5c1a-4ff9-ab90-e7c399596d96",
+      "name": "profile",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b7dbbed8-f07d-4e23-ab93-d208cd089fdb",
+          "name": "profile list",
+          "request": {
+            "name": "profile list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16a5cb02-ae7a-4ec7-9436-34266904d289",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9833,\n  \"results\": [\n    {\n      \"full_time\": false,\n      \"part_time\": true,\n      \"freelance\": true,\n      \"internship\": true,\n      \"open_to_remote_work\": false,\n      \"working_status\": \"graduate\",\n      \"user\": 9538,\n      \"soft_skills\": [\n        2744,\n        2297\n      ],\n      \"technical_skills\": [\n        3524,\n        938\n      ],\n      \"languages\": [\n        5087,\n        3690\n      ],\n      \"id\": 8591,\n      \"custom_fields\": \"string\",\n      \"created_at\": \"1959-08-12T00:46:01.287Z\",\n      \"updated_at\": \"1986-04-28T14:49:54.383Z\",\n      \"working_years\": -238439631,\n      \"only_market_value\": false,\n      \"open_to_opportunity\": true,\n      \"market_value_only\": false,\n      \"open_to_relocate\": true,\n      \"country_to_relocate\": false,\n      \"step_news_subscription\": true,\n      \"looking_for_work\": false,\n      \"all_countries\": false,\n      \"first_job_match\": true,\n      \"created_by\": 1664,\n      \"updated_by\": 3755,\n      \"job_title\": 2558,\n      \"values\": 1197,\n      \"personalities\": 8985,\n      \"matches\": 644\n    },\n    {\n      \"full_time\": true,\n      \"part_time\": false,\n      \"freelance\": true,\n      \"internship\": false,\n      \"open_to_remote_work\": true,\n      \"working_status\": \"student\",\n      \"user\": 9079,\n      \"soft_skills\": [\n        1876,\n        5219\n      ],\n      \"technical_skills\": [\n        6566,\n        5949\n      ],\n      \"languages\": [\n        8118,\n        3790\n      ],\n      \"id\": 863,\n      \"custom_fields\": \"string\",\n      \"created_at\": \"1980-10-02T18:10:00.874Z\",\n      \"updated_at\": \"2016-11-04T23:29:47.266Z\",\n      \"working_years\": 1385316333,\n      \"only_market_value\": true,\n      \"open_to_opportunity\": false,\n      \"market_value_only\": true,\n      \"open_to_relocate\": false,\n      \"country_to_relocate\": true,\n      \"step_news_subscription\": false,\n      \"looking_for_work\": false,\n      \"all_countries\": false,\n      \"first_job_match\": false,\n      \"created_by\": 4749,\n      \"updated_by\": 854,\n      \"job_title\": 6479,\n      \"values\": 6060,\n      \"personalities\": 4525,\n      \"matches\": 1649\n    }\n  ],\n  \"next\": \"https://khsCFmXuAvkIdcgcyLnvI.xjzAdtvocjl9jLFMEDNeFDNL--1WOV2-PzAJNZqDb8wyDPnvhEQfGfZLfnat3siuwwZIyHny\",\n  \"previous\": \"http://rg.vfxuNMU+xUwHUIlDm3T56ZS7os7cyZwiR28aEiV8NpOXz\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e35bfa94-b1c1-42ab-be9b-e2227a84db5c",
+          "name": "profile create",
+          "request": {
+            "name": "profile create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_time\": \"<boolean>\",\n  \"part_time\": \"<boolean>\",\n  \"freelance\": \"<boolean>\",\n  \"internship\": \"<boolean>\",\n  \"open_to_remote_work\": \"<boolean>\",\n  \"working_status\": \"<string>\",\n  \"user\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"technical_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"custom_fields\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"working_years\": \"<integer>\",\n  \"only_market_value\": \"<boolean>\",\n  \"open_to_opportunity\": \"<boolean>\",\n  \"market_value_only\": \"<boolean>\",\n  \"open_to_relocate\": \"<boolean>\",\n  \"country_to_relocate\": \"<boolean>\",\n  \"step_news_subscription\": \"<boolean>\",\n  \"looking_for_work\": \"<boolean>\",\n  \"all_countries\": \"<boolean>\",\n  \"first_job_match\": \"<boolean>\",\n  \"created_by\": \"<integer>\",\n  \"updated_by\": \"<integer>\",\n  \"job_title\": \"<integer>\",\n  \"values\": \"<integer>\",\n  \"personalities\": \"<integer>\",\n  \"matches\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9d21df9d-8aa8-4a85-83a4-39587cc29854",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"full_time\": \"<boolean>\",\n  \"part_time\": \"<boolean>\",\n  \"freelance\": \"<boolean>\",\n  \"internship\": \"<boolean>\",\n  \"open_to_remote_work\": \"<boolean>\",\n  \"working_status\": \"<string>\",\n  \"user\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\"\n  ],\n  \"technical_skills\": [\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\"\n  ],\n  \"id\": 2801,\n  \"custom_fields\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"1960-11-15T19:37:34.892Z\",\n  \"working_years\": \"<integer>\",\n  \"only_market_value\": \"<boolean>\",\n  \"open_to_opportunity\": \"<boolean>\",\n  \"market_value_only\": \"<boolean>\",\n  \"open_to_relocate\": \"<boolean>\",\n  \"country_to_relocate\": \"<boolean>\",\n  \"step_news_subscription\": \"<boolean>\",\n  \"looking_for_work\": \"<boolean>\",\n  \"all_countries\": \"<boolean>\",\n  \"first_job_match\": \"<boolean>\",\n  \"created_by\": \"<integer>\",\n  \"updated_by\": \"<integer>\",\n  \"job_title\": \"<integer>\",\n  \"values\": \"<integer>\",\n  \"personalities\": \"<integer>\",\n  \"matches\": \"<integer>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c07fa1a4-f54a-40ba-97ee-1ac2091941fd",
+          "name": "profile read",
+          "request": {
+            "name": "profile read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job seeker profile."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70f44542-adfd-4fb7-8d1a-280ae963d97d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job seeker profile."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"full_time\": \"<boolean>\",\n  \"part_time\": \"<boolean>\",\n  \"freelance\": \"<boolean>\",\n  \"internship\": \"<boolean>\",\n  \"open_to_remote_work\": \"<boolean>\",\n  \"working_status\": \"<string>\",\n  \"user\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\"\n  ],\n  \"technical_skills\": [\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\"\n  ],\n  \"id\": 2801,\n  \"custom_fields\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"1960-11-15T19:37:34.892Z\",\n  \"working_years\": \"<integer>\",\n  \"only_market_value\": \"<boolean>\",\n  \"open_to_opportunity\": \"<boolean>\",\n  \"market_value_only\": \"<boolean>\",\n  \"open_to_relocate\": \"<boolean>\",\n  \"country_to_relocate\": \"<boolean>\",\n  \"step_news_subscription\": \"<boolean>\",\n  \"looking_for_work\": \"<boolean>\",\n  \"all_countries\": \"<boolean>\",\n  \"first_job_match\": \"<boolean>\",\n  \"created_by\": \"<integer>\",\n  \"updated_by\": \"<integer>\",\n  \"job_title\": \"<integer>\",\n  \"values\": \"<integer>\",\n  \"personalities\": \"<integer>\",\n  \"matches\": \"<integer>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e960c58-3669-4c74-be69-68e4ae234d36",
+          "name": "profile update",
+          "request": {
+            "name": "profile update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job seeker profile."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_time\": \"<boolean>\",\n  \"part_time\": \"<boolean>\",\n  \"freelance\": \"<boolean>\",\n  \"internship\": \"<boolean>\",\n  \"open_to_remote_work\": \"<boolean>\",\n  \"working_status\": \"<string>\",\n  \"user\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"technical_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"custom_fields\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"working_years\": \"<integer>\",\n  \"only_market_value\": \"<boolean>\",\n  \"open_to_opportunity\": \"<boolean>\",\n  \"market_value_only\": \"<boolean>\",\n  \"open_to_relocate\": \"<boolean>\",\n  \"country_to_relocate\": \"<boolean>\",\n  \"step_news_subscription\": \"<boolean>\",\n  \"looking_for_work\": \"<boolean>\",\n  \"all_countries\": \"<boolean>\",\n  \"first_job_match\": \"<boolean>\",\n  \"created_by\": \"<integer>\",\n  \"updated_by\": \"<integer>\",\n  \"job_title\": \"<integer>\",\n  \"values\": \"<integer>\",\n  \"personalities\": \"<integer>\",\n  \"matches\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1d16185f-3993-439c-8dd4-207a0744c4b5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job seeker profile."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"full_time\": \"<boolean>\",\n  \"part_time\": \"<boolean>\",\n  \"freelance\": \"<boolean>\",\n  \"internship\": \"<boolean>\",\n  \"open_to_remote_work\": \"<boolean>\",\n  \"working_status\": \"<string>\",\n  \"user\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\"\n  ],\n  \"technical_skills\": [\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\"\n  ],\n  \"id\": 2801,\n  \"custom_fields\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"1960-11-15T19:37:34.892Z\",\n  \"working_years\": \"<integer>\",\n  \"only_market_value\": \"<boolean>\",\n  \"open_to_opportunity\": \"<boolean>\",\n  \"market_value_only\": \"<boolean>\",\n  \"open_to_relocate\": \"<boolean>\",\n  \"country_to_relocate\": \"<boolean>\",\n  \"step_news_subscription\": \"<boolean>\",\n  \"looking_for_work\": \"<boolean>\",\n  \"all_countries\": \"<boolean>\",\n  \"first_job_match\": \"<boolean>\",\n  \"created_by\": \"<integer>\",\n  \"updated_by\": \"<integer>\",\n  \"job_title\": \"<integer>\",\n  \"values\": \"<integer>\",\n  \"personalities\": \"<integer>\",\n  \"matches\": \"<integer>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61df58e7-2219-44a7-a822-4ad7364fc289",
+          "name": "profile partial update",
+          "request": {
+            "name": "profile partial update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job seeker profile."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_time\": \"<boolean>\",\n  \"part_time\": \"<boolean>\",\n  \"freelance\": \"<boolean>\",\n  \"internship\": \"<boolean>\",\n  \"open_to_remote_work\": \"<boolean>\",\n  \"working_status\": \"<string>\",\n  \"user\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"technical_skills\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"custom_fields\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"working_years\": \"<integer>\",\n  \"only_market_value\": \"<boolean>\",\n  \"open_to_opportunity\": \"<boolean>\",\n  \"market_value_only\": \"<boolean>\",\n  \"open_to_relocate\": \"<boolean>\",\n  \"country_to_relocate\": \"<boolean>\",\n  \"step_news_subscription\": \"<boolean>\",\n  \"looking_for_work\": \"<boolean>\",\n  \"all_countries\": \"<boolean>\",\n  \"first_job_match\": \"<boolean>\",\n  \"created_by\": \"<integer>\",\n  \"updated_by\": \"<integer>\",\n  \"job_title\": \"<integer>\",\n  \"values\": \"<integer>\",\n  \"personalities\": \"<integer>\",\n  \"matches\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8765cc10-61bd-48bb-9774-ceb0c1e292a9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job seeker profile."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"full_time\": \"<boolean>\",\n  \"part_time\": \"<boolean>\",\n  \"freelance\": \"<boolean>\",\n  \"internship\": \"<boolean>\",\n  \"open_to_remote_work\": \"<boolean>\",\n  \"working_status\": \"<string>\",\n  \"user\": \"<integer>\",\n  \"soft_skills\": [\n    \"<integer>\"\n  ],\n  \"technical_skills\": [\n    \"<integer>\"\n  ],\n  \"languages\": [\n    \"<integer>\"\n  ],\n  \"id\": 2801,\n  \"custom_fields\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"1960-11-15T19:37:34.892Z\",\n  \"working_years\": \"<integer>\",\n  \"only_market_value\": \"<boolean>\",\n  \"open_to_opportunity\": \"<boolean>\",\n  \"market_value_only\": \"<boolean>\",\n  \"open_to_relocate\": \"<boolean>\",\n  \"country_to_relocate\": \"<boolean>\",\n  \"step_news_subscription\": \"<boolean>\",\n  \"looking_for_work\": \"<boolean>\",\n  \"all_countries\": \"<boolean>\",\n  \"first_job_match\": \"<boolean>\",\n  \"created_by\": \"<integer>\",\n  \"updated_by\": \"<integer>\",\n  \"job_title\": \"<integer>\",\n  \"values\": \"<integer>\",\n  \"personalities\": \"<integer>\",\n  \"matches\": \"<integer>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1138bde-18ec-433e-a075-8c9c30f3bfa5",
+          "name": "profile delete",
+          "request": {
+            "name": "profile delete",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this job seeker profile."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "99200626-2dfd-40c6-908a-b54dc4f025f3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this job seeker profile."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nobueno.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c4d270d7-a5ff-41ba-ae0a-de4d38f2c08b",
+    "name": "Jungle admin profile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Here magic happens\n\nContact Support:\n Email: mindru.ion97@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

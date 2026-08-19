@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jungle admin user_block API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user_block",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "user_block_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/user_block"
+          }
+        },
+        {
+          "info": {
+            "name": "user_block_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/user_block/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this user block."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1109 @@
+{
+  "item": [
+    {
+      "id": "661719cb-b5bf-45bb-879e-292b33f8ad7d",
+      "name": "messages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "47218c67-0cae-4502-a07b-fe181955f043",
+          "name": "messages list",
+          "request": {
+            "name": "messages list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f34b5b98-520f-4767-b328-2f404de186c1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1820,\n  \"results\": [\n    {\n      \"candidate\": {\n        \"working_years\": 5954,\n        \"id\": 6173,\n        \"nickname\": \"string\",\n        \"name\": \"string\",\n        \"image\": \"http://rgWiUhhO.bivPo6gVnyGw\",\n        \"language\": \"ur\"\n      },\n      \"employer\": {\n        \"id\": 7033,\n        \"nickname\": \"string\",\n        \"name\": \"string\",\n        \"image\": \"https://wfQdAsgXnbFChtTxVUAYnB.ftGgi59rDTnKtLDIf35zDET.jkq6doE8\",\n        \"language\": \"en\"\n      },\n      \"job\": {\n        \"title\": \"string\",\n        \"id\": 5248,\n        \"company\": \"string\"\n      },\n      \"id\": 8903,\n      \"employer_review\": true,\n      \"candidate_review\": true,\n      \"unread_messages\": \"string\"\n    },\n    {\n      \"candidate\": {\n        \"working_years\": 4013,\n        \"id\": 8877,\n        \"nickname\": \"string\",\n        \"name\": \"string\",\n        \"image\": \"https://WLt.jrzfReWBfl\",\n        \"language\": \"en\"\n      },\n      \"employer\": {\n        \"id\": 1282,\n        \"nickname\": \"string\",\n        \"name\": \"string\",\n        \"image\": \"http://PZsgpE.pdgdYmA-g,W,lwFlDT4BQl1.AwSJVerVbYfARrNXCdhPA+e7xHn\",\n        \"language\": \"ur\"\n      },\n      \"job\": {\n        \"title\": \"string\",\n        \"id\": 3929,\n        \"company\": \"string\"\n      },\n      \"id\": 6010,\n      \"employer_review\": false,\n      \"candidate_review\": true,\n      \"unread_messages\": \"string\"\n    }\n  ],\n  \"next\": \"https://iKsbFdKxcSzFEbHNrVRPnpbGBQ.ucnNH.ZwQulxkezNNoCVeFNQZ7H1.rpK2XZ0Umwmb+hYk-7osXUtAaCiXRpIHnwP\",\n  \"previous\": \"https://HvDoRsVtZBNBPCLYOeccgouk.acczNejxHvUi6QHziy-RGYH3JmTXePQtzuiKeweb6zrNhetcu\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b46062c-2307-4125-b11e-b606d8796da2",
+          "name": "messages create",
+          "request": {
+            "name": "messages create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"job\": \"<integer>\",\n  \"candidate\": \"<integer>\",\n  \"employer\": \"<integer>\",\n  \"employer_review\": \"<boolean>\",\n  \"employer_hide_image\": \"<boolean>\",\n  \"candidate_review\": \"<boolean>\",\n  \"candidate_hide_image\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1a91177c-d52c-4d67-bfbc-a62ab06f1ff7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidate\": {\n    \"working_years\": 4499,\n    \"id\": 9761,\n    \"nickname\": \"string\",\n    \"name\": \"string\",\n    \"image\": \"http://QMuYuMtkVSSmFlyzxyGatLv.ioX4P1M4v0\",\n    \"language\": \"es\"\n  },\n  \"employer\": {\n    \"id\": 4533,\n    \"nickname\": \"string\",\n    \"name\": \"string\",\n    \"image\": \"https://YQiuAZKMbnZKnUPxuwTOPUcXKEcpyI.qoUOLl,nn3gs,fdbB3JRwVivzv7t5IsCOLCO3PPayigR.yLJCgmnYg\",\n    \"language\": \"fr\"\n  },\n  \"job\": {\n    \"title\": \"string\",\n    \"id\": 2,\n    \"company\": \"string\"\n  },\n  \"id\": 6492,\n  \"employer_review\": false,\n  \"candidate_review\": true,\n  \"unread_messages\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32520973-0e13-433b-a36e-06d1be8fa00c",
+          "name": "messages read",
+          "request": {
+            "name": "messages read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this user messenger."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5ad64f7-734b-4660-8142-0151e2b673f2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this user messenger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"attachments\": [\n    {\n      \"title\": \"string\",\n      \"type\": \"string\",\n      \"size\": -408182345,\n      \"path\": \"http://AQhiFMbESISlYNeAed.uasGo3mG4rqTfkwo9m63ydri+dEQUd34de.yi10DBDMj.b6VtYj\",\n      \"extension\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"type\": \"string\",\n      \"size\": 2093726477,\n      \"path\": \"http://TXUSFNhvQWPThOGgMUdLaB.xyqqvPOM1ospIkPWIPt+jTrNrqZu-MQIG1rSyXEfcTvQBGxhLpYURjP-W\",\n      \"extension\": \"string\"\n    }\n  ],\n  \"id\": 6270,\n  \"created_at\": \"1988-10-11T12:55:14.799Z\",\n  \"user_to\": \"string\",\n  \"user_from\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f0f3a69-5e83-44c1-bcfd-09339bc77ae6",
+          "name": "messages update",
+          "request": {
+            "name": "messages update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this user messenger."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"job\": \"<integer>\",\n  \"candidate\": \"<integer>\",\n  \"employer\": \"<integer>\",\n  \"employer_review\": \"<boolean>\",\n  \"employer_hide_image\": \"<boolean>\",\n  \"candidate_review\": \"<boolean>\",\n  \"candidate_hide_image\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c461100e-5b4f-4b74-9dbf-f57051c1bd70",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this user messenger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidate\": {\n    \"working_years\": 4499,\n    \"id\": 9761,\n    \"nickname\": \"string\",\n    \"name\": \"string\",\n    \"image\": \"http://QMuYuMtkVSSmFlyzxyGatLv.ioX4P1M4v0\",\n    \"language\": \"es\"\n  },\n  \"employer\": {\n    \"id\": 4533,\n    \"nickname\": \"string\",\n    \"name\": \"string\",\n    \"image\": \"https://YQiuAZKMbnZKnUPxuwTOPUcXKEcpyI.qoUOLl,nn3gs,fdbB3JRwVivzv7t5IsCOLCO3PPayigR.yLJCgmnYg\",\n    \"language\": \"fr\"\n  },\n  \"job\": {\n    \"title\": \"string\",\n    \"id\": 2,\n    \"company\": \"string\"\n  },\n  \"id\": 6492,\n  \"employer_review\": false,\n  \"candidate_review\": true,\n  \"unread_messages\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4cde1998-d3f2-450a-a273-e24f1b2419c3",
+          "name": "messages partial update",
+          "request": {
+            "name": "messages partial update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this user messenger."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"job\": \"<integer>\",\n  \"candidate\": \"<integer>\",\n  \"employer\": \"<integer>\",\n  \"employer_review\": \"<boolean>\",\n  \"employer_hide_image\": \"<boolean>\",\n  \"candidate_review\": \"<boolean>\",\n  \"candidate_hide_image\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "83da22e5-41a6-478e-a696-6ed223a0bd6c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this user messenger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidate\": {\n    \"working_years\": 4499,\n    \"id\": 9761,\n    \"nickname\": \"string\",\n    \"name\": \"string\",\n    \"image\": \"http://QMuYuMtkVSSmFlyzxyGatLv.ioX4P1M4v0\",\n    \"language\": \"es\"\n  },\n  \"employer\": {\n    \"id\": 4533,\n    \"nickname\": \"string\",\n    \"name\": \"string\",\n    \"image\": \"https://YQiuAZKMbnZKnUPxuwTOPUcXKEcpyI.qoUOLl,nn3gs,fdbB3JRwVivzv7t5IsCOLCO3PPayigR.yLJCgmnYg\",\n    \"language\": \"fr\"\n  },\n  \"job\": {\n    \"title\": \"string\",\n    \"id\": 2,\n    \"company\": \"string\"\n  },\n  \"id\": 6492,\n  \"employer_review\": false,\n  \"candidate_review\": true,\n  \"unread_messages\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a062612-08c7-458a-8ecd-ede157ff58b5",
+          "name": "messages delete",
+          "request": {
+            "name": "messages delete",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this user messenger."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "529edf04-ce2d-4aaa-9c12-546cd650cccd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this user messenger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7b1c916-e23c-4ddd-aece-04d16b4c05e0",
+          "name": "messages read messages",
+          "request": {
+            "name": "messages read messages",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":id",
+                "read_messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this user messenger."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"job\": \"<integer>\",\n  \"candidate\": \"<integer>\",\n  \"employer\": \"<integer>\",\n  \"employer_review\": \"<boolean>\",\n  \"employer_hide_image\": \"<boolean>\",\n  \"candidate_review\": \"<boolean>\",\n  \"candidate_hide_image\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9a2feeb6-4368-4c46-8628-cc61f19f19b8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":id",
+                    "read_messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this user messenger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidate\": {\n    \"working_years\": 4499,\n    \"id\": 9761,\n    \"nickname\": \"string\",\n    \"name\": \"string\",\n    \"image\": \"http://QMuYuMtkVSSmFlyzxyGatLv.ioX4P1M4v0\",\n    \"language\": \"es\"\n  },\n  \"employer\": {\n    \"id\": 4533,\n    \"nickname\": \"string\",\n    \"name\": \"string\",\n    \"image\": \"https://YQiuAZKMbnZKnUPxuwTOPUcXKEcpyI.qoUOLl,nn3gs,fdbB3JRwVivzv7t5IsCOLCO3PPayigR.yLJCgmnYg\",\n    \"language\": \"fr\"\n  },\n  \"job\": {\n    \"title\": \"string\",\n    \"id\": 2,\n    \"company\": \"string\"\n  },\n  \"id\": 6492,\n  \"employer_review\": false,\n  \"candidate_review\": true,\n  \"unread_messages\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b318311-0193-470f-a312-684912077590",
+          "name": "messages retrieve messenger",
+          "request": {
+            "name": "messages retrieve messenger",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":id",
+                "retrieve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this user messenger."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aef2ee33-0951-4dda-bee1-ae46dd87d840",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":id",
+                    "retrieve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this user messenger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidate\": {\n    \"working_years\": 4499,\n    \"id\": 9761,\n    \"nickname\": \"string\",\n    \"name\": \"string\",\n    \"image\": \"http://QMuYuMtkVSSmFlyzxyGatLv.ioX4P1M4v0\",\n    \"language\": \"es\"\n  },\n  \"employer\": {\n    \"id\": 4533,\n    \"nickname\": \"string\",\n    \"name\": \"string\",\n    \"image\": \"https://YQiuAZKMbnZKnUPxuwTOPUcXKEcpyI.qoUOLl,nn3gs,fdbB3JRwVivzv7t5IsCOLCO3PPayigR.yLJCgmnYg\",\n    \"language\": \"fr\"\n  },\n  \"job\": {\n    \"title\": \"string\",\n    \"id\": 2,\n    \"company\": \"string\"\n  },\n  \"id\": 6492,\n  \"employer_review\": false,\n  \"candidate_review\": true,\n  \"unread_messages\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c24410f-230d-4aae-af5b-c5a59d8ece69",
+          "name": "messages review",
+          "request": {
+            "name": "messages review",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":id",
+                "review"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this user messenger."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": \"<number>\",\n  \"description\": \"<string>\",\n  \"relevant_match\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "74f50b36-3107-465a-a6d7-69b12bb367a0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":id",
+                    "review"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this user messenger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rating\": \"<number>\",\n  \"description\": \"<string>\",\n  \"relevant_match\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8dbf936-ae52-427b-90bb-6907f55a3695",
+          "name": "messages send message",
+          "request": {
+            "name": "messages send message",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":id",
+                "send-message"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this user messenger."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "files",
+                  "value": "[\"<string>\",\"<string>\"]",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "message",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d3250ecf-4c51-4187-b0f0-39e0b58737f9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":id",
+                    "send-message"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this user messenger."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "files",
+                      "value": "[\"<string>\",\"<string>\"]",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "message",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"files\": [\n    \"string\",\n    \"str\"\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nobueno.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "77729557-91e1-4d25-a437-1b254635b518",
+    "name": "Jungle admin messages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Here magic happens\n\nContact Support:\n Email: mindru.ion97@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

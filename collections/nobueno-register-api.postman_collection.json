@@ -1,0 +1,147 @@
+{
+  "item": [
+    {
+      "id": "5e85fdee-2db0-4e86-91be-9c0346e08be9",
+      "name": "register",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4e83dbf0-95c6-4d41-ba22-25585d4288ea",
+          "name": "register create",
+          "request": {
+            "name": "register create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"nickname\": \"<string>\",\n  \"city\": \"<integer>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"confirm_password\": \"<string>\",\n  \"full_time\": \"<boolean>\",\n  \"part_time\": \"<boolean>\",\n  \"freelance\": \"<boolean>\",\n  \"internship\": \"<boolean>\",\n  \"working_status\": \"<string>\",\n  \"open_to_remote_work\": \"<boolean>\",\n  \"open_to_relocate\": \"<boolean>\",\n  \"language\": \"<string>\",\n  \"receive_email_notifications\": \"<boolean>\",\n  \"receive_push_notifications\": \"<boolean>\",\n  \"player_id\": \"<string>\",\n  \"registration_id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"step_news_subscription\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c88126aa-132d-4bd4-af98-c849a09438dd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"nickname\": \"<string>\",\n  \"city\": \"<integer>\",\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"confirm_password\": \"<string>\",\n  \"full_time\": \"<boolean>\",\n  \"part_time\": \"<boolean>\",\n  \"freelance\": \"<boolean>\",\n  \"internship\": \"<boolean>\",\n  \"working_status\": \"<string>\",\n  \"open_to_remote_work\": \"<boolean>\",\n  \"open_to_relocate\": \"<boolean>\",\n  \"language\": \"<string>\",\n  \"receive_email_notifications\": \"<boolean>\",\n  \"receive_push_notifications\": \"<boolean>\",\n  \"player_id\": \"<string>\",\n  \"registration_id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"step_news_subscription\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"refresh_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nobueno.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3be0388a-9add-4640-9a72-f11279d7cf46",
+    "name": "Jungle admin register API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Here magic happens\n\nContact Support:\n Email: mindru.ion97@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

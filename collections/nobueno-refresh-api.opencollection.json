@@ -1,0 +1,28 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jungle admin refresh API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "refresh",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "refresh_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/refresh"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

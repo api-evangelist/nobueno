@@ -1,0 +1,28 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jungle admin login API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "login",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "login_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/login"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

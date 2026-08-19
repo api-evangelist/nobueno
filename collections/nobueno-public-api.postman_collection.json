@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "a3e84633-eb23-460a-ab19-168228e3819d",
+      "name": "public",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "28bb908b-3431-42c4-a8bd-7853a8bc8822",
+          "name": "public jobs list",
+          "request": {
+            "name": "public jobs list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b46a1ce7-34d4-44ec-bc58-9d9dabeb4bbb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6987,\n  \"results\": [\n    {\n      \"location_type\": \"remote_only\",\n      \"opportunity_type\": \"freelance\",\n      \"working_years\": 101513428,\n      \"country\": {\n        \"title\": \"string\",\n        \"code\": \"s\",\n        \"id\": 1367\n      },\n      \"city\": {\n        \"title\": \"string\",\n        \"code\": \"st\",\n        \"id\": 6028\n      },\n      \"technical_skills\": [\n        {\n          \"title\": \"string\",\n          \"id\": 5178,\n          \"items\": \"string\"\n        },\n        {\n          \"title\": \"string\",\n          \"id\": 7800,\n          \"items\": \"string\"\n        }\n      ],\n      \"soft_skills\": [\n        {\n          \"title\": \"string\",\n          \"id\": 9480,\n          \"items\": \"string\"\n        },\n        {\n          \"title\": \"string\",\n          \"id\": 8740,\n          \"items\": \"string\"\n        }\n      ],\n      \"languages\": [\n        {\n          \"title\": \"string\",\n          \"id\": 5571\n        },\n        {\n          \"title\": \"string\",\n          \"id\": 6224\n        }\n      ],\n      \"matches\": {\n        \"values_match\": -1827716848,\n        \"personalities_match\": 1397064818,\n        \"technical_skill\": 1444670752,\n        \"soft_skill\": 1165406254,\n        \"language\": 854945745,\n        \"id\": 5418\n      },\n      \"id\": 1456,\n      \"job_title\": \"string\",\n      \"job_role_title\": \"string\",\n      \"description\": \"string\",\n      \"company\": \"string\",\n      \"is_highlighted\": \"string\"\n    },\n    {\n      \"location_type\": \"remote_and_location\",\n      \"opportunity_type\": \"part_time\",\n      \"working_years\": -470603760,\n      \"country\": {\n        \"title\": \"string\",\n        \"code\": \"s\",\n        \"id\": 6072\n      },\n      \"city\": {\n        \"title\": \"string\",\n        \"code\": \"string\",\n        \"id\": 1610\n      },\n      \"technical_skills\": [\n        {\n          \"title\": \"string\",\n          \"id\": 1146,\n          \"items\": \"string\"\n        },\n        {\n          \"title\": \"string\",\n          \"id\": 2384,\n          \"items\": \"string\"\n        }\n      ],\n      \"soft_skills\": [\n        {\n          \"title\": \"string\",\n          \"id\": 3587,\n          \"items\": \"string\"\n        },\n        {\n          \"title\": \"string\",\n          \"id\": 8457,\n          \"items\": \"string\"\n        }\n      ],\n      \"languages\": [\n        {\n          \"title\": \"string\",\n          \"id\": 2190\n        },\n        {\n          \"title\": \"string\",\n          \"id\": 5344\n        }\n      ],\n      \"matches\": {\n        \"values_match\": -2138504040,\n        \"personalities_match\": -4745721,\n        \"technical_skill\": 360988073,\n        \"soft_skill\": -965731295,\n        \"language\": 1641803003,\n        \"id\": 8602\n      },\n      \"id\": 2055,\n      \"job_title\": \"string\",\n      \"job_role_title\": \"string\",\n      \"description\": \"string\",\n      \"company\": \"string\",\n      \"is_highlighted\": \"string\"\n    }\n  ],\n  \"next\": \"https://CPLlHfeLCnasliPkpPrOAeLjfTQMs.rahJHcKrF8q+PpC3K64HOEoE+8TOqNiMoky6ri3XHxaHbt1+wmXld2.QPPhUplbmW9Im0unaLq2vuIQU\",\n  \"previous\": \"https://MjXYqyoxO.ovxuBux-ITu.cYeWQCMOwlDniT4gi+Ph4rFkF.h5CLZJnZo3WcTqH4DG4RVdouJeUb1uJ\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed4510aa-2232-4010-9933-f00f02797e55",
+          "name": "public jobs read",
+          "request": {
+            "name": "public jobs read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "jobs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b62fcbb5-7fc0-4c00-8796-24c76fa2c0e7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "jobs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"location_type\": \"location_only\",\n  \"opportunity_type\": \"internship\",\n  \"working_years\": 1187131733,\n  \"country\": {\n    \"title\": \"string\",\n    \"code\": \"st\",\n    \"id\": 2265\n  },\n  \"city\": {\n    \"title\": \"string\",\n    \"code\": \"string\",\n    \"id\": 6657\n  },\n  \"technical_skills\": [\n    {\n      \"title\": \"string\",\n      \"id\": 8839,\n      \"items\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"id\": 9117,\n      \"items\": \"string\"\n    }\n  ],\n  \"soft_skills\": [\n    {\n      \"title\": \"string\",\n      \"id\": 6665,\n      \"items\": \"string\"\n    },\n    {\n      \"title\": \"string\",\n      \"id\": 2084,\n      \"items\": \"string\"\n    }\n  ],\n  \"languages\": [\n    {\n      \"title\": \"string\",\n      \"id\": 6155\n    },\n    {\n      \"title\": \"string\",\n      \"id\": 7290\n    }\n  ],\n  \"matches\": {\n    \"values_match\": -1794911636,\n    \"personalities_match\": 158897681,\n    \"technical_skill\": 1986003909,\n    \"soft_skill\": 1685123884,\n    \"language\": -585544634,\n    \"id\": 1026\n  },\n  \"id\": 87,\n  \"job_title\": \"string\",\n  \"job_role_title\": \"string\",\n  \"description\": \"string\",\n  \"company\": \"string\",\n  \"is_highlighted\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nobueno.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b80d5c4b-f4bf-4f9c-b6de-60862582691c",
+    "name": "Jungle admin public API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Here magic happens\n\nContact Support:\n Email: mindru.ion97@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

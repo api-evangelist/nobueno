@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jungle admin me API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "me",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "me_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/me"
+          }
+        },
+        {
+          "info": {
+            "name": "me_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/me"
+          }
+        },
+        {
+          "info": {
+            "name": "me_counts_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/me/counts"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

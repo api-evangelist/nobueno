@@ -1,0 +1,28 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jungle admin register API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "register",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "register_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/register"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
