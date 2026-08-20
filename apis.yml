@@ -33,6 +33,15 @@ created: '2026-07-17'
 modified: '2026-07-20'
 tags:
 - Company
+- Job
+- Recruiting
+- Hiring
+- Talent
+- Matching
+- Human Resources
+- Candidates
+tags_raw:
+- Company
 - Jobs
 - Recruiting
 - Hiring
@@ -52,6 +61,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Admin
+  tags_raw:
   - admin
   properties:
   - type: OpenAPI
@@ -66,6 +77,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Bitcoin
+  tags_raw:
   - bitcoin
   properties:
   - type: OpenAPI
@@ -80,6 +93,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Categories
+  tags_raw:
   - categories
   properties:
   - type: OpenAPI
@@ -94,6 +109,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Cities
+  tags_raw:
   - cities
   properties:
   - type: OpenAPI
@@ -108,6 +125,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Companies
+  tags_raw:
   - companies
   properties:
   - type: OpenAPI
@@ -122,6 +141,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Countries
+  tags_raw:
   - countries
   properties:
   - type: OpenAPI
@@ -136,6 +157,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Credits
+  tags_raw:
   - credits
   properties:
   - type: OpenAPI
@@ -150,6 +173,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Currency
+  tags_raw:
   - currencies
   properties:
   - type: OpenAPI
@@ -164,6 +189,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Devices
+  tags_raw:
   - devices
   properties:
   - type: OpenAPI
@@ -178,6 +205,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Fields
+  tags_raw:
   - fields
   properties:
   - type: OpenAPI
@@ -206,6 +235,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Job
+  tags_raw:
   - jobs
   properties:
   - type: OpenAPI
@@ -220,6 +251,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Language
+  tags_raw:
   - languages
   properties:
   - type: OpenAPI
@@ -234,6 +267,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Login
+  tags_raw:
   - login
   properties:
   - type: OpenAPI
@@ -248,6 +283,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Matches
+  tags_raw:
   - matches
   properties:
   - type: OpenAPI
@@ -262,6 +299,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Me
+  tags_raw:
   - me
   properties:
   - type: OpenAPI
@@ -276,6 +315,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Message
+  tags_raw:
   - messages
   properties:
   - type: OpenAPI
@@ -290,6 +331,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Notification
+  tags_raw:
   - notifications
   properties:
   - type: OpenAPI
@@ -304,6 +347,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Profile
+  tags_raw:
   - profile
   properties:
   - type: OpenAPI
@@ -318,6 +363,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Public
+  tags_raw:
   - public
   properties:
   - type: OpenAPI
@@ -332,6 +379,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Refresh
+  tags_raw:
   - refresh
   properties:
   - type: OpenAPI
@@ -346,6 +395,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Register
+  tags_raw:
   - register
   properties:
   - type: OpenAPI
@@ -360,6 +411,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Review
+  tags_raw:
   - review
   properties:
   - type: OpenAPI
@@ -374,6 +427,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Roles
+  tags_raw:
   - roles
   properties:
   - type: OpenAPI
@@ -388,6 +443,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Skill Categories
+  tags_raw:
   - skill-categories
   properties:
   - type: OpenAPI
@@ -402,6 +459,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Skills
+  tags_raw:
   - skills
   properties:
   - type: OpenAPI
@@ -415,7 +474,8 @@ apis:
   description: The user_block API from NoBueno — 2 operation(s) for user_block.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
-  tags:
+  tags: []
+  tags_raw:
   - user_block
   properties:
   - type: OpenAPI
@@ -429,7 +489,8 @@ apis:
   description: The user_report API from NoBueno — 1 operation(s) for user_report.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
-  tags:
+  tags: []
+  tags_raw:
   - user_report
   properties:
   - type: OpenAPI
@@ -444,6 +505,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - User
+  tags_raw:
   - users
   properties:
   - type: OpenAPI
@@ -458,6 +521,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - V2
+  tags_raw:
   - v2
   properties:
   - type: OpenAPI
