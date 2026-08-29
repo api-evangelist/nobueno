@@ -1,4 +1,15 @@
 aid: nobueno
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -560,6 +571,9 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 common:
+- type: CapabilityMap
+  url: capabilities/nobueno-capability-edges.yml
+  name: NoBueno Business Capability Map
 - type: Authentication
   url: authentication/nobueno-authentication.yml
 - type: Conventions
