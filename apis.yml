@@ -88,7 +88,7 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
-  - bitcoin
+  - Bitcoin
   tags_raw:
   - bitcoin
   properties:
@@ -262,7 +262,7 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
-  - languages
+  - Language
   tags_raw:
   - languages
   properties:
@@ -406,7 +406,7 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
-  - register
+  - Register
   tags_raw:
   - register
   properties:
@@ -454,7 +454,7 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
-  - skill-categories
+  - Skill Categories
   tags_raw:
   - skill-categories
   properties:
@@ -532,7 +532,7 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
-  - V2
+  - v2
   tags_raw:
   - v2
   properties:
