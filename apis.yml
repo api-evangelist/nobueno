@@ -169,7 +169,7 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
-  - Credits
+  - Credit
   tags_raw:
   - credits
   properties:
@@ -233,6 +233,8 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
+  - Forgot
+  tags_raw:
   - forgot
   properties:
   - type: OpenAPI
@@ -359,7 +361,7 @@ apis:
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
   tags:
-  - Profile
+  - Profiles
   tags_raw:
   - profile
   properties:
