@@ -1,0 +1,66 @@
+slug: nobueno
+provider: NoBueno
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: jobs
+  spec_file: nobueno-jobs-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.85
+  evidence: POST /jobs jobs_create; GET /jobs/matches jobs_matches; GET /jobs/matches-results; schemas
+    Job, CandidatesForJob, JobCandidateMatch, StepCompensation
+  reason: Operations create and manage job postings and produce scored candidate matches for those jobs
+    (JobCandidateMatch, CandidatesForJob), which is sourcing and recruiting — Talent Acquisition Management.
+    Some residual ambiguity since the vendor is a platform provider, but the API surface plainly performs
+    recruiting.
+- tag: profile
+  spec_file: nobueno-profile-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.82
+  evidence: schema "JobSeekerProfile" with profile_create / profile_update
+  reason: Manages candidate (job seeker) profiles used for sourcing and matching — candidate management
+    within Talent Acquisition.
+- tag: matches
+  spec_file: nobueno-matches-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.8
+  evidence: 'vendor: "scored job-to-candidate matching"; schema "Match" with matches_list / matches_create'
+  reason: CRUD over Match objects on a job-and-candidate matching platform; matching candidates to job
+    postings is recruiting/hiring, i.e. Talent Acquisition.
+- tag: public
+  spec_file: nobueno-public-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.75
+  evidence: GET /public/jobs public_jobs_list; schema "ReturnJobPublicList", "ReturnMatch"
+  reason: Public exposure of job postings for candidate browsing — job advertising/sourcing, part of Talent
+    Acquisition.
+- tag: users
+  spec_file: nobueno-users-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.72
+  evidence: GET /users/matches, GET /users/recommended-jobs, POST /users/employment users_add_employment,
+    schemas ReturnJobForCandidate, ReturnUserEmployment, ReturnJobRole
+  reason: Operations manage the job-seeker profile and surface scored job matches and recommended jobs
+    with status changes — i.e. candidate sourcing and matching, the core of talent acquisition. Some ambiguity
+    because the tag is a generic 'users' account surface (confirm/delete account, nickname generation)
+    mixed in.
