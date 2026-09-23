@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Jungle admin forgot API
+  title: Jungle Forgot API
   description: Here magic happens
   termsOfService: https://www.google.com/policies/terms/
   contact:
@@ -8,14 +8,8 @@ info:
   license:
     name: BSD License
   version: v1
-host: api.nobueno.com
-basePath: /api
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://api.nobueno.com/api
 security:
 - Bearer: []
 - Device-type: []
@@ -23,111 +17,123 @@ security:
 - x-app-id: []
 - x-scheme: []
 tags:
-- name: forgot
+- name: Forgot
 paths:
   /forgot:
     parameters: []
     post:
       operationId: forgot_create
       description: ''
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/Email'
       responses:
         '201':
           description: ''
-          schema:
-            $ref: '#/definitions/Email'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Email'
       tags:
-      - forgot
+      - Forgot
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Email'
+        required: true
+      summary: Forgot create
+      x-summary-source: derived
   /forgot/confirm:
     parameters: []
     post:
       operationId: forgot_confirm_create
       description: ''
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/CustomPasswordToken'
       responses:
         '201':
           description: ''
-          schema:
-            $ref: '#/definitions/CustomPasswordToken'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomPasswordToken'
       tags:
-      - forgot
+      - Forgot
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomPasswordToken'
+        required: true
+      summary: Forgot confirm create
+      x-summary-source: derived
   /forgot/validate_token:
     parameters: []
     post:
       operationId: forgot_validate_token_create
       description: ''
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/ResetToken'
       responses:
         '201':
           description: ''
-          schema:
-            $ref: '#/definitions/ResetToken'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetToken'
       tags:
-      - forgot
-definitions:
-  CustomPasswordToken:
-    required:
-    - password
-    - token
-    type: object
-    properties:
-      password:
-        title: Password
-        type: string
-        minLength: 1
-      token:
-        title: Token
-        type: string
-        minLength: 1
-  ResetToken:
-    required:
-    - token
-    type: object
-    properties:
-      token:
-        title: Token
-        type: string
-        minLength: 1
-  Email:
-    required:
-    - email
-    type: object
-    properties:
-      email:
-        title: Email
-        type: string
-        format: email
-        minLength: 1
-securityDefinitions:
-  Bearer:
-    type: apiKey
-    name: Authorization
-    in: header
-  Device-type:
-    type: apiKey
-    name: Device-Type
-    in: header
-  x-scheme:
-    type: apiKey
-    name: x-scheme
-    in: header
-  x-app-id:
-    type: apiKey
-    name: x-app-id
-    in: header
-  REFETCH_SCHEMA_WITH_AUTH: true
+      - Forgot
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetToken'
+        required: true
+      summary: Forgot validate token create
+      x-summary-source: derived
+components:
+  schemas:
+    ResetToken:
+      required:
+      - token
+      type: object
+      properties:
+        token:
+          title: Token
+          type: string
+          minLength: 1
+    Email:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          title: Email
+          type: string
+          format: email
+          minLength: 1
+    CustomPasswordToken:
+      required:
+      - password
+      - token
+      type: object
+      properties:
+        password:
+          title: Password
+          type: string
+          minLength: 1
+        token:
+          title: Token
+          type: string
+          minLength: 1
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header
+    Device-type:
+      type: apiKey
+      name: Device-Type
+      in: header
+    x-scheme:
+      type: apiKey
+      name: x-scheme
+      in: header
+    x-app-id:
+      type: apiKey
+      name: x-app-id
+      in: header

@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Jungle admin refresh API
+  title: Jungle Refresh API
   description: Here magic happens
   termsOfService: https://www.google.com/policies/terms/
   contact:
@@ -8,14 +8,8 @@ info:
   license:
     name: BSD License
   version: v1
-host: api.nobueno.com
-basePath: /api
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://api.nobueno.com/api
 security:
 - Bearer: []
 - Device-type: []
@@ -23,65 +17,69 @@ security:
 - x-app-id: []
 - x-scheme: []
 tags:
-- name: refresh
+- name: Refresh
 paths:
   /refresh:
     parameters: []
     post:
       operationId: refresh_create
       description: ''
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/TokenRefresh'
       responses:
         '200':
           description: Respond with jwt access&refresh token, refresh is returned in case if
-          schema:
-            $ref: '#/definitions/ReturnJWTTokens'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnJWTTokens'
       tags:
+      - Refresh
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+        required: true
+      summary: Refresh create
+      x-summary-source: derived
+components:
+  schemas:
+    ReturnJWTTokens:
+      required:
+      - access_token
+      - refresh_token
+      type: object
+      properties:
+        access_token:
+          title: Access token
+          type: string
+          minLength: 1
+        refresh_token:
+          title: Refresh token
+          type: string
+          minLength: 1
+    TokenRefresh:
+      required:
       - refresh
-definitions:
-  ReturnJWTTokens:
-    required:
-    - access_token
-    - refresh_token
-    type: object
-    properties:
-      access_token:
-        title: Access token
-        type: string
-        minLength: 1
-      refresh_token:
-        title: Refresh token
-        type: string
-        minLength: 1
-  TokenRefresh:
-    required:
-    - refresh
-    type: object
-    properties:
-      refresh:
-        title: Refresh
-        type: string
-        minLength: 1
-securityDefinitions:
-  Bearer:
-    type: apiKey
-    name: Authorization
-    in: header
-  Device-type:
-    type: apiKey
-    name: Device-Type
-    in: header
-  x-scheme:
-    type: apiKey
-    name: x-scheme
-    in: header
-  x-app-id:
-    type: apiKey
-    name: x-app-id
-    in: header
-  REFETCH_SCHEMA_WITH_AUTH: true
+      type: object
+      properties:
+        refresh:
+          title: Refresh
+          type: string
+          minLength: 1
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header
+    Device-type:
+      type: apiKey
+      name: Device-Type
+      in: header
+    x-scheme:
+      type: apiKey
+      name: x-scheme
+      in: header
+    x-app-id:
+      type: apiKey
+      name: x-app-id
+      in: header

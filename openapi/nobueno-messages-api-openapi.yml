@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Jungle admin messages API
+  title: Jungle Messages API
   description: Here magic happens
   termsOfService: https://www.google.com/policies/terms/
   contact:
@@ -8,14 +8,8 @@ info:
   license:
     name: BSD License
   version: v1
-host: api.nobueno.com
-basePath: /api
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+- url: https://api.nobueno.com/api
 security:
 - Bearer: []
 - Device-type: []
@@ -23,7 +17,7 @@ security:
 - x-app-id: []
 - x-scheme: []
 tags:
-- name: messages
+- name: Messages
 paths:
   /messages:
     parameters: []
@@ -35,476 +29,523 @@ paths:
         in: query
         description: A search term.
         required: false
-        type: string
+        schema:
+          type: string
       - name: page
         in: query
         description: A page number within the paginated result set.
         required: false
-        type: integer
+        schema:
+          type: integer
       - name: perPage
         in: query
         description: Number of results to return per page.
         required: false
-        type: integer
+        schema:
+          type: integer
       responses:
         '200':
           description: ''
-          schema:
-            required:
-            - count
-            - results
-            type: object
-            properties:
-              count:
-                type: integer
-              next:
-                type: string
-                format: uri
-                x-nullable: true
-              previous:
-                type: string
-                format: uri
-                x-nullable: true
-              results:
-                type: array
-                items:
-                  $ref: '#/definitions/ReturnMessenger'
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  previous:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ReturnMessenger'
       tags:
-      - messages
+      - Messages
+      summary: Messages list
+      x-summary-source: derived
     post:
       operationId: messages_create
       description: ''
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/Messenger'
       responses:
         '201':
           description: ''
-          schema:
-            $ref: '#/definitions/ReturnMessenger'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnMessenger'
       tags:
-      - messages
+      - Messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Messenger'
+        required: true
+      summary: Messages create
+      x-summary-source: derived
   /messages/{id}:
     parameters:
     - name: id
       in: path
       description: A unique integer value identifying this user messenger.
       required: true
-      type: integer
+      schema:
+        type: integer
     get:
       operationId: messages_read
       description: ''
-      parameters: []
       responses:
         '200':
           description: ''
-          schema:
-            $ref: '#/definitions/ReturnChat'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnChat'
       tags:
-      - messages
+      - Messages
+      summary: Messages read
+      x-summary-source: derived
     put:
       operationId: messages_update
       description: ''
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/Messenger'
       responses:
         '200':
           description: ''
-          schema:
-            $ref: '#/definitions/ReturnMessenger'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnMessenger'
       tags:
-      - messages
+      - Messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Messenger'
+        required: true
+      summary: Messages update
+      x-summary-source: derived
     patch:
       operationId: messages_partial_update
       description: ''
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/Messenger'
       responses:
         '200':
           description: ''
-          schema:
-            $ref: '#/definitions/ReturnMessenger'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnMessenger'
       tags:
-      - messages
+      - Messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Messenger'
+        required: true
+      summary: Messages partial update
+      x-summary-source: derived
     delete:
       operationId: messages_delete
       description: ''
-      parameters: []
       responses:
         '204':
           description: ''
       tags:
-      - messages
+      - Messages
+      summary: Messages delete
+      x-summary-source: derived
   /messages/{id}/read_messages:
     parameters:
     - name: id
       in: path
       description: A unique integer value identifying this user messenger.
       required: true
-      type: integer
+      schema:
+        type: integer
     post:
       operationId: messages_read_messages
       description: ''
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/Messenger'
       responses:
         '201':
           description: ''
-          schema:
-            $ref: '#/definitions/ReturnMessenger'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnMessenger'
       tags:
-      - messages
+      - Messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Messenger'
+        required: true
+      summary: Messages read messages
+      x-summary-source: derived
   /messages/{id}/retrieve:
     parameters:
     - name: id
       in: path
       description: A unique integer value identifying this user messenger.
       required: true
-      type: integer
+      schema:
+        type: integer
     get:
       operationId: messages_retrieve_messenger
       description: ''
-      parameters: []
       responses:
         '200':
           description: ''
-          schema:
-            $ref: '#/definitions/ReturnMessenger'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnMessenger'
       tags:
-      - messages
+      - Messages
+      summary: Messages retrieve messenger
+      x-summary-source: derived
   /messages/{id}/review:
     parameters:
     - name: id
       in: path
       description: A unique integer value identifying this user messenger.
       required: true
-      type: integer
+      schema:
+        type: integer
     post:
       operationId: messages_review
       description: ''
-      parameters:
-      - name: data
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/Review'
       responses:
         '201':
           description: ''
-          schema:
-            $ref: '#/definitions/SuccessResponse'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
       tags:
-      - messages
+      - Messages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+        required: true
+      summary: Messages review
+      x-summary-source: derived
   /messages/{id}/send-message:
     parameters:
     - name: id
       in: path
       description: A unique integer value identifying this user messenger.
       required: true
-      type: integer
+      schema:
+        type: integer
     post:
       operationId: messages_send_message
       description: ''
-      parameters:
-      - name: files
-        in: formData
-        required: false
-        type: array
-        items:
-          type: string
-          minLength: 1
-        x-nullable: true
-      - name: message
-        in: formData
-        required: false
-        type: string
-        x-nullable: true
       responses:
         '201':
           description: ''
-          schema:
-            $ref: '#/definitions/ShowUploadFiles'
-      consumes:
-      - multipart/form-data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShowUploadFiles'
       tags:
-      - messages
-definitions:
-  Messenger:
-    required:
-    - job
-    - candidate
-    - employer
-    type: object
-    properties:
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      employer_review:
-        title: Employer review
-        type: boolean
-      employer_hide_image:
-        title: Employer hide image
-        type: boolean
-      candidate_review:
-        title: Candidate review
-        type: boolean
-      candidate_hide_image:
-        title: Candidate hide image
-        type: boolean
-      job:
-        title: Job
-        type: integer
-      candidate:
-        title: Candidate
-        type: integer
-      employer:
-        title: Employer
-        type: integer
-  ReturnChat:
-    required:
-    - message
-    - attachments
-    type: object
-    properties:
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      message:
-        title: Message
-        type: string
-        minLength: 1
-      created_at:
-        title: Created at
-        type: string
-        format: date-time
-      attachments:
-        type: array
-        items:
-          $ref: '#/definitions/Attachment'
-      user_to:
-        title: User to
-        type: string
-        readOnly: true
-      user_from:
-        title: User from
-        type: string
-        readOnly: true
-  Review:
-    type: object
-    properties:
-      rating:
-        title: Rating
-        type: number
-      description:
-        title: Description
-        type: string
-        minLength: 1
-        x-nullable: true
-      relevant_match:
-        title: Relevant match
-        type: number
-  ShowUploadFiles:
-    type: object
-    properties:
-      files:
-        type: array
-        items:
-          description: here is a file
+      - Messages
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    minLength: 1
+                message:
+                  type: string
+      summary: Messages send message
+      x-summary-source: derived
+components:
+  schemas:
+    ShowUploadFiles:
+      type: object
+      properties:
+        files:
+          type:
+          - array
+          - 'null'
+          items:
+            description: here is a file
+            type: string
+            minLength: 1
+        message:
+          title: Message
+          type:
+          - string
+          - 'null'
+    Messenger:
+      required:
+      - job
+      - candidate
+      - employer
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        employer_review:
+          title: Employer review
+          type: boolean
+        employer_hide_image:
+          title: Employer hide image
+          type: boolean
+        candidate_review:
+          title: Candidate review
+          type: boolean
+        candidate_hide_image:
+          title: Candidate hide image
+          type: boolean
+        job:
+          title: Job
+          type: integer
+        candidate:
+          title: Candidate
+          type: integer
+        employer:
+          title: Employer
+          type: integer
+    SuccessResponse:
+      required:
+      - message
+      type: object
+      properties:
+        success:
+          title: Success
+          type: boolean
+          default: true
+        message:
+          title: success message
           type: string
           minLength: 1
-        x-nullable: true
-      message:
-        title: Message
-        type: string
-        x-nullable: true
-  Attachment:
-    required:
-    - title
-    - type
-    - size
-    type: object
-    properties:
-      path:
-        title: Path
-        type: string
-        readOnly: true
-        format: uri
-      title:
-        title: Title
-        type: string
-        maxLength: 300
-        minLength: 1
-      type:
-        title: Type
-        type: string
-        maxLength: 100
-        minLength: 1
-      size:
-        title: Size
-        type: integer
-        maximum: 2147483647
-        minimum: -2147483648
-      extension:
-        title: Extension
-        type: string
-        readOnly: true
-  SuccessResponse:
-    required:
-    - message
-    type: object
-    properties:
-      success:
-        title: Success
-        type: boolean
-        default: true
-      message:
-        title: success message
-        type: string
-        minLength: 1
-  ReturnMessenger:
-    required:
-    - candidate
-    - employer
-    - job
-    type: object
-    properties:
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      candidate:
-        $ref: '#/definitions/ReturnUserBaseChat'
-      employer:
-        $ref: '#/definitions/ReturnUserBaseChatEmployer'
-      job:
-        $ref: '#/definitions/ReturnJobBase'
-      employer_review:
-        title: Employer review
-        type: boolean
-      candidate_review:
-        title: Candidate review
-        type: boolean
-      unread_messages:
-        title: Unread messages
-        type: string
-        readOnly: true
-  ReturnUserBaseChatEmployer:
-    title: Employer
-    type: object
-    properties:
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      nickname:
-        title: Nickname
-        type: string
-        readOnly: true
-      name:
-        title: Name
-        type: string
-        readOnly: true
-      image:
-        title: Image
-        type: string
-        readOnly: true
-        x-nullable: true
-        format: uri
-      language:
-        title: Language
-        type: string
-        enum:
-        - en
-        - es
-        - ar
-        - ur
-        - fr
-  ReturnJobBase:
-    title: Job
-    required:
-    - title
-    type: object
-    properties:
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      title:
-        title: Title
-        type: string
-        minLength: 1
-      company:
-        title: Company
-        type: string
-        readOnly: true
-  ReturnUserBaseChat:
-    title: Candidate
-    required:
-    - working_years
-    type: object
-    properties:
-      id:
-        title: ID
-        type: integer
-        readOnly: true
-      nickname:
-        title: Nickname
-        type: string
-        readOnly: true
-      name:
-        title: Name
-        type: string
-        readOnly: true
-      image:
-        title: Image
-        type: string
-        readOnly: true
-        x-nullable: true
-        format: uri
-      working_years:
-        title: Working years
-        type: integer
-      language:
-        title: Language
-        type: string
-        enum:
-        - en
-        - es
-        - ar
-        - ur
-        - fr
-securityDefinitions:
-  Bearer:
-    type: apiKey
-    name: Authorization
-    in: header
-  Device-type:
-    type: apiKey
-    name: Device-Type
-    in: header
-  x-scheme:
-    type: apiKey
-    name: x-scheme
-    in: header
-  x-app-id:
-    type: apiKey
-    name: x-app-id
-    in: header
-  REFETCH_SCHEMA_WITH_AUTH: true
+    ReturnUserBaseChat:
+      title: Candidate
+      required:
+      - working_years
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        nickname:
+          title: Nickname
+          type: string
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          readOnly: true
+        image:
+          title: Image
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          format: uri
+        working_years:
+          title: Working years
+          type: integer
+        language:
+          title: Language
+          type: string
+          enum:
+          - en
+          - es
+          - ar
+          - ur
+          - fr
+    ReturnMessenger:
+      required:
+      - candidate
+      - employer
+      - job
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        candidate:
+          $ref: '#/components/schemas/ReturnUserBaseChat'
+        employer:
+          $ref: '#/components/schemas/ReturnUserBaseChatEmployer'
+        job:
+          $ref: '#/components/schemas/ReturnJobBase'
+        employer_review:
+          title: Employer review
+          type: boolean
+        candidate_review:
+          title: Candidate review
+          type: boolean
+        unread_messages:
+          title: Unread messages
+          type: string
+          readOnly: true
+    ReturnUserBaseChatEmployer:
+      title: Employer
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        nickname:
+          title: Nickname
+          type: string
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          readOnly: true
+        image:
+          title: Image
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          format: uri
+        language:
+          title: Language
+          type: string
+          enum:
+          - en
+          - es
+          - ar
+          - ur
+          - fr
+    Review:
+      type: object
+      properties:
+        rating:
+          title: Rating
+          type: number
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        relevant_match:
+          title: Relevant match
+          type: number
+    Attachment:
+      required:
+      - title
+      - type
+      - size
+      type: object
+      properties:
+        path:
+          title: Path
+          type: string
+          readOnly: true
+          format: uri
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        type:
+          title: Type
+          type: string
+          maxLength: 100
+          minLength: 1
+        size:
+          title: Size
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        extension:
+          title: Extension
+          type: string
+          readOnly: true
+    ReturnJobBase:
+      title: Job
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        company:
+          title: Company
+          type: string
+          readOnly: true
+    ReturnChat:
+      required:
+      - message
+      - attachments
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        message:
+          title: Message
+          type: string
+          minLength: 1
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        user_to:
+          title: User to
+          type: string
+          readOnly: true
+        user_from:
+          title: User from
+          type: string
+          readOnly: true
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header
+    Device-type:
+      type: apiKey
+      name: Device-Type
+      in: header
+    x-scheme:
+      type: apiKey
+      name: x-scheme
+      in: header
+    x-app-id:
+      type: apiKey
+      name: x-app-id
+      in: header
