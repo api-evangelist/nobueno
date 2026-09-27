@@ -168,6 +168,21 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    CreditRequest:
+      type: object
+      properties:
+        amount:
+          title: Amount
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
     ReturnCreditRequest:
       type: object
       properties:
@@ -192,21 +207,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-    CreditRequest:
-      type: object
-      properties:
-        amount:
-          title: Amount
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        status:
-          title: Status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
   securitySchemes:
     Bearer:
       type: apiKey

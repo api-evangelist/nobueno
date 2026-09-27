@@ -19,6 +19,520 @@ security:
 tags:
 - name: Companies
 paths:
+  /v2/companies:
+    parameters: []
+    get:
+      operationId: v2_companies_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  previous:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ReturnCompanyData'
+      tags:
+      - Companies
+      summary: V2 companies list
+      x-summary-source: derived
+    post:
+      operationId: v2_companies_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      tags:
+      - Companies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Company'
+        required: true
+      summary: V2 companies create
+      x-summary-source: derived
+  /v2/companies/all:
+    parameters: []
+    get:
+      operationId: v2_companies_companies_for_employment
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  previous:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Company'
+      tags:
+      - Companies
+      summary: V2 companies companies for employment
+      x-summary-source: derived
+  /v2/companies/list:
+    parameters: []
+    get:
+      operationId: v2_companies_companies_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  previous:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Company'
+      tags:
+      - Companies
+      summary: V2 companies companies list
+      x-summary-source: derived
+  /v2/companies/media:
+    parameters: []
+    get:
+      operationId: v2_companies_media_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  previous:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ReturnCompanyMediaData'
+      tags:
+      - Companies
+      summary: V2 companies media list
+      x-summary-source: derived
+    post:
+      operationId: v2_companies_media_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnCompanyMedia'
+      tags:
+      - Companies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyMedia'
+        required: true
+      summary: V2 companies media create
+      x-summary-source: derived
+  /v2/companies/media/all:
+    parameters: []
+    get:
+      operationId: v2_companies_media_companies_media_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  previous:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ReturnCompanyMediaData'
+      tags:
+      - Companies
+      summary: V2 companies media companies media list
+      x-summary-source: derived
+  /v2/companies/media/detail:
+    parameters: []
+    get:
+      operationId: v2_companies_media_company_media_list
+      description: ''
+      parameters:
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: perPage
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  previous:
+                    type:
+                    - string
+                    - 'null'
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ReturnCompanyMediaData'
+      tags:
+      - Companies
+      summary: V2 companies media company media list
+      x-summary-source: derived
+  /v2/companies/media/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this company media.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: v2_companies_media_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnCompanyMediaData'
+      tags:
+      - Companies
+      summary: V2 companies media read
+      x-summary-source: derived
+    put:
+      operationId: v2_companies_media_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyMedia'
+      tags:
+      - Companies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyMedia'
+        required: true
+      summary: V2 companies media update
+      x-summary-source: derived
+    patch:
+      operationId: v2_companies_media_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnCompanyMedia'
+      tags:
+      - Companies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyMedia'
+        required: true
+      summary: V2 companies media partial update
+      x-summary-source: derived
+    delete:
+      operationId: v2_companies_media_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Companies
+      summary: V2 companies media delete
+      x-summary-source: derived
+  /v2/companies/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: A unique integer value identifying this company.
+      required: true
+      schema:
+        type: integer
+    get:
+      operationId: v2_companies_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReturnCompanyData'
+      tags:
+      - Companies
+      summary: V2 companies read
+      x-summary-source: derived
+    put:
+      operationId: v2_companies_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      tags:
+      - Companies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Company'
+        required: true
+      summary: V2 companies update
+      x-summary-source: derived
+    patch:
+      operationId: v2_companies_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+      tags:
+      - Companies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Company'
+        required: true
+      summary: V2 companies partial update
+      x-summary-source: derived
+    delete:
+      operationId: v2_companies_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - Companies
+      summary: V2 companies delete
+      x-summary-source: derived
   /companies:
     parameters: []
     get:
@@ -491,6 +1005,60 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ReturnCompanyMedia:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        company:
+          title: Company
+          type: string
+          readOnly: true
+        file:
+          title: File
+          type: string
+          readOnly: true
+          format: uri
+    CompanyMedia:
+      required:
+      - company
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        company:
+          title: Company
+          type: integer
+        file:
+          title: File
+          type: string
+          readOnly: true
+          format: uri
+    ReturnCompanyMediaData:
+      required:
+      - company
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        company:
+          title: Company
+          type: integer
+        file:
+          title: File
+          type: string
+          readOnly: true
+          format: uri
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
     Company:
       required:
       - title
@@ -537,39 +1105,52 @@ components:
           - 'null'
           maxLength: 300
           minLength: 1
-    CompanyMedia:
+    ReturnCompanyData:
       required:
-      - company
+      - title
+      - years
+      - description
       type: object
       properties:
         id:
           title: ID
           type: integer
           readOnly: true
-        company:
-          title: Company
-          type: integer
-        file:
-          title: File
+        title:
+          title: Title
           type: string
+          maxLength: 190
+          minLength: 1
+        image:
+          title: Image
+          type:
+          - string
+          - 'null'
           readOnly: true
           format: uri
-    ReturnCompanyMedia:
-      type: object
-      properties:
-        id:
-          title: ID
+        years:
+          title: Years
           type: integer
-          readOnly: true
-        company:
-          title: Company
+          maximum: 2147483647
+          minimum: -2147483648
+        len_employers:
+          type: array
+          items:
+            title: Len employers
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+        description:
+          title: Description
           type: string
-          readOnly: true
-        file:
-          title: File
-          type: string
-          readOnly: true
-          format: uri
+          minLength: 1
+        website:
+          title: Website
+          type:
+          - string
+          - 'null'
+          maxLength: 300
+          minLength: 1
   securitySchemes:
     Bearer:
       type: apiKey

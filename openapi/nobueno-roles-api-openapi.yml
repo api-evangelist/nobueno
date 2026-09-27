@@ -168,24 +168,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ReturnJobCategoryRole:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        items:
-          title: Items
-          type: string
-          readOnly: true
     JobRole:
       required:
       - title
@@ -208,6 +190,24 @@ components:
           type:
           - integer
           - 'null'
+    ReturnJobCategoryRole:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        items:
+          title: Items
+          type: string
+          readOnly: true
   securitySchemes:
     Bearer:
       type: apiKey

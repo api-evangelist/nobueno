@@ -68,7 +68,7 @@ maintainers:
   email: info@apis.io
 apis:
 - aid: nobueno:nobueno-admin-api
-  name: NoBueno admin API
+  name: NoBueno Admin API
   description: The admin API from NoBueno — 51 operation(s) for admin.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -84,7 +84,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-bitcoin-api
-  name: NoBueno bitcoin API
+  name: NoBueno Bitcoin API
   description: The bitcoin API from NoBueno — 1 operation(s) for bitcoin.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -100,7 +100,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-categories-api
-  name: NoBueno categories API
+  name: NoBueno Categories API
   description: The categories API from NoBueno — 2 operation(s) for categories.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -116,7 +116,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-cities-api
-  name: NoBueno cities API
+  name: NoBueno Cities API
   description: The cities API from NoBueno — 4 operation(s) for cities.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -132,7 +132,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-companies-api
-  name: NoBueno companies API
+  name: NoBueno Companies API
   description: The companies API from NoBueno — 7 operation(s) for companies.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -148,7 +148,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-countries-api
-  name: NoBueno countries API
+  name: NoBueno Countries API
   description: The countries API from NoBueno — 2 operation(s) for countries.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -164,7 +164,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-credits-api
-  name: NoBueno credits API
+  name: NoBueno Credits API
   description: The credits API from NoBueno — 2 operation(s) for credits.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -180,7 +180,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-currencies-api
-  name: NoBueno currencies API
+  name: NoBueno Currencies API
   description: The currencies API from NoBueno — 2 operation(s) for currencies.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -196,7 +196,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-devices-api
-  name: NoBueno devices API
+  name: NoBueno Devices API
   description: The devices API from NoBueno — 2 operation(s) for devices.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -212,7 +212,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-fields-api
-  name: NoBueno fields API
+  name: NoBueno Fields API
   description: The fields API from NoBueno — 1 operation(s) for fields.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -228,7 +228,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-forgot-api
-  name: NoBueno forgot API
+  name: NoBueno Forgot API
   description: The forgot API from NoBueno — 3 operation(s) for forgot.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -244,7 +244,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-jobs-api
-  name: NoBueno jobs API
+  name: NoBueno Jobs API
   description: The jobs API from NoBueno — 18 operation(s) for jobs.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -260,7 +260,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-languages-api
-  name: NoBueno languages API
+  name: NoBueno Languages API
   description: The languages API from NoBueno — 1 operation(s) for languages.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -276,7 +276,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-login-api
-  name: NoBueno login API
+  name: NoBueno Login API
   description: The login API from NoBueno — 1 operation(s) for login.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -292,7 +292,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-matches-api
-  name: NoBueno matches API
+  name: NoBueno Matches API
   description: The matches API from NoBueno — 2 operation(s) for matches.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -308,7 +308,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-me-api
-  name: NoBueno me API
+  name: NoBueno Me API
   description: The me API from NoBueno — 2 operation(s) for me.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -324,7 +324,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-messages-api
-  name: NoBueno messages API
+  name: NoBueno Messages API
   description: The messages API from NoBueno — 6 operation(s) for messages.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -340,7 +340,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-notifications-api
-  name: NoBueno notifications API
+  name: NoBueno Notifications API
   description: The notifications API from NoBueno — 2 operation(s) for notifications.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -356,7 +356,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-profile-api
-  name: NoBueno profile API
+  name: NoBueno Profile API
   description: The profile API from NoBueno — 2 operation(s) for profile.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -372,7 +372,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-public-api
-  name: NoBueno public API
+  name: NoBueno Public API
   description: The public API from NoBueno — 2 operation(s) for public.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -388,7 +388,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-refresh-api
-  name: NoBueno refresh API
+  name: NoBueno Refresh API
   description: The refresh API from NoBueno — 1 operation(s) for refresh.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -404,7 +404,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-register-api
-  name: NoBueno register API
+  name: NoBueno Register API
   description: The register API from NoBueno — 1 operation(s) for register.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -420,7 +420,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-review-api
-  name: NoBueno review API
+  name: NoBueno Review API
   description: The review API from NoBueno — 2 operation(s) for review.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -436,7 +436,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-roles-api
-  name: NoBueno roles API
+  name: NoBueno Roles API
   description: The roles API from NoBueno — 2 operation(s) for roles.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -452,7 +452,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-skill-categories-api
-  name: NoBueno skill-categories API
+  name: NoBueno Skill Categories API
   description: The skill-categories API from NoBueno — 3 operation(s) for skill-categories.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -468,7 +468,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-skills-api
-  name: NoBueno skills API
+  name: NoBueno Skills API
   description: The skills API from NoBueno — 3 operation(s) for skills.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -484,7 +484,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-user-block-api
-  name: NoBueno user_block API
+  name: NoBueno User Block API
   description: The user_block API from NoBueno — 2 operation(s) for user_block.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -499,7 +499,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-user-report-api
-  name: NoBueno user_report API
+  name: NoBueno User Report API
   description: The user_report API from NoBueno — 1 operation(s) for user_report.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -514,7 +514,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-users-api
-  name: NoBueno users API
+  name: NoBueno Users API
   description: The users API from NoBueno — 13 operation(s) for users.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -529,24 +529,8 @@ apis:
     url: https://api.nobueno.com
   - type: APIReference
     url: https://api.nobueno.com
-- aid: nobueno:nobueno-v2-api
-  name: NoBueno v2 API
-  description: The v2 API from NoBueno — 8 operation(s) for v2.
-  humanURL: https://api.nobueno.com
-  baseURL: https://api.nobueno.com/api
-  tags:
-  - v2
-  tags_raw:
-  - v2
-  properties:
-  - type: OpenAPI
-    url: openapi/nobueno-v2-api-openapi.yml
-  - type: Documentation
-    url: https://api.nobueno.com
-  - type: APIReference
-    url: https://api.nobueno.com
 - aid: nobueno:nobueno-webrtc-configs-api
-  name: NoBueno webrtc-configs API
+  name: NoBueno Webrtc Configs API
   description: The webrtc-configs API from NoBueno — 1 operation(s) for webrtc-configs.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api
@@ -560,7 +544,7 @@ apis:
   - type: APIReference
     url: https://api.nobueno.com
 - aid: nobueno:nobueno-work-experience-api
-  name: NoBueno work-experience API
+  name: NoBueno Work Experience API
   description: The work-experience API from NoBueno — 2 operation(s) for work-experience.
   humanURL: https://api.nobueno.com
   baseURL: https://api.nobueno.com/api

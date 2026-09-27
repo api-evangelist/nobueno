@@ -196,24 +196,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ReturnSkill:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        items:
-          title: Items
-          type: string
-          readOnly: true
     Skill:
       required:
       - title
@@ -253,6 +235,24 @@ components:
           minLength: 1
         category_id:
           title: Category id
+          type: string
+          readOnly: true
+    ReturnSkill:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        items:
+          title: Items
           type: string
           readOnly: true
   securitySchemes:

@@ -4,11 +4,11 @@
     "_original/nobueno-openapi-original.json"
   ],
   "outputs": [
+    "nobueno-companies-api-openapi.yml",
     "nobueno-admin-api-openapi.yml",
     "nobueno-bitcoin-api-openapi.yml",
     "nobueno-categories-api-openapi.yml",
     "nobueno-cities-api-openapi.yml",
-    "nobueno-companies-api-openapi.yml",
     "nobueno-countries-api-openapi.yml",
     "nobueno-credits-api-openapi.yml",
     "nobueno-currencies-api-openapi.yml",
@@ -33,16 +33,34 @@
     "nobueno-user-block-api-openapi.yml",
     "nobueno-user-report-api-openapi.yml",
     "nobueno-users-api-openapi.yml",
-    "nobueno-v2-api-openapi.yml",
     "nobueno-webrtc-configs-api-openapi.yml",
     "nobueno-work-experience-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "nobueno-openapi-original.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "nobueno-openapi-original.json: tagged paths GET /v2/companies -> Companies",
+    "nobueno-openapi-original.json: tagged paths POST /v2/companies -> Companies",
+    "nobueno-openapi-original.json: tagged paths GET /v2/companies/all -> Companies",
+    "nobueno-openapi-original.json: tagged paths GET /v2/companies/list -> Companies",
+    "nobueno-openapi-original.json: tagged paths GET /v2/companies/media -> Companies",
+    "nobueno-openapi-original.json: tagged paths POST /v2/companies/media -> Companies",
+    "nobueno-openapi-original.json: tagged paths GET /v2/companies/media/all -> Companies",
+    "nobueno-openapi-original.json: tagged paths GET /v2/companies/media/detail -> Companies",
+    "nobueno-openapi-original.json: tagged paths GET /v2/companies/media/{id} -> Companies",
+    "nobueno-openapi-original.json: tagged paths PUT /v2/companies/media/{id} -> Companies",
+    "nobueno-openapi-original.json: tagged paths PATCH /v2/companies/media/{id} -> Companies",
+    "nobueno-openapi-original.json: tagged paths DELETE /v2/companies/media/{id} -> Companies",
+    "nobueno-openapi-original.json: tagged paths GET /v2/companies/{id} -> Companies",
+    "nobueno-openapi-original.json: tagged paths PUT /v2/companies/{id} -> Companies",
+    "nobueno-openapi-original.json: tagged paths PATCH /v2/companies/{id} -> Companies",
+    "nobueno-openapi-original.json: tagged paths DELETE /v2/companies/{id} -> Companies",
+    "nobueno-openapi-original.json: declared missing tag: Companies",
     "nobueno-openapi-original.json: declared missing tag: admin",
     "nobueno-openapi-original.json: declared missing tag: bitcoin",
     "nobueno-openapi-original.json: declared missing tag: categories",
@@ -72,10 +90,10 @@
     "nobueno-openapi-original.json: declared missing tag: user_block",
     "nobueno-openapi-original.json: declared missing tag: user_report",
     "nobueno-openapi-original.json: declared missing tag: users",
-    "nobueno-openapi-original.json: declared missing tag: v2",
     "nobueno-openapi-original.json: declared missing tag: webrtc-configs",
     "nobueno-openapi-original.json: declared missing tag: work-experience",
-    "apis.yml register: already-registered"
+    "superseded outputs removed: nobueno-v2-api-openapi.yml",
+    "apis.yml register: written (+0 apis, 31 total)"
   ],
   "skipped": [
     "nobueno-admin-api-openapi.yml: previously refined output, superseded by openapi/_original/",
