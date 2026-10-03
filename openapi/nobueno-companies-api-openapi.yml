@@ -1005,6 +1005,27 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ReturnCompanyMediaData:
+      required:
+      - company
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        company:
+          title: Company
+          type: integer
+        file:
+          title: File
+          type: string
+          readOnly: true
+          format: uri
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
     ReturnCompanyMedia:
       type: object
       properties:
@@ -1038,28 +1059,7 @@ components:
           type: string
           readOnly: true
           format: uri
-    ReturnCompanyMediaData:
-      required:
-      - company
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        company:
-          title: Company
-          type: integer
-        file:
-          title: File
-          type: string
-          readOnly: true
-          format: uri
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-    Company:
+    ReturnCompanyData:
       required:
       - title
       - years
@@ -1105,7 +1105,7 @@ components:
           - 'null'
           maxLength: 300
           minLength: 1
-    ReturnCompanyData:
+    Company:
       required:
       - title
       - years

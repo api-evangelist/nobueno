@@ -36,9 +36,7 @@
     "nobueno-webrtc-configs-api-openapi.yml",
     "nobueno-work-experience-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -92,8 +90,7 @@
     "nobueno-openapi-original.json: declared missing tag: users",
     "nobueno-openapi-original.json: declared missing tag: webrtc-configs",
     "nobueno-openapi-original.json: declared missing tag: work-experience",
-    "superseded outputs removed: nobueno-v2-api-openapi.yml",
-    "apis.yml register: written (+0 apis, 31 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "nobueno-admin-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -125,7 +122,6 @@
     "nobueno-user-block-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "nobueno-user-report-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "nobueno-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "nobueno-v2-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "nobueno-webrtc-configs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "nobueno-work-experience-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]

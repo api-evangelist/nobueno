@@ -97,6 +97,58 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    CityName:
+      title: City
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
+          minLength: 1
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        code:
+          title: Code
+          type: string
+          minLength: 1
+    Language:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+    ReturnSkill:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        items:
+          title: Items
+          type: string
+          readOnly: true
     ReturnMatch:
       title: Matches
       type: object
@@ -126,6 +178,27 @@ components:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+    CountryName:
+      title: Country
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
+          minLength: 1
+        code:
+          title: Code
+          type: string
+          maxLength: 2
+          minLength: 1
         id:
           title: ID
           type: integer
@@ -203,79 +276,6 @@ components:
           $ref: '#/components/schemas/ReturnMatch'
         is_highlighted:
           title: Is highlighted
-          type: string
-          readOnly: true
-    CountryName:
-      title: Country
-      required:
-      - title
-      - code
-      type: object
-      properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
-        code:
-          title: Code
-          type: string
-          maxLength: 2
-          minLength: 1
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-    Language:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-    CityName:
-      title: City
-      required:
-      - title
-      - code
-      type: object
-      properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        code:
-          title: Code
-          type: string
-          minLength: 1
-    ReturnSkill:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        items:
-          title: Items
           type: string
           readOnly: true
   securitySchemes:

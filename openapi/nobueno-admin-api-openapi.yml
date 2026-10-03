@@ -3673,782 +3673,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Currency:
-      title: Salary currency
-      required:
-      - title
-      - name
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          minLength: 1
-        name:
-          title: Name
-          type: string
-          minLength: 1
-        rates:
-          title: Rates
-          type: string
-          readOnly: true
-    AdminCandidateExtraInformation:
-      type: object
-      properties:
-        market_value_only:
-          title: Market value only
-          type: boolean
-        open_to_opportunity:
-          title: Open to opportunity
-          type:
-          - boolean
-          - 'null'
-        open_to_relocate:
-          title: Open to relocate
-          type: boolean
-        country_to_relocate:
-          title: Country to relocate
-          type: boolean
-    CountryName:
-      title: Country
-      required:
-      - title
-      - code
-      type: object
-      properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
-        code:
-          title: Code
-          type: string
-          maxLength: 2
-          minLength: 1
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-    AdminUserSummary:
-      required:
-      - date
-      type: object
-      properties:
-        date:
-          title: Date
-          type: string
-          format: date
-        seekers:
-          title: Seekers
-          type: object
-          additionalProperties:
-            type: string
-          default: {}
-        recruiters:
-          title: Recruiters
-          type: object
-          additionalProperties:
-            type: string
-          default: {}
-        register_step:
-          title: Register step
-          type: object
-          additionalProperties:
-            type: string
-          default: {}
-        active_jobs:
-          title: Active jobs
-          type: object
-          additionalProperties:
-            type: string
-          default: {}
-        matches:
-          title: Matches
-          type: object
-          additionalProperties:
-            type: string
-          default: {}
-        accepted_matches:
-          title: Accepted matches
-          type: object
-          additionalProperties:
-            type: string
-          default: {}
-        chats:
-          title: Chats
-          type: object
-          additionalProperties:
-            type: string
-          default: {}
-    AdminField:
-      required:
-      - step
-      - field_type
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        field:
-          title: Field
-          type: string
-        step:
-          title: Step
-          type: string
-          enum:
-          - values_and_personality
-          - personal_information
-          - company_details
-          - other_information
-          - extra_information
-          - role_details
-          - work_experience
-          - current_role_and_skills
-          - compensation
-          - match_rates
-        field_type:
-          title: Field type
-          type: string
-          enum:
-          - input
-          - toggle
-          - text
-          - single_selection
-          - slider
-          - multiple_selection
-          - range_selection
-        device:
-          title: Device
-          type: string
-          enum:
-          - web
-          - mobile
-        priority:
-          title: Priority
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        is_hidden:
-          title: Is hidden
-          type: boolean
-    ReturnUserBaseChatEmployer:
-      title: Employer
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        nickname:
-          title: Nickname
-          type: string
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          readOnly: true
-        image:
-          title: Image
-          type:
-          - string
-          - 'null'
-          readOnly: true
-          format: uri
-        language:
-          title: Language
-          type: string
-          enum:
-          - en
-          - es
-          - ar
-          - ur
-          - fr
-    AdminUserEmployment:
-      required:
-      - company
-      - user
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        company:
-          $ref: '#/components/schemas/ReturnCompany'
-        user:
-          $ref: '#/components/schemas/ReturnUserMe'
-        role:
-          title: Role
-          type: string
-          enum:
-          - owner
-          - recruiter
-          - request_pending
-          - declined
-        description:
-          title: Description
-          type: string
-          maxLength: 300
-        date_joined:
-          title: Date joined
-          type: string
-          format: date-time
-    ReturnUser:
-      title: User
-      required:
-      - email
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          readOnly: true
-        email:
-          title: Email
-          type: string
-          format: email
-          maxLength: 254
-          minLength: 1
-        companies:
-          type: array
-          items:
-            type: integer
-          readOnly: true
-          uniqueItems: true
-        language:
-          title: Language
-          type: string
-          enum:
-          - en
-          - es
-          - ar
-          - ur
-          - fr
-    ReturnBaseUser:
-      title: Created by
-      required:
-      - first_name
-      - last_name
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        first_name:
-          title: First name
-          type: string
-          maxLength: 350
-          minLength: 1
-        last_name:
-          title: Last name
-          type: string
-          maxLength: 350
-          minLength: 1
-        language:
-          title: Language
-          type: string
-          enum:
-          - en
-          - es
-          - ar
-          - ur
-          - fr
-    SuccessResponse:
-      required:
-      - message
-      type: object
-      properties:
-        success:
-          title: Success
-          type: boolean
-          default: true
-        message:
-          title: success message
-          type: string
-          minLength: 1
-    AdminJobReview:
-      required:
-      - description
-      type: object
-      properties:
-        review:
-          title: Review
-          type:
-          - string
-          - 'null'
-          enum:
-          - accepted
-          - declined
-          - pending
-        description:
-          title: Description
-          type: string
-          minLength: 1
-        send_email:
-          title: Send email
-          type: boolean
-          default: false
-    ReturnDiscipline:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
-    ReturnMessenger:
-      required:
-      - candidate
-      - employer
-      - job
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        candidate:
-          $ref: '#/components/schemas/ReturnUserBaseChat'
-        employer:
-          $ref: '#/components/schemas/ReturnUserBaseChatEmployer'
-        job:
-          $ref: '#/components/schemas/ReturnJobBase'
-        employer_review:
-          title: Employer review
-          type: boolean
-        candidate_review:
-          title: Candidate review
-          type: boolean
-        unread_messages:
-          title: Unread messages
-          type: string
-          readOnly: true
-    ReturnJobRetrieve:
-      required:
-      - title
-      - country
-      - city
-      - technical_skills
-      - soft_skills
-      - languages
-      - matches
-      - working_years
-      - opportunity_type
-      - location_type
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          $ref: '#/components/schemas/ReturnJobRole'
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        is_active:
-          title: Is active
-          type: boolean
-        salary:
-          title: Salary
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        company:
-          title: Company
-          type: string
-          readOnly: true
-        country:
-          $ref: '#/components/schemas/CountryName'
-        city:
-          $ref: '#/components/schemas/CityName'
-        updated_at:
-          title: Updated at
-          type:
-          - string
-          - 'null'
-          format: date-time
-        technical_skills:
-          type: array
-          items:
-            $ref: '#/components/schemas/Skill'
-        soft_skills:
-          type: array
-          items:
-            $ref: '#/components/schemas/Skill'
-        languages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Language'
-        matches:
-          $ref: '#/components/schemas/ReturnStepMatchRate'
-        values:
-          title: Values
-          type: string
-          readOnly: true
-        working_years:
-          title: Working years
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        personalities:
-          title: Personalities
-          type: string
-          readOnly: true
-        opportunity_type:
-          title: Opportunity type
-          type: string
-          enum:
-          - full_time
-          - part_time
-          - freelance
-          - internship
-        location_type:
-          title: Location type
-          type: string
-          enum:
-          - remote_only
-          - remote_and_location
-          - location_only
-        review:
-          title: Review
-          type:
-          - string
-          - 'null'
-          enum:
-          - accepted
-          - declined
-          - pending
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-    CityName:
-      title: City
-      required:
-      - title
-      - code
-      type: object
-      properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        code:
-          title: Code
-          type: string
-          minLength: 1
-    ReturnCompanyJob:
-      title: Company
-      required:
-      - title
-      - years
-      - description
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 190
-          minLength: 1
-        years:
-          title: Years
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        len_employers:
-          type: array
-          items:
-            title: Len employers
-            type: integer
-            maximum: 2147483647
-            minimum: -2147483648
-        description:
-          title: Description
-          type: string
-          minLength: 1
-        website:
-          title: Website
-          type:
-          - string
-          - 'null'
-          maxLength: 300
-          minLength: 1
-    AdminEmailJobRecruiter:
-      required:
-      - subject
-      - message
-      type: object
-      properties:
-        subject:
-          title: Subject
-          type: string
-          minLength: 1
-        message:
-          title: Message
-          type: string
-          minLength: 1
-    ReturnAdminJobRole:
-      required:
-      - title
-      - category
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-        category:
-          $ref: '#/components/schemas/ReturnAdminJobRoleCategory'
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
-    MobileStepMatchRate:
-      required:
-      - values_match
-      - personalities_match
-      - technical_skill
-      type: object
-      properties:
-        values_match:
-          title: Values match
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        personalities_match:
-          title: Personalities match
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        technical_skill:
-          title: Technical skill
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        soft_skill:
-          title: Soft skill
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        language:
-          title: Language
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        freelance_salary:
-          $ref: '#/components/schemas/Salary'
-        part_time_salary:
-          $ref: '#/components/schemas/Salary'
-        full_time_salary:
-          $ref: '#/components/schemas/Salary'
-        internship_salary:
-          $ref: '#/components/schemas/Salary'
-        show_salary:
-          title: Show salary
-          type: boolean
-    Salary:
-      title: Freelance salary
-      required:
-      - value
-      - currency
-      type: object
-      properties:
-        value:
-          title: Value
-          type: integer
-          maximum: 1000000000
-        currency:
-          title: Currency
-          type: integer
-    ReturnUserEmployment:
-      required:
-      - company
-      - user
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        role:
-          title: Role
-          type: string
-          enum:
-          - owner
-          - recruiter
-          - request_pending
-          - declined
-        description:
-          title: Description
-          type: string
-          maxLength: 300
-        date_joined:
-          title: Date joined
-          type: string
-          format: date-time
-        company:
-          $ref: '#/components/schemas/ReturnCompany'
-        user:
-          $ref: '#/components/schemas/ReturnUser'
-    AdminReturnJobRetrieve:
-      required:
-      - title
-      - country
-      - city
-      - technical_skills
-      - soft_skills
-      - languages
-      - working_years
-      - location_type
-      - opportunity_type
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          $ref: '#/components/schemas/ReturnJobRole'
-        country:
-          $ref: '#/components/schemas/CountryName'
-        city:
-          $ref: '#/components/schemas/CityName'
-        updated_at:
-          title: Updated at
-          type:
-          - string
-          - 'null'
-          format: date-time
-        technical_skills:
-          type: array
-          items:
-            $ref: '#/components/schemas/Skill'
-        soft_skills:
-          type: array
-          items:
-            $ref: '#/components/schemas/Skill'
-        languages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Language'
-        working_years:
-          title: Working years
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        salary:
-          title: Salary
-          type: string
-          readOnly: true
-        salary_currency:
-          title: Salary currency
-          type: string
-          readOnly: true
-        review:
-          title: Review
-          type:
-          - string
-          - 'null'
-          enum:
-          - accepted
-          - declined
-          - pending
-        location_type:
-          title: Location type
-          type: string
-          enum:
-          - remote_only
-          - remote_and_location
-          - location_only
-        opportunity_type:
-          title: Opportunity type
-          type: string
-          enum:
-          - full_time
-          - part_time
-          - freelance
-          - internship
-    AdminCreditRequest:
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        user:
-          $ref: '#/components/schemas/AdminEmployer'
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
-        status:
-          title: Status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-        amount:
-          title: Amount
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
     AdminUser:
       required:
       - first_name
@@ -4563,6 +3787,580 @@ components:
           - ar
           - ur
           - fr
+    ReturnAdminJobRole:
+      required:
+      - title
+      - category
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
+        category:
+          $ref: '#/components/schemas/ReturnAdminJobRoleCategory'
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+    AdminCompanyChild:
+      required:
+      - title
+      - years
+      - description
+      - total_jobs
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 190
+          minLength: 1
+        years:
+          title: Years
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        len_employers:
+          type: array
+          items:
+            title: Len employers
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+        description:
+          title: Description
+          type: string
+          minLength: 1
+        website:
+          title: Website
+          type:
+          - string
+          - 'null'
+          maxLength: 300
+          minLength: 1
+        total_jobs:
+          title: Total jobs
+          type: integer
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+        is_master:
+          title: Is master
+          type: boolean
+    AdminEmployer:
+      required:
+      - first_name
+      - last_name
+      - email
+      - country
+      - city
+      - credit
+      - reviews_from
+      - reviews_to
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        first_name:
+          title: First name
+          type: string
+          maxLength: 350
+          minLength: 1
+        last_name:
+          title: Last name
+          type: string
+          maxLength: 350
+          minLength: 1
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        country:
+          $ref: '#/components/schemas/CountryName'
+        city:
+          $ref: '#/components/schemas/CityName'
+        image:
+          title: Image
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          format: uri
+        nickname:
+          title: Nickname
+          type: string
+          readOnly: true
+        credit:
+          $ref: '#/components/schemas/ReturnCredit'
+        role:
+          title: Role
+          type:
+          - string
+          - 'null'
+          enum:
+          - employer
+          - job_seeker
+          - admin
+        active_chats:
+          title: Active chats
+          type: string
+          readOnly: true
+        reviews_from:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReturnReview'
+        reviews_to:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReturnReview'
+        is_blocked:
+          title: Is blocked
+          type: boolean
+        language:
+          title: Language
+          type: string
+          enum:
+          - en
+          - es
+          - ar
+          - ur
+          - fr
+    ReturnReview:
+      type: object
+      properties:
+        rating:
+          title: Rating
+          type: number
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        relevant_match:
+          title: Relevant match
+          type: number
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+    ReturnJobRetrieve:
+      required:
+      - title
+      - country
+      - city
+      - technical_skills
+      - soft_skills
+      - languages
+      - matches
+      - working_years
+      - opportunity_type
+      - location_type
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          $ref: '#/components/schemas/ReturnJobRole'
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        is_active:
+          title: Is active
+          type: boolean
+        salary:
+          title: Salary
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        company:
+          title: Company
+          type: string
+          readOnly: true
+        country:
+          $ref: '#/components/schemas/CountryName'
+        city:
+          $ref: '#/components/schemas/CityName'
+        updated_at:
+          title: Updated at
+          type:
+          - string
+          - 'null'
+          format: date-time
+        technical_skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/Skill'
+        soft_skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/Skill'
+        languages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Language'
+        matches:
+          $ref: '#/components/schemas/ReturnStepMatchRate'
+        values:
+          title: Values
+          type: string
+          readOnly: true
+        working_years:
+          title: Working years
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        personalities:
+          title: Personalities
+          type: string
+          readOnly: true
+        opportunity_type:
+          title: Opportunity type
+          type: string
+          enum:
+          - full_time
+          - part_time
+          - freelance
+          - internship
+        location_type:
+          title: Location type
+          type: string
+          enum:
+          - remote_only
+          - remote_and_location
+          - location_only
+        review:
+          title: Review
+          type:
+          - string
+          - 'null'
+          enum:
+          - accepted
+          - declined
+          - pending
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+    Skill:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
+        type:
+          title: Type
+          type: string
+          enum:
+          - technical
+          - soft
+          default: technical
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+        reason:
+          title: Reason
+          type: string
+          minLength: 1
+        category_id:
+          title: Category id
+          type: string
+          readOnly: true
+    ReturnUserBaseChatEmployer:
+      title: Employer
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        nickname:
+          title: Nickname
+          type: string
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          readOnly: true
+        image:
+          title: Image
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          format: uri
+        language:
+          title: Language
+          type: string
+          enum:
+          - en
+          - es
+          - ar
+          - ur
+          - fr
+    ReturnUserBaseChat:
+      title: Candidate
+      required:
+      - working_years
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        nickname:
+          title: Nickname
+          type: string
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          readOnly: true
+        image:
+          title: Image
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          format: uri
+        working_years:
+          title: Working years
+          type: integer
+        language:
+          title: Language
+          type: string
+          enum:
+          - en
+          - es
+          - ar
+          - ur
+          - fr
+    AdminBackgroundTask:
+      required:
+      - start_date
+      - end_date
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          title: Name
+          type:
+          - string
+          - 'null'
+          maxLength: 30
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - processing
+          - completed
+          - failed
+        start_date:
+          title: Start date
+          type: string
+          format: date
+        end_date:
+          title: End date
+          type: string
+          format: date
+        query_params:
+          title: Query params
+          type:
+          - string
+          - 'null'
+        file:
+          title: File
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          format: uri
+        created_by:
+          title: Created by
+          type:
+          - integer
+          - 'null'
+    ReturnCompanyJob:
+      title: Company
+      required:
+      - title
+      - years
+      - description
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 190
+          minLength: 1
+        years:
+          title: Years
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        len_employers:
+          type: array
+          items:
+            title: Len employers
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+        description:
+          title: Description
+          type: string
+          minLength: 1
+        website:
+          title: Website
+          type:
+          - string
+          - 'null'
+          maxLength: 300
+          minLength: 1
+    SuccessResponse:
+      required:
+      - message
+      type: object
+      properties:
+        success:
+          title: Success
+          type: boolean
+          default: true
+        message:
+          title: success message
+          type: string
+          minLength: 1
+    JobRole:
+      required:
+      - title
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
+        category:
+          title: Category
+          type:
+          - integer
+          - 'null'
+    AdminField:
+      required:
+      - step
+      - field_type
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        field:
+          title: Field
+          type: string
+        step:
+          title: Step
+          type: string
+          enum:
+          - values_and_personality
+          - personal_information
+          - company_details
+          - other_information
+          - extra_information
+          - role_details
+          - work_experience
+          - current_role_and_skills
+          - compensation
+          - match_rates
+        field_type:
+          title: Field type
+          type: string
+          enum:
+          - input
+          - toggle
+          - text
+          - single_selection
+          - slider
+          - multiple_selection
+          - range_selection
+        device:
+          title: Device
+          type: string
+          enum:
+          - web
+          - mobile
+        priority:
+          title: Priority
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        is_hidden:
+          title: Is hidden
+          type: boolean
     StepPersonalInformation:
       required:
       - first_name
@@ -4633,595 +4431,22 @@ components:
         receive_push_notifications:
           title: Receive push notifications
           type: boolean
-    ReturnReview:
+    AdminCandidateExtraInformation:
       type: object
       properties:
-        rating:
-          title: Rating
-          type: number
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        relevant_match:
-          title: Relevant match
-          type: number
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-    AdminUserReport:
-      required:
-      - user
-      - reported_user
-      - reason
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        user:
-          $ref: '#/components/schemas/ReturnUser'
-        reported_user:
-          $ref: '#/components/schemas/ReturnUser'
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        reason:
-          title: Reason
-          type: string
-          enum:
-          - unresponsive
-          - abusive_and_or_inappropriate
-          - spam
-          - fraud_or_scam
-          - other
-        status:
-          title: Status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-    AdminJob:
-      required:
-      - title
-      - created_by
-      - company
-      - city
-      - country
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          $ref: '#/components/schemas/ReturnJobRole'
-        review:
-          title: Review
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-          readOnly: true
-        created_by:
-          $ref: '#/components/schemas/ReturnBaseUser'
-        opportunity_type:
-          title: Opportunity type
-          type: string
-          enum:
-          - full_time
-          - part_time
-          - freelance
-          - internship
-          readOnly: true
-        company:
-          $ref: '#/components/schemas/ReturnCompanyJob'
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
-        city:
-          $ref: '#/components/schemas/CityName'
-        country:
-          $ref: '#/components/schemas/CountryName'
-        matches_count:
-          title: Matches count
-          type: string
-          readOnly: true
-        total_matches:
-          title: Total matches
-          type: string
-          readOnly: true
-        is_active:
-          title: Is active
+        market_value_only:
+          title: Market value only
           type: boolean
-    Replace:
-      required:
-      - item_id
-      - message
-      type: object
-      properties:
-        item_id:
-          title: Item id
-          type: integer
-        message:
-          title: Message
-          type: string
-          minLength: 1
-    UserReport:
-      required:
-      - reason
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        reason:
-          title: Reason
-          type: string
-          enum:
-          - unresponsive
-          - abusive_and_or_inappropriate
-          - spam
-          - fraud_or_scam
-          - other
-        description:
-          title: Description
+        open_to_opportunity:
+          title: Open to opportunity
           type:
-          - string
+          - boolean
           - 'null'
-          minLength: 1
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
-        status:
-          title: Status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-          readOnly: true
-        reported_user:
-          title: Reported user
-          type:
-          - integer
-          - 'null'
-    AdminUserBlock:
-      required:
-      - user
-      - blocked_user
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
-        block:
-          title: Block
+        open_to_relocate:
+          title: Open to relocate
           type: boolean
-          readOnly: true
-        user:
-          title: User
-          type: integer
-        blocked_user:
-          title: Blocked user
-          type: integer
-    AdminCompanyJobs:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 190
-          minLength: 1
-        company_jobs:
-          title: Company jobs
-          type: string
-          readOnly: true
-    AdminCredit:
-      type: object
-      properties:
-        value:
-          title: Value
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-    ReturnJobRole:
-      title: Title
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-    SkillCategory:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
-    ReturnUserBaseChat:
-      title: Candidate
-      required:
-      - working_years
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        nickname:
-          title: Nickname
-          type: string
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          readOnly: true
-        image:
-          title: Image
-          type:
-          - string
-          - 'null'
-          readOnly: true
-          format: uri
-        working_years:
-          title: Working years
-          type: integer
-        language:
-          title: Language
-          type: string
-          enum:
-          - en
-          - es
-          - ar
-          - ur
-          - fr
-    ReturnStepMatchRate:
-      title: Matches
-      required:
-      - salary_currency
-      type: object
-      properties:
-        values_match:
-          title: Values match
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        personalities_match:
-          title: Personalities match
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        technical_skill:
-          title: Technical skill
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        soft_skill:
-          title: Soft skill
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        language:
-          title: Language
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        salary:
-          title: Salary
-          type: string
-          readOnly: true
-        salary_currency:
-          $ref: '#/components/schemas/Currency'
-        show_salary:
-          title: Show salary
-          type: boolean
-    AdminBackgroundTask:
-      required:
-      - start_date
-      - end_date
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
-        name:
-          title: Name
-          type:
-          - string
-          - 'null'
-          maxLength: 30
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          enum:
-          - processing
-          - completed
-          - failed
-        start_date:
-          title: Start date
-          type: string
-          format: date
-        end_date:
-          title: End date
-          type: string
-          format: date
-        query_params:
-          title: Query params
-          type:
-          - string
-          - 'null'
-        file:
-          title: File
-          type:
-          - string
-          - 'null'
-          readOnly: true
-          format: uri
-        created_by:
-          title: Created by
-          type:
-          - integer
-          - 'null'
-    ReturnCredit:
-      title: Credit
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        value:
-          title: Value
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        updated_at:
-          title: Updated at
-          type: string
-          format: date-time
-          readOnly: true
-    ReturnJobBase:
-      title: Job
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          minLength: 1
-        company:
-          title: Company
-          type: string
-          readOnly: true
-    CustomField:
-      required:
-      - field
-      - field_type
-      - step
-      type: object
-      properties:
-        field:
-          title: Field
-          type: object
-        field_type:
-          title: Field type
-          type: string
-          enum:
-          - input
-          - toggle
-          - text
-          - single_selection
-          - slider
-          - multiple_selection
-          - range_selection
-        step:
-          title: Step
-          type: string
-          enum:
-          - values_and_personality
-          - personal_information
-          - company_details
-          - other_information
-          - extra_information
-          - role_details
-          - work_experience
-          - current_role_and_skills
-          - compensation
-          - match_rates
-        content_type:
-          title: Content type
-          type:
-          - integer
-          - 'null'
-        device:
-          title: Device
-          type: string
-          enum:
-          - web
-          - mobile
-        priority:
-          title: Priority
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        is_hidden:
-          title: Is hidden
-          type: boolean
-    Language:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-    Skill:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-        type:
-          title: Type
-          type: string
-          enum:
-          - technical
-          - soft
-          default: technical
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
-        reason:
-          title: Reason
-          type: string
-          minLength: 1
-        category_id:
-          title: Category id
-          type: string
-          readOnly: true
-    AdminCompanyChild:
-      required:
-      - title
-      - years
-      - description
-      - total_jobs
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 190
-          minLength: 1
-        years:
-          title: Years
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        len_employers:
-          type: array
-          items:
-            title: Len employers
-            type: integer
-            maximum: 2147483647
-            minimum: -2147483648
-        description:
-          title: Description
-          type: string
-          minLength: 1
-        website:
-          title: Website
-          type:
-          - string
-          - 'null'
-          maxLength: 300
-          minLength: 1
-        total_jobs:
-          title: Total jobs
-          type: integer
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-        is_master:
-          title: Is master
+        country_to_relocate:
+          title: Country to relocate
           type: boolean
     ReturnUserMe:
       title: User
@@ -5310,16 +4535,79 @@ components:
           - string
           - 'null'
           maxLength: 255
-    AdminEmployer:
+    CustomField:
+      required:
+      - field
+      - field_type
+      - step
+      type: object
+      properties:
+        field:
+          title: Field
+          type: object
+        field_type:
+          title: Field type
+          type: string
+          enum:
+          - input
+          - toggle
+          - text
+          - single_selection
+          - slider
+          - multiple_selection
+          - range_selection
+        step:
+          title: Step
+          type: string
+          enum:
+          - values_and_personality
+          - personal_information
+          - company_details
+          - other_information
+          - extra_information
+          - role_details
+          - work_experience
+          - current_role_and_skills
+          - compensation
+          - match_rates
+        content_type:
+          title: Content type
+          type:
+          - integer
+          - 'null'
+        device:
+          title: Device
+          type: string
+          enum:
+          - web
+          - mobile
+        priority:
+          title: Priority
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        is_hidden:
+          title: Is hidden
+          type: boolean
+    AdminEmailJobRecruiter:
+      required:
+      - subject
+      - message
+      type: object
+      properties:
+        subject:
+          title: Subject
+          type: string
+          minLength: 1
+        message:
+          title: Message
+          type: string
+          minLength: 1
+    ReturnBaseUser:
+      title: Created by
       required:
       - first_name
       - last_name
-      - email
-      - country
-      - city
-      - credit
-      - reviews_from
-      - reviews_to
       type: object
       properties:
         id:
@@ -5336,53 +4624,6 @@ components:
           type: string
           maxLength: 350
           minLength: 1
-        email:
-          title: Email
-          type: string
-          format: email
-          maxLength: 254
-          minLength: 1
-        country:
-          $ref: '#/components/schemas/CountryName'
-        city:
-          $ref: '#/components/schemas/CityName'
-        image:
-          title: Image
-          type:
-          - string
-          - 'null'
-          readOnly: true
-          format: uri
-        nickname:
-          title: Nickname
-          type: string
-          readOnly: true
-        credit:
-          $ref: '#/components/schemas/ReturnCredit'
-        role:
-          title: Role
-          type:
-          - string
-          - 'null'
-          enum:
-          - employer
-          - job_seeker
-          - admin
-        active_chats:
-          title: Active chats
-          type: string
-          readOnly: true
-        reviews_from:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReturnReview'
-        reviews_to:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReturnReview'
-        is_blocked:
-          title: Is blocked
-          type: boolean
         language:
           title: Language
           type: string
@@ -5392,44 +4633,441 @@ components:
           - ar
           - ur
           - fr
-    ReturnCompany:
-      title: Company
+    AdminJobReview:
       required:
-      - years
       - description
       type: object
       properties:
-        company_title:
-          title: Company title
-          type: string
-          readOnly: true
-        years:
-          title: Years
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        len_employers:
-          type: array
-          items:
-            title: Len employers
-            type: integer
-            maximum: 2147483647
-            minimum: -2147483648
+        review:
+          title: Review
+          type:
+          - string
+          - 'null'
+          enum:
+          - accepted
+          - declined
+          - pending
         description:
           title: Description
           type: string
+          minLength: 1
+        send_email:
+          title: Send email
+          type: boolean
+          default: false
+    AdminReturnJobRetrieve:
+      required:
+      - title
+      - country
+      - city
+      - technical_skills
+      - soft_skills
+      - languages
+      - working_years
+      - location_type
+      - opportunity_type
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          $ref: '#/components/schemas/ReturnJobRole'
+        country:
+          $ref: '#/components/schemas/CountryName'
+        city:
+          $ref: '#/components/schemas/CityName'
+        updated_at:
+          title: Updated at
+          type:
+          - string
+          - 'null'
+          format: date-time
+        technical_skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/Skill'
+        soft_skills:
+          type: array
+          items:
+            $ref: '#/components/schemas/Skill'
+        languages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Language'
+        working_years:
+          title: Working years
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        salary:
+          title: Salary
+          type: string
+          readOnly: true
+        salary_currency:
+          title: Salary currency
+          type: string
+          readOnly: true
+        review:
+          title: Review
+          type:
+          - string
+          - 'null'
+          enum:
+          - accepted
+          - declined
+          - pending
+        location_type:
+          title: Location type
+          type: string
+          enum:
+          - remote_only
+          - remote_and_location
+          - location_only
+        opportunity_type:
+          title: Opportunity type
+          type: string
+          enum:
+          - full_time
+          - part_time
+          - freelance
+          - internship
+    ReturnUser:
+      title: User
+      required:
+      - email
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          readOnly: true
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        companies:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+          uniqueItems: true
+        language:
+          title: Language
+          type: string
+          enum:
+          - en
+          - es
+          - ar
+          - ur
+          - fr
+    MobileStepMatchRate:
+      required:
+      - values_match
+      - personalities_match
+      - technical_skill
+      type: object
+      properties:
+        values_match:
+          title: Values match
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        personalities_match:
+          title: Personalities match
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        technical_skill:
+          title: Technical skill
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        soft_skill:
+          title: Soft skill
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        language:
+          title: Language
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        freelance_salary:
+          $ref: '#/components/schemas/Salary'
+        part_time_salary:
+          $ref: '#/components/schemas/Salary'
+        full_time_salary:
+          $ref: '#/components/schemas/Salary'
+        internship_salary:
+          $ref: '#/components/schemas/Salary'
+        show_salary:
+          title: Show salary
+          type: boolean
+    CityName:
+      title: City
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
           minLength: 1
         id:
           title: ID
           type: integer
           readOnly: true
-        website:
-          title: Website
+        code:
+          title: Code
+          type: string
+          minLength: 1
+    UserReport:
+      required:
+      - reason
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        reason:
+          title: Reason
+          type: string
+          enum:
+          - unresponsive
+          - abusive_and_or_inappropriate
+          - spam
+          - fraud_or_scam
+          - other
+        description:
+          title: Description
           type:
           - string
           - 'null'
+          minLength: 1
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
+          readOnly: true
+        reported_user:
+          title: Reported user
+          type:
+          - integer
+          - 'null'
+    AdminUserEmployment:
+      required:
+      - company
+      - user
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        company:
+          $ref: '#/components/schemas/ReturnCompany'
+        user:
+          $ref: '#/components/schemas/ReturnUserMe'
+        role:
+          title: Role
+          type: string
+          enum:
+          - owner
+          - recruiter
+          - request_pending
+          - declined
+        description:
+          title: Description
+          type: string
+          maxLength: 300
+        date_joined:
+          title: Date joined
+          type: string
+          format: date-time
+    ReturnUserEmployment:
+      required:
+      - company
+      - user
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        role:
+          title: Role
+          type: string
+          enum:
+          - owner
+          - recruiter
+          - request_pending
+          - declined
+        description:
+          title: Description
+          type: string
+          maxLength: 300
+        date_joined:
+          title: Date joined
+          type: string
+          format: date-time
+        company:
+          $ref: '#/components/schemas/ReturnCompany'
+        user:
+          $ref: '#/components/schemas/ReturnUser'
+    ReturnAdminJobRoleCategory:
+      title: Category
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
           maxLength: 300
           minLength: 1
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+    ReturnCredit:
+      title: Credit
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        value:
+          title: Value
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        updated_at:
+          title: Updated at
+          type: string
+          format: date-time
+          readOnly: true
+    ReturnMessenger:
+      required:
+      - candidate
+      - employer
+      - job
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        candidate:
+          $ref: '#/components/schemas/ReturnUserBaseChat'
+        employer:
+          $ref: '#/components/schemas/ReturnUserBaseChatEmployer'
+        job:
+          $ref: '#/components/schemas/ReturnJobBase'
+        employer_review:
+          title: Employer review
+          type: boolean
+        candidate_review:
+          title: Candidate review
+          type: boolean
+        unread_messages:
+          title: Unread messages
+          type: string
+          readOnly: true
+    Salary:
+      title: Freelance salary
+      required:
+      - value
+      - currency
+      type: object
+      properties:
+        value:
+          title: Value
+          type: integer
+          maximum: 1000000000
+        currency:
+          title: Currency
+          type: integer
+    Replace:
+      required:
+      - item_id
+      - message
+      type: object
+      properties:
+        item_id:
+          title: Item id
+          type: integer
+        message:
+          title: Message
+          type: string
+          minLength: 1
+    AdminCompanyJobs:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 190
+          minLength: 1
+        company_jobs:
+          title: Company jobs
+          type: string
+          readOnly: true
+    AdminUserBlock:
+      required:
+      - user
+      - blocked_user
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+        block:
+          title: Block
+          type: boolean
+          readOnly: true
+        user:
+          title: User
+          type: integer
+        blocked_user:
+          title: Blocked user
+          type: integer
     AdminCompany:
       required:
       - title
@@ -5492,8 +5130,45 @@ components:
           title: Created at
           type: string
           format: date-time
-    ReturnAdminJobRoleCategory:
-      title: Category
+    ReturnCompany:
+      title: Company
+      required:
+      - years
+      - description
+      type: object
+      properties:
+        company_title:
+          title: Company title
+          type: string
+          readOnly: true
+        years:
+          title: Years
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        len_employers:
+          type: array
+          items:
+            title: Len employers
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+        description:
+          title: Description
+          type: string
+          minLength: 1
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        website:
+          title: Website
+          type:
+          - string
+          - 'null'
+          maxLength: 300
+          minLength: 1
+    Language:
       required:
       - title
       type: object
@@ -5507,11 +5182,127 @@ components:
           type: string
           maxLength: 300
           minLength: 1
-        created_at:
-          title: Created at
+    AdminUserSummary:
+      required:
+      - date
+      type: object
+      properties:
+        date:
+          title: Date
           type: string
-          format: date-time
+          format: date
+        seekers:
+          title: Seekers
+          type: object
+          additionalProperties:
+            type: string
+          default: {}
+        recruiters:
+          title: Recruiters
+          type: object
+          additionalProperties:
+            type: string
+          default: {}
+        register_step:
+          title: Register step
+          type: object
+          additionalProperties:
+            type: string
+          default: {}
+        active_jobs:
+          title: Active jobs
+          type: object
+          additionalProperties:
+            type: string
+          default: {}
+        matches:
+          title: Matches
+          type: object
+          additionalProperties:
+            type: string
+          default: {}
+        accepted_matches:
+          title: Accepted matches
+          type: object
+          additionalProperties:
+            type: string
+          default: {}
+        chats:
+          title: Chats
+          type: object
+          additionalProperties:
+            type: string
+          default: {}
+    Currency:
+      title: Salary currency
+      required:
+      - title
+      - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
           readOnly: true
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          minLength: 1
+        rates:
+          title: Rates
+          type: string
+          readOnly: true
+    CountryName:
+      title: Country
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
+          minLength: 1
+        code:
+          title: Code
+          type: string
+          maxLength: 2
+          minLength: 1
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+    ReturnJobBase:
+      title: Job
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        company:
+          title: Company
+          type: string
+          readOnly: true
+    AdminCredit:
+      type: object
+      properties:
+        value:
+          title: Value
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
     ReturnAdminStats:
       required:
       - date
@@ -5557,11 +5348,41 @@ components:
           title: Chats
           type: integer
           default: 0
-    JobRole:
+    AdminCreditRequest:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        user:
+          $ref: '#/components/schemas/AdminEmployer'
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
+        amount:
+          title: Amount
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+    ReturnDiscipline:
       required:
       - title
       type: object
       properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
         title:
           title: Title
           type: string
@@ -5574,11 +5395,190 @@ components:
           - accepted
           - declined
           - pending
-        category:
-          title: Category
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+    AdminJob:
+      required:
+      - title
+      - created_by
+      - company
+      - city
+      - country
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          $ref: '#/components/schemas/ReturnJobRole'
+        review:
+          title: Review
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
+          readOnly: true
+        created_by:
+          $ref: '#/components/schemas/ReturnBaseUser'
+        opportunity_type:
+          title: Opportunity type
+          type: string
+          enum:
+          - full_time
+          - part_time
+          - freelance
+          - internship
+          readOnly: true
+        company:
+          $ref: '#/components/schemas/ReturnCompanyJob'
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+        city:
+          $ref: '#/components/schemas/CityName'
+        country:
+          $ref: '#/components/schemas/CountryName'
+        matches_count:
+          title: Matches count
+          type: string
+          readOnly: true
+        total_matches:
+          title: Total matches
+          type: string
+          readOnly: true
+        is_active:
+          title: Is active
+          type: boolean
+    SkillCategory:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+    AdminUserReport:
+      required:
+      - user
+      - reported_user
+      - reason
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        user:
+          $ref: '#/components/schemas/ReturnUser'
+        reported_user:
+          $ref: '#/components/schemas/ReturnUser'
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+        description:
+          title: Description
           type:
-          - integer
+          - string
           - 'null'
+          minLength: 1
+        reason:
+          title: Reason
+          type: string
+          enum:
+          - unresponsive
+          - abusive_and_or_inappropriate
+          - spam
+          - fraud_or_scam
+          - other
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
+    ReturnStepMatchRate:
+      title: Matches
+      required:
+      - salary_currency
+      type: object
+      properties:
+        values_match:
+          title: Values match
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        personalities_match:
+          title: Personalities match
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        technical_skill:
+          title: Technical skill
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        soft_skill:
+          title: Soft skill
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        language:
+          title: Language
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        salary:
+          title: Salary
+          type: string
+          readOnly: true
+        salary_currency:
+          $ref: '#/components/schemas/Currency'
+        show_salary:
+          title: Show salary
+          type: boolean
+    ReturnJobRole:
+      title: Title
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
   securitySchemes:
     Bearer:
       type: apiKey

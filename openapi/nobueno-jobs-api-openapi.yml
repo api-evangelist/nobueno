@@ -762,29 +762,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Currency:
-      title: Salary currency
-      required:
-      - title
-      - name
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          minLength: 1
-        name:
-          title: Name
-          type: string
-          minLength: 1
-        rates:
-          title: Rates
-          type: string
-          readOnly: true
     ReturnValuePersonality:
       required:
       - fields
@@ -797,78 +774,27 @@ components:
           title: ID
           type: integer
           readOnly: true
-    CountryName:
-      title: Country
+    StepCompensation:
+      title: Compensation
       required:
-      - title
-      - code
+      - salary
+      - show_salary
+      - salary_currency
       type: object
       properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
-        code:
-          title: Code
-          type: string
-          maxLength: 2
-          minLength: 1
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-    SuccessResponse:
-      required:
-      - message
-      type: object
-      properties:
-        success:
-          title: Success
+        salary:
+          type: array
+          items:
+            title: Salary
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+        show_salary:
+          title: Show salary
           type: boolean
-          default: true
-        message:
-          title: success message
-          type: string
-          minLength: 1
-    ReturnJobList:
-      required:
-      - value
-      type: object
-      properties:
-        label:
-          title: Label
-          type: string
-          readOnly: true
-        value:
-          title: Value
+        salary_currency:
+          title: Salary currency
           type: integer
-    ReturnDiscipline:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
     ReturnJobRetrieve:
       required:
       - title
@@ -972,24 +898,58 @@ components:
           title: Created at
           type: string
           format: date-time
-    CityName:
-      title: City
+    Skill:
       required:
       - title
-      - code
       type: object
       properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
         id:
           title: ID
           type: integer
           readOnly: true
-        code:
-          title: Code
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
+        type:
+          title: Type
+          type: string
+          enum:
+          - technical
+          - soft
+          default: technical
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+        reason:
+          title: Reason
+          type: string
+          minLength: 1
+        category_id:
+          title: Category id
+          type: string
+          readOnly: true
+    SuccessResponse:
+      required:
+      - message
+      type: object
+      properties:
+        success:
+          title: Success
+          type: boolean
+          default: true
+        message:
+          title: success message
           type: string
           minLength: 1
     Job:
@@ -1083,195 +1043,18 @@ components:
             type: string
         compensation:
           $ref: '#/components/schemas/StepCompensation'
-    Discipline:
+    ReturnJobList:
       required:
-      - title
+      - value
       type: object
       properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-    StepCompensation:
-      title: Compensation
-      required:
-      - salary
-      - show_salary
-      - salary_currency
-      type: object
-      properties:
-        salary:
-          type: array
-          items:
-            title: Salary
-            type: integer
-            maximum: 2147483647
-            minimum: -2147483648
-        show_salary:
-          title: Show salary
-          type: boolean
-        salary_currency:
-          title: Salary currency
-          type: integer
-    JobCandidateMatch:
-      required:
-      - job_status
-      type: object
-      properties:
-        job_status:
-          title: Job status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-    ReturnCountJob:
-      required:
-      - active
-      - inactive
-      type: object
-      properties:
-        active:
-          title: Active
-          type: integer
-        inactive:
-          title: Inactive
-          type: integer
-    StepMatchRate:
-      title: Matches
-      type: object
-      properties:
-        values_match:
-          title: Values match
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        personalities_match:
-          title: Personalities match
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        technical_skill:
-          title: Technical skill
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        soft_skill:
-          title: Soft skill
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        language:
-          title: Language
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        salary:
-          type: array
-          items:
-            title: Salary
-            type: integer
-            maximum: 2147483647
-            minimum: -2147483648
-        salary_currency:
-          title: Salary currency
-          type:
-          - integer
-          - 'null'
-        show_salary:
-          title: Show salary
-          type: boolean
-    ReturnJobRole:
-      title: Title
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-    ShareJob:
-      required:
-      - emails
-      type: object
-      properties:
-        emails:
-          type: array
-          items:
-            type: string
-            minLength: 1
-    ReturnStepMatchRate:
-      title: Matches
-      required:
-      - salary_currency
-      type: object
-      properties:
-        values_match:
-          title: Values match
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        personalities_match:
-          title: Personalities match
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        technical_skill:
-          title: Technical skill
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        soft_skill:
-          title: Soft skill
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        language:
-          title: Language
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        salary:
-          title: Salary
+        label:
+          title: Label
           type: string
           readOnly: true
-        salary_currency:
-          $ref: '#/components/schemas/Currency'
-        show_salary:
-          title: Show salary
-          type: boolean
-    Language:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
+        value:
+          title: Value
           type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
     ReturnJob:
       required:
       - title
@@ -1353,7 +1136,37 @@ components:
           title: Salary currency
           type: string
           readOnly: true
-    Skill:
+    CityName:
+      title: City
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
+          minLength: 1
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        code:
+          title: Code
+          type: string
+          minLength: 1
+    ShareJob:
+      required:
+      - emails
+      type: object
+      properties:
+        emails:
+          type: array
+          items:
+            type: string
+            minLength: 1
+    Discipline:
       required:
       - title
       type: object
@@ -1367,33 +1180,76 @@ components:
           type: string
           maxLength: 300
           minLength: 1
-        status:
-          title: Status
+    StepMatchRate:
+      title: Matches
+      type: object
+      properties:
+        values_match:
+          title: Values match
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        personalities_match:
+          title: Personalities match
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        technical_skill:
+          title: Technical skill
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        soft_skill:
+          title: Soft skill
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        language:
+          title: Language
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        salary:
+          type: array
+          items:
+            title: Salary
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+        salary_currency:
+          title: Salary currency
+          type:
+          - integer
+          - 'null'
+        show_salary:
+          title: Show salary
+          type: boolean
+    JobCandidateMatch:
+      required:
+      - job_status
+      type: object
+      properties:
+        job_status:
+          title: Job status
           type: string
           enum:
           - accepted
           - declined
           - pending
-        type:
-          title: Type
-          type: string
-          enum:
-          - technical
-          - soft
-          default: technical
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
+    Language:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
           readOnly: true
-        reason:
-          title: Reason
+        title:
+          title: Title
           type: string
+          maxLength: 300
           minLength: 1
-        category_id:
-          title: Category id
-          type: string
-          readOnly: true
     CandidatesForJob:
       required:
       - id
@@ -1488,6 +1344,150 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Skill'
+    Currency:
+      title: Salary currency
+      required:
+      - title
+      - name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          minLength: 1
+        rates:
+          title: Rates
+          type: string
+          readOnly: true
+    CountryName:
+      title: Country
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
+          minLength: 1
+        code:
+          title: Code
+          type: string
+          maxLength: 2
+          minLength: 1
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+    ReturnDiscipline:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+    ReturnCountJob:
+      required:
+      - active
+      - inactive
+      type: object
+      properties:
+        active:
+          title: Active
+          type: integer
+        inactive:
+          title: Inactive
+          type: integer
+    ReturnStepMatchRate:
+      title: Matches
+      required:
+      - salary_currency
+      type: object
+      properties:
+        values_match:
+          title: Values match
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        personalities_match:
+          title: Personalities match
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        technical_skill:
+          title: Technical skill
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        soft_skill:
+          title: Soft skill
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        language:
+          title: Language
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        salary:
+          title: Salary
+          type: string
+          readOnly: true
+        salary_currency:
+          $ref: '#/components/schemas/Currency'
+        show_salary:
+          title: Show salary
+          type: boolean
+    ReturnJobRole:
+      title: Title
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
   securitySchemes:
     Bearer:
       type: apiKey

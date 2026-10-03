@@ -281,64 +281,22 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SuccessResponse:
-      required:
-      - message
+    ShowUploadFiles:
       type: object
       properties:
-        success:
-          title: Success
-          type: boolean
-          default: true
+        files:
+          type:
+          - array
+          - 'null'
+          items:
+            description: here is a file
+            type: string
+            minLength: 1
         message:
-          title: success message
-          type: string
-          minLength: 1
-    ReturnJobBase:
-      title: Job
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          minLength: 1
-        company:
-          title: Company
-          type: string
-          readOnly: true
-    ReturnMessenger:
-      required:
-      - candidate
-      - employer
-      - job
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        candidate:
-          $ref: '#/components/schemas/ReturnUserBaseChat'
-        employer:
-          $ref: '#/components/schemas/ReturnUserBaseChatEmployer'
-        job:
-          $ref: '#/components/schemas/ReturnJobBase'
-        employer_review:
-          title: Employer review
-          type: boolean
-        candidate_review:
-          title: Candidate review
-          type: boolean
-        unread_messages:
-          title: Unread messages
-          type: string
-          readOnly: true
+          title: Message
+          type:
+          - string
+          - 'null'
     Attachment:
       required:
       - title
@@ -370,131 +328,6 @@ components:
           title: Extension
           type: string
           readOnly: true
-    Messenger:
-      required:
-      - job
-      - candidate
-      - employer
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        employer_review:
-          title: Employer review
-          type: boolean
-        employer_hide_image:
-          title: Employer hide image
-          type: boolean
-        candidate_review:
-          title: Candidate review
-          type: boolean
-        candidate_hide_image:
-          title: Candidate hide image
-          type: boolean
-        job:
-          title: Job
-          type: integer
-        candidate:
-          title: Candidate
-          type: integer
-        employer:
-          title: Employer
-          type: integer
-    ReturnUserBaseChatEmployer:
-      title: Employer
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        nickname:
-          title: Nickname
-          type: string
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          readOnly: true
-        image:
-          title: Image
-          type:
-          - string
-          - 'null'
-          readOnly: true
-          format: uri
-        language:
-          title: Language
-          type: string
-          enum:
-          - en
-          - es
-          - ar
-          - ur
-          - fr
-    Review:
-      type: object
-      properties:
-        rating:
-          title: Rating
-          type: number
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        relevant_match:
-          title: Relevant match
-          type: number
-    ReturnChat:
-      required:
-      - message
-      - attachments
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        message:
-          title: Message
-          type: string
-          minLength: 1
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-        attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/Attachment'
-        user_to:
-          title: User to
-          type: string
-          readOnly: true
-        user_from:
-          title: User from
-          type: string
-          readOnly: true
-    ShowUploadFiles:
-      type: object
-      properties:
-        files:
-          type:
-          - array
-          - 'null'
-          items:
-            description: here is a file
-            type: string
-            minLength: 1
-        message:
-          title: Message
-          type:
-          - string
-          - 'null'
     ReturnUserBaseChat:
       title: Candidate
       required:
@@ -532,6 +365,173 @@ components:
           - ar
           - ur
           - fr
+    ReturnJobBase:
+      title: Job
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        company:
+          title: Company
+          type: string
+          readOnly: true
+    Review:
+      type: object
+      properties:
+        rating:
+          title: Rating
+          type: number
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        relevant_match:
+          title: Relevant match
+          type: number
+    ReturnUserBaseChatEmployer:
+      title: Employer
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        nickname:
+          title: Nickname
+          type: string
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          readOnly: true
+        image:
+          title: Image
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          format: uri
+        language:
+          title: Language
+          type: string
+          enum:
+          - en
+          - es
+          - ar
+          - ur
+          - fr
+    ReturnMessenger:
+      required:
+      - candidate
+      - employer
+      - job
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        candidate:
+          $ref: '#/components/schemas/ReturnUserBaseChat'
+        employer:
+          $ref: '#/components/schemas/ReturnUserBaseChatEmployer'
+        job:
+          $ref: '#/components/schemas/ReturnJobBase'
+        employer_review:
+          title: Employer review
+          type: boolean
+        candidate_review:
+          title: Candidate review
+          type: boolean
+        unread_messages:
+          title: Unread messages
+          type: string
+          readOnly: true
+    ReturnChat:
+      required:
+      - message
+      - attachments
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        message:
+          title: Message
+          type: string
+          minLength: 1
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+        user_to:
+          title: User to
+          type: string
+          readOnly: true
+        user_from:
+          title: User from
+          type: string
+          readOnly: true
+    SuccessResponse:
+      required:
+      - message
+      type: object
+      properties:
+        success:
+          title: Success
+          type: boolean
+          default: true
+        message:
+          title: success message
+          type: string
+          minLength: 1
+    Messenger:
+      required:
+      - job
+      - candidate
+      - employer
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        employer_review:
+          title: Employer review
+          type: boolean
+        employer_hide_image:
+          title: Employer hide image
+          type: boolean
+        candidate_review:
+          title: Candidate review
+          type: boolean
+        candidate_hide_image:
+          title: Candidate hide image
+          type: boolean
+        job:
+          title: Job
+          type: integer
+        candidate:
+          title: Candidate
+          type: integer
+        employer:
+          title: Employer
+          type: integer
   securitySchemes:
     Bearer:
       type: apiKey
