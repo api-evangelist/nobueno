@@ -1005,27 +1005,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ReturnCompanyMediaData:
-      required:
-      - company
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        company:
-          title: Company
-          type: integer
-        file:
-          title: File
-          type: string
-          readOnly: true
-          format: uri
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
     ReturnCompanyMedia:
       type: object
       properties:
@@ -1042,69 +1021,6 @@ components:
           type: string
           readOnly: true
           format: uri
-    CompanyMedia:
-      required:
-      - company
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        company:
-          title: Company
-          type: integer
-        file:
-          title: File
-          type: string
-          readOnly: true
-          format: uri
-    ReturnCompanyData:
-      required:
-      - title
-      - years
-      - description
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 190
-          minLength: 1
-        image:
-          title: Image
-          type:
-          - string
-          - 'null'
-          readOnly: true
-          format: uri
-        years:
-          title: Years
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        len_employers:
-          type: array
-          items:
-            title: Len employers
-            type: integer
-            maximum: 2147483647
-            minimum: -2147483648
-        description:
-          title: Description
-          type: string
-          minLength: 1
-        website:
-          title: Website
-          type:
-          - string
-          - 'null'
-          maxLength: 300
-          minLength: 1
     Company:
       required:
       - title
@@ -1151,6 +1067,90 @@ components:
           - 'null'
           maxLength: 300
           minLength: 1
+    ReturnCompanyData:
+      required:
+      - title
+      - years
+      - description
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 190
+          minLength: 1
+        image:
+          title: Image
+          type:
+          - string
+          - 'null'
+          readOnly: true
+          format: uri
+        years:
+          title: Years
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        len_employers:
+          type: array
+          items:
+            title: Len employers
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+        description:
+          title: Description
+          type: string
+          minLength: 1
+        website:
+          title: Website
+          type:
+          - string
+          - 'null'
+          maxLength: 300
+          minLength: 1
+    ReturnCompanyMediaData:
+      required:
+      - company
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        company:
+          title: Company
+          type: integer
+        file:
+          title: File
+          type: string
+          readOnly: true
+          format: uri
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+    CompanyMedia:
+      required:
+      - company
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        company:
+          title: Company
+          type: integer
+        file:
+          title: File
+          type: string
+          readOnly: true
+          format: uri
   securitySchemes:
     Bearer:
       type: apiKey

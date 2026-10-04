@@ -43,20 +43,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ReturnJWTTokens:
-      required:
-      - access_token
-      - refresh_token
-      type: object
-      properties:
-        access_token:
-          title: Access token
-          type: string
-          minLength: 1
-        refresh_token:
-          title: Refresh token
-          type: string
-          minLength: 1
     UserJobSeekerCreate:
       required:
       - first_name
@@ -176,6 +162,20 @@ components:
         open_to_relocate:
           title: Open to relocate
           type: boolean
+    ReturnJWTTokens:
+      required:
+      - access_token
+      - refresh_token
+      type: object
+      properties:
+        access_token:
+          title: Access token
+          type: string
+          minLength: 1
+        refresh_token:
+          title: Refresh token
+          type: string
+          minLength: 1
   securitySchemes:
     Bearer:
       type: apiKey

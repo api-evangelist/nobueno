@@ -69,18 +69,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Counts:
-      required:
-      - notifications
-      - messages
-      type: object
-      properties:
-        notifications:
-          title: Notifications
-          type: integer
-        messages:
-          title: Messages
-          type: integer
     Step:
       required:
       - step
@@ -101,6 +89,18 @@ components:
           - match_rates
           - profile_summary
           - completed
+    Counts:
+      required:
+      - notifications
+      - messages
+      type: object
+      properties:
+        notifications:
+          title: Notifications
+          type: integer
+        messages:
+          title: Messages
+          type: integer
   securitySchemes:
     Bearer:
       type: apiKey

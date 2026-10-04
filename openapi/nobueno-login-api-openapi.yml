@@ -43,20 +43,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ReturnJWTTokens:
-      required:
-      - access_token
-      - refresh_token
-      type: object
-      properties:
-        access_token:
-          title: Access token
-          type: string
-          minLength: 1
-        refresh_token:
-          title: Refresh token
-          type: string
-          minLength: 1
     Login:
       required:
       - email
@@ -69,6 +55,20 @@ components:
           minLength: 1
         password:
           title: Password
+          type: string
+          minLength: 1
+    ReturnJWTTokens:
+      required:
+      - access_token
+      - refresh_token
+      type: object
+      properties:
+        access_token:
+          title: Access token
+          type: string
+          minLength: 1
+        refresh_token:
+          title: Refresh token
           type: string
           minLength: 1
   securitySchemes:

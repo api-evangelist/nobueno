@@ -87,6 +87,20 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    CustomPasswordToken:
+      required:
+      - password
+      - token
+      type: object
+      properties:
+        password:
+          title: Password
+          type: string
+          minLength: 1
+        token:
+          title: Token
+          type: string
+          minLength: 1
     ResetToken:
       required:
       - token
@@ -105,20 +119,6 @@ components:
           title: Email
           type: string
           format: email
-          minLength: 1
-    CustomPasswordToken:
-      required:
-      - password
-      - token
-      type: object
-      properties:
-        password:
-          title: Password
-          type: string
-          minLength: 1
-        token:
-          title: Token
-          type: string
           minLength: 1
   securitySchemes:
     Bearer:

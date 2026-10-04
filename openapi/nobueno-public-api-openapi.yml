@@ -97,112 +97,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    CityName:
-      title: City
-      required:
-      - title
-      - code
-      type: object
-      properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        code:
-          title: Code
-          type: string
-          minLength: 1
-    Language:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-    ReturnSkill:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        items:
-          title: Items
-          type: string
-          readOnly: true
-    ReturnMatch:
-      title: Matches
-      type: object
-      properties:
-        values_match:
-          title: Values match
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        personalities_match:
-          title: Personalities match
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        technical_skill:
-          title: Technical skill
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        soft_skill:
-          title: Soft skill
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        language:
-          title: Language
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-    CountryName:
-      title: Country
-      required:
-      - title
-      - code
-      type: object
-      properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
-        code:
-          title: Code
-          type: string
-          maxLength: 2
-          minLength: 1
-        id:
-          title: ID
-          type: integer
-          readOnly: true
     ReturnJobPublicList:
       required:
       - location_type
@@ -277,6 +171,112 @@ components:
         is_highlighted:
           title: Is highlighted
           type: string
+          readOnly: true
+    ReturnSkill:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        items:
+          title: Items
+          type: string
+          readOnly: true
+    ReturnMatch:
+      title: Matches
+      type: object
+      properties:
+        values_match:
+          title: Values match
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        personalities_match:
+          title: Personalities match
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        technical_skill:
+          title: Technical skill
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        soft_skill:
+          title: Soft skill
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        language:
+          title: Language
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+    CityName:
+      title: City
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
+          minLength: 1
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        code:
+          title: Code
+          type: string
+          minLength: 1
+    Language:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+    CountryName:
+      title: Country
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
+          minLength: 1
+        code:
+          title: Code
+          type: string
+          maxLength: 2
+          minLength: 1
+        id:
+          title: ID
+          type: integer
           readOnly: true
   securitySchemes:
     Bearer:

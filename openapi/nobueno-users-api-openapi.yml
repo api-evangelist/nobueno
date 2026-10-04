@@ -473,75 +473,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ReturnUser:
-      title: User
-      required:
-      - email
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        name:
-          title: Name
-          type: string
-          readOnly: true
-        email:
-          title: Email
-          type: string
-          format: email
-          maxLength: 254
-          minLength: 1
-        companies:
-          type: array
-          items:
-            type: integer
-          readOnly: true
-          uniqueItems: true
-        language:
-          title: Language
-          type: string
-          enum:
-          - en
-          - es
-          - ar
-          - ur
-          - fr
-    CityName:
-      title: City
-      required:
-      - title
-      - code
-      type: object
-      properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        code:
-          title: Code
-          type: string
-          minLength: 1
-    Language:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
     ReturnCompany:
       title: Company
       required:
@@ -580,78 +511,6 @@ components:
           - 'null'
           maxLength: 300
           minLength: 1
-    ChangeStatus:
-      required:
-      - status
-      type: object
-      properties:
-        status:
-          title: Status
-          type: string
-          enum:
-          - accepted
-          - declined
-          - pending
-    ReturnUserEmployment:
-      required:
-      - company
-      - user
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        role:
-          title: Role
-          type: string
-          enum:
-          - owner
-          - recruiter
-          - request_pending
-          - declined
-        description:
-          title: Description
-          type: string
-          maxLength: 300
-        date_joined:
-          title: Date joined
-          type: string
-          format: date-time
-        company:
-          $ref: '#/components/schemas/ReturnCompany'
-        user:
-          $ref: '#/components/schemas/ReturnUser'
-    ConfirmUser:
-      required:
-      - token
-      type: object
-      properties:
-        token:
-          title: Token
-          type: string
-          minLength: 1
-    CountryName:
-      title: Country
-      required:
-      - title
-      - code
-      type: object
-      properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
-        code:
-          title: Code
-          type: string
-          maxLength: 2
-          minLength: 1
-        id:
-          title: ID
-          type: integer
-          readOnly: true
     JobRecommended:
       required:
       - total_recommended_jobs
@@ -664,49 +523,6 @@ components:
         avg_salary:
           title: Avg salary
           type: integer
-    UserEmployment:
-      required:
-      - company
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        role:
-          title: Role
-          type: string
-          enum:
-          - owner
-          - recruiter
-          - request_pending
-          - declined
-          readOnly: true
-        description:
-          title: Description
-          type: string
-          maxLength: 300
-        date_joined:
-          title: Date joined
-          type: string
-          format: date-time
-          readOnly: true
-        user:
-          title: User
-          type: integer
-          readOnly: true
-        company:
-          title: Company
-          type: integer
-    NicknameGeneration:
-      required:
-      - nickname
-      type: object
-      properties:
-        nickname:
-          title: Nickname
-          type: string
-          minLength: 1
     ReturnJobForCandidate:
       required:
       - title
@@ -800,19 +616,6 @@ components:
           - accepted
           - declined
           - pending
-    SuccessResponse:
-      required:
-      - message
-      type: object
-      properties:
-        success:
-          title: Success
-          type: boolean
-          default: true
-        message:
-          title: success message
-          type: string
-          minLength: 1
     ReturnJobRole:
       title: Title
       required:
@@ -835,6 +638,203 @@ components:
           - accepted
           - declined
           - pending
+    CityName:
+      title: City
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
+          minLength: 1
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        code:
+          title: Code
+          type: string
+          minLength: 1
+    UserEmployment:
+      required:
+      - company
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        role:
+          title: Role
+          type: string
+          enum:
+          - owner
+          - recruiter
+          - request_pending
+          - declined
+          readOnly: true
+        description:
+          title: Description
+          type: string
+          maxLength: 300
+        date_joined:
+          title: Date joined
+          type: string
+          format: date-time
+          readOnly: true
+        user:
+          title: User
+          type: integer
+          readOnly: true
+        company:
+          title: Company
+          type: integer
+    CountryName:
+      title: Country
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
+          minLength: 1
+        code:
+          title: Code
+          type: string
+          maxLength: 2
+          minLength: 1
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+    Language:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+    SuccessResponse:
+      required:
+      - message
+      type: object
+      properties:
+        success:
+          title: Success
+          type: boolean
+          default: true
+        message:
+          title: success message
+          type: string
+          minLength: 1
+    NicknameGeneration:
+      required:
+      - nickname
+      type: object
+      properties:
+        nickname:
+          title: Nickname
+          type: string
+          minLength: 1
+    ChangeStatus:
+      required:
+      - status
+      type: object
+      properties:
+        status:
+          title: Status
+          type: string
+          enum:
+          - accepted
+          - declined
+          - pending
+    ConfirmUser:
+      required:
+      - token
+      type: object
+      properties:
+        token:
+          title: Token
+          type: string
+          minLength: 1
+    ReturnUser:
+      title: User
+      required:
+      - email
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          readOnly: true
+        email:
+          title: Email
+          type: string
+          format: email
+          maxLength: 254
+          minLength: 1
+        companies:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+          uniqueItems: true
+        language:
+          title: Language
+          type: string
+          enum:
+          - en
+          - es
+          - ar
+          - ur
+          - fr
+    ReturnUserEmployment:
+      required:
+      - company
+      - user
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        role:
+          title: Role
+          type: string
+          enum:
+          - owner
+          - recruiter
+          - request_pending
+          - declined
+        description:
+          title: Description
+          type: string
+          maxLength: 300
+        date_joined:
+          title: Date joined
+          type: string
+          format: date-time
+        company:
+          $ref: '#/components/schemas/ReturnCompany'
+        user:
+          $ref: '#/components/schemas/ReturnUser'
   securitySchemes:
     Bearer:
       type: apiKey
