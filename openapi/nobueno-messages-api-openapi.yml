@@ -281,39 +281,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ReturnJobBase:
-      title: Job
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          minLength: 1
-        company:
-          title: Company
-          type: string
-          readOnly: true
-    Review:
-      type: object
-      properties:
-        rating:
-          title: Rating
-          type: number
-        description:
-          title: Description
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        relevant_match:
-          title: Relevant match
-          type: number
     ShowUploadFiles:
       type: object
       properties:
@@ -330,6 +297,19 @@ components:
           type:
           - string
           - 'null'
+    SuccessResponse:
+      required:
+      - message
+      type: object
+      properties:
+        success:
+          title: Success
+          type: boolean
+          default: true
+        message:
+          title: success message
+          type: string
+          minLength: 1
     ReturnUserBaseChatEmployer:
       title: Employer
       type: object
@@ -394,19 +374,66 @@ components:
         employer:
           title: Employer
           type: integer
-    SuccessResponse:
+    ReturnJobBase:
+      title: Job
       required:
-      - message
+      - title
       type: object
       properties:
-        success:
-          title: Success
-          type: boolean
-          default: true
-        message:
-          title: success message
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
           type: string
           minLength: 1
+        company:
+          title: Company
+          type: string
+          readOnly: true
+    Review:
+      type: object
+      properties:
+        rating:
+          title: Rating
+          type: number
+        description:
+          title: Description
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        relevant_match:
+          title: Relevant match
+          type: number
+    ReturnMessenger:
+      required:
+      - candidate
+      - employer
+      - job
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        candidate:
+          $ref: '#/components/schemas/ReturnUserBaseChat'
+        employer:
+          $ref: '#/components/schemas/ReturnUserBaseChatEmployer'
+        job:
+          $ref: '#/components/schemas/ReturnJobBase'
+        employer_review:
+          title: Employer review
+          type: boolean
+        candidate_review:
+          title: Candidate review
+          type: boolean
+        unread_messages:
+          title: Unread messages
+          type: string
+          readOnly: true
     ReturnChat:
       required:
       - message
@@ -435,6 +462,37 @@ components:
           readOnly: true
         user_from:
           title: User from
+          type: string
+          readOnly: true
+    Attachment:
+      required:
+      - title
+      - type
+      - size
+      type: object
+      properties:
+        path:
+          title: Path
+          type: string
+          readOnly: true
+          format: uri
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+        type:
+          title: Type
+          type: string
+          maxLength: 100
+          minLength: 1
+        size:
+          title: Size
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        extension:
+          title: Extension
           type: string
           readOnly: true
     ReturnUserBaseChat:
@@ -474,64 +532,6 @@ components:
           - ar
           - ur
           - fr
-    Attachment:
-      required:
-      - title
-      - type
-      - size
-      type: object
-      properties:
-        path:
-          title: Path
-          type: string
-          readOnly: true
-          format: uri
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-        type:
-          title: Type
-          type: string
-          maxLength: 100
-          minLength: 1
-        size:
-          title: Size
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        extension:
-          title: Extension
-          type: string
-          readOnly: true
-    ReturnMessenger:
-      required:
-      - candidate
-      - employer
-      - job
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        candidate:
-          $ref: '#/components/schemas/ReturnUserBaseChat'
-        employer:
-          $ref: '#/components/schemas/ReturnUserBaseChatEmployer'
-        job:
-          $ref: '#/components/schemas/ReturnJobBase'
-        employer_review:
-          title: Employer review
-          type: boolean
-        candidate_review:
-          title: Candidate review
-          type: boolean
-        unread_messages:
-          title: Unread messages
-          type: string
-          readOnly: true
   securitySchemes:
     Bearer:
       type: apiKey

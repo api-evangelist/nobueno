@@ -87,6 +87,16 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    Email:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          title: Email
+          type: string
+          format: email
+          minLength: 1
     CustomPasswordToken:
       required:
       - password
@@ -109,16 +119,6 @@ components:
         token:
           title: Token
           type: string
-          minLength: 1
-    Email:
-      required:
-      - email
-      type: object
-      properties:
-        email:
-          title: Email
-          type: string
-          format: email
           minLength: 1
   securitySchemes:
     Bearer:

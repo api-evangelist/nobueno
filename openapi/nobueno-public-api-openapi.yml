@@ -190,6 +190,61 @@ components:
           title: Items
           type: string
           readOnly: true
+    CountryName:
+      title: Country
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
+          minLength: 1
+        code:
+          title: Code
+          type: string
+          maxLength: 2
+          minLength: 1
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+    Language:
+      required:
+      - title
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        title:
+          title: Title
+          type: string
+          maxLength: 300
+          minLength: 1
+    CityName:
+      title: City
+      required:
+      - title
+      - code
+      type: object
+      properties:
+        title:
+          title: Title
+          type: string
+          maxLength: 200
+          minLength: 1
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        code:
+          title: Code
+          type: string
+          minLength: 1
     ReturnMatch:
       title: Matches
       type: object
@@ -219,61 +274,6 @@ components:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-    CityName:
-      title: City
-      required:
-      - title
-      - code
-      type: object
-      properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        code:
-          title: Code
-          type: string
-          minLength: 1
-    Language:
-      required:
-      - title
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        title:
-          title: Title
-          type: string
-          maxLength: 300
-          minLength: 1
-    CountryName:
-      title: Country
-      required:
-      - title
-      - code
-      type: object
-      properties:
-        title:
-          title: Title
-          type: string
-          maxLength: 200
-          minLength: 1
-        code:
-          title: Code
-          type: string
-          maxLength: 2
-          minLength: 1
         id:
           title: ID
           type: integer
