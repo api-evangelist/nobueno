@@ -64,6 +64,157 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-NoBueno is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+NoBueno is a job-and-candidate matching platform (a 500 Global portfolio company) built around its Django REST Framework "Jungle API". The API powers job postings, candidate profiles and work experience, hiring-company and employer records, scored job-to-candidate matching, a skills / roles / disciplines taxonomy, recruiter-candidate messaging, and notifications. Authentication is a bearer token obtained via login / register, and list endpoints use page-number pagination with free-text search, ordering, and field-level filtering.
 
-Backed by: 500-global — https://nobueno.com
+**Areas:** Company · Job · Recruiting · Hiring · Talent · Matching · Human Resources · Candidates
+
+## NoBueno on APIs.io
+
+Everything profiled for NoBueno is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nobueno/](https://apis.io/providers/nobueno/)** — or go straight to one of the APIs or properties below.
+
+### APIs (31)
+
+- [NoBueno Admin API](https://apis.io/apis/nobueno/nobueno-admin-api/) — The admin API from NoBueno — 51 operation(s) for admin.
+- [NoBueno Bitcoin API](https://apis.io/apis/nobueno/nobueno-bitcoin-api/) — The bitcoin API from NoBueno — 1 operation(s) for bitcoin.
+- [NoBueno Categories API](https://apis.io/apis/nobueno/nobueno-categories-api/) — The categories API from NoBueno — 2 operation(s) for categories.
+- [NoBueno Cities API](https://apis.io/apis/nobueno/nobueno-cities-api/) — The cities API from NoBueno — 4 operation(s) for cities.
+- [NoBueno Companies API](https://apis.io/apis/nobueno/nobueno-companies-api/) — The companies API from NoBueno — 7 operation(s) for companies.
+- [NoBueno Countries API](https://apis.io/apis/nobueno/nobueno-countries-api/) — The countries API from NoBueno — 2 operation(s) for countries.
+- [NoBueno Credits API](https://apis.io/apis/nobueno/nobueno-credits-api/) — The credits API from NoBueno — 2 operation(s) for credits.
+- [NoBueno Currencies API](https://apis.io/apis/nobueno/nobueno-currencies-api/) — The currencies API from NoBueno — 2 operation(s) for currencies.
+- [NoBueno Devices API](https://apis.io/apis/nobueno/nobueno-devices-api/) — The devices API from NoBueno — 2 operation(s) for devices.
+- [NoBueno Fields API](https://apis.io/apis/nobueno/nobueno-fields-api/) — The fields API from NoBueno — 1 operation(s) for fields.
+- [NoBueno Forgot API](https://apis.io/apis/nobueno/nobueno-forgot-api/) — The forgot API from NoBueno — 3 operation(s) for forgot.
+- [NoBueno Jobs API](https://apis.io/apis/nobueno/nobueno-jobs-api/) — The jobs API from NoBueno — 18 operation(s) for jobs.
+- [NoBueno Languages API](https://apis.io/apis/nobueno/nobueno-languages-api/) — The languages API from NoBueno — 1 operation(s) for languages.
+- [NoBueno Login API](https://apis.io/apis/nobueno/nobueno-login-api/) — The login API from NoBueno — 1 operation(s) for login.
+- [NoBueno Matches API](https://apis.io/apis/nobueno/nobueno-matches-api/) — The matches API from NoBueno — 2 operation(s) for matches.
+- [NoBueno Me API](https://apis.io/apis/nobueno/nobueno-me-api/) — The me API from NoBueno — 2 operation(s) for me.
+- [NoBueno Messages API](https://apis.io/apis/nobueno/nobueno-messages-api/) — The messages API from NoBueno — 6 operation(s) for messages.
+- [NoBueno Notifications API](https://apis.io/apis/nobueno/nobueno-notifications-api/) — The notifications API from NoBueno — 2 operation(s) for notifications.
+- [NoBueno Profile API](https://apis.io/apis/nobueno/nobueno-profile-api/) — The profile API from NoBueno — 2 operation(s) for profile.
+- [NoBueno Public API](https://apis.io/apis/nobueno/nobueno-public-api/) — The public API from NoBueno — 2 operation(s) for public.
+- [NoBueno Refresh API](https://apis.io/apis/nobueno/nobueno-refresh-api/) — The refresh API from NoBueno — 1 operation(s) for refresh.
+- [NoBueno Register API](https://apis.io/apis/nobueno/nobueno-register-api/) — The register API from NoBueno — 1 operation(s) for register.
+- [NoBueno Review API](https://apis.io/apis/nobueno/nobueno-review-api/) — The review API from NoBueno — 2 operation(s) for review.
+- [NoBueno Roles API](https://apis.io/apis/nobueno/nobueno-roles-api/) — The roles API from NoBueno — 2 operation(s) for roles.
+- [NoBueno Skill Categories API](https://apis.io/apis/nobueno/nobueno-skill-categories-api/) — The skill-categories API from NoBueno — 3 operation(s) for skill-categories.
+- [NoBueno Skills API](https://apis.io/apis/nobueno/nobueno-skills-api/) — The skills API from NoBueno — 3 operation(s) for skills.
+- [NoBueno User Block API](https://apis.io/apis/nobueno/nobueno-user-block-api/) — The user_block API from NoBueno — 2 operation(s) for user_block.
+- [NoBueno User Report API](https://apis.io/apis/nobueno/nobueno-user-report-api/) — The user_report API from NoBueno — 1 operation(s) for user_report.
+- [NoBueno Users API](https://apis.io/apis/nobueno/nobueno-users-api/) — The users API from NoBueno — 13 operation(s) for users.
+- [NoBueno Webrtc Configs API](https://apis.io/apis/nobueno/nobueno-webrtc-configs-api/) — The webrtc-configs API from NoBueno — 1 operation(s) for webrtc-configs.
+- [NoBueno Work Experience API](https://apis.io/apis/nobueno/nobueno-work-experience-api/) — The work-experience API from NoBueno — 2 operation(s) for work-experience.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [nobueno](https://apis.io/servers/nobueno/nobueno/)
+
+#### Collections (31)
+
+Postman and Open Collection request collections.
+
+- [Jungle admin API](https://apis.io/collections/nobueno/open-nobueno-admin-api/)
+- [Jungle admin bitcoin API](https://apis.io/collections/nobueno/open-nobueno-bitcoin-api/)
+- [Jungle admin categories API](https://apis.io/collections/nobueno/open-nobueno-categories-api/)
+- [Jungle admin cities API](https://apis.io/collections/nobueno/open-nobueno-cities-api/)
+- [Jungle admin companies API](https://apis.io/collections/nobueno/open-nobueno-companies-api/)
+- [Jungle admin countries API](https://apis.io/collections/nobueno/open-nobueno-countries-api/)
+- [Jungle admin credits API](https://apis.io/collections/nobueno/open-nobueno-credits-api/)
+- [Jungle admin currencies API](https://apis.io/collections/nobueno/open-nobueno-currencies-api/)
+- [Jungle admin devices API](https://apis.io/collections/nobueno/open-nobueno-devices-api/)
+- [Jungle admin fields API](https://apis.io/collections/nobueno/open-nobueno-fields-api/)
+- [Jungle admin forgot API](https://apis.io/collections/nobueno/open-nobueno-forgot-api/)
+- [Jungle admin jobs API](https://apis.io/collections/nobueno/open-nobueno-jobs-api/)
+- [Jungle admin languages API](https://apis.io/collections/nobueno/open-nobueno-languages-api/)
+- [Jungle admin login API](https://apis.io/collections/nobueno/open-nobueno-login-api/)
+- [Jungle admin matches API](https://apis.io/collections/nobueno/open-nobueno-matches-api/)
+- [Jungle admin me API](https://apis.io/collections/nobueno/open-nobueno-me-api/)
+- [Jungle admin messages API](https://apis.io/collections/nobueno/open-nobueno-messages-api/)
+- [Jungle admin notifications API](https://apis.io/collections/nobueno/open-nobueno-notifications-api/)
+- [Jungle admin profile API](https://apis.io/collections/nobueno/open-nobueno-profile-api/)
+- [Jungle admin public API](https://apis.io/collections/nobueno/open-nobueno-public-api/)
+- [Jungle admin refresh API](https://apis.io/collections/nobueno/open-nobueno-refresh-api/)
+- [Jungle admin register API](https://apis.io/collections/nobueno/open-nobueno-register-api/)
+- [Jungle admin roles API](https://apis.io/collections/nobueno/open-nobueno-roles-api/)
+- [Jungle admin skill-categories API](https://apis.io/collections/nobueno/open-nobueno-skill-categories-api/)
+- [Jungle admin skills API](https://apis.io/collections/nobueno/open-nobueno-skills-api/)
+- …and 6 more published on APIs.io
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Nobueno Openapi Overlay](https://apis.io/overlays/nobueno/nobueno-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Nobueno Authentication](https://apis.io/security/nobueno/nobueno-authentication/)
+- [Nobueno Domain Security](https://apis.io/security/nobueno/nobueno-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://nobueno.com)
+
+## API Evangelist rating
+
+**Kin Score 23.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 40.5 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 30.4 |
+| Access clarity | 0.0 |
+
+**Agent readiness 16.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nobueno/](https://apis.io/providers/nobueno/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for NoBueno: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nobueno/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
